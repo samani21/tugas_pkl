@@ -7,6 +7,7 @@ use App\Http\Controllers\MedisController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\StokobatController;
 use App\Http\Controllers\VerificationController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +70,13 @@ Route::group(['middleware' => ['auth']], function () {
     
         //obat
         Route::get('admin/obat/obat', [ObatController::class, 'index'])->name('admin/obat/obat');
+        Route::get('admin/obat/tambah_obat', [ObatController::class, 'create'])->name('admin/obat/tambah_obat');
+        Route::post('admin/obat/tambah_obat', [ObatController::class, 'store'])->name('obat.store');
+        Route::get('admin/obat/edit_obat/{id}',[ObatController::class,'editobat'])->name('admin/obat/edit_obat');
+        Route::post('updateobat/{id}',[ObatController::class,'updateobat'])->name('updateobat');
+        Route::get('admin/obat/hapus_obat/{id}', [ObatController::class,'destroy'])->name('hapus_obat');
+        Route::get('admin/obat/tambah_stok/{id}', [StokobatController::class, 'create'])->name('admin/obat/tambah_stok');
+        Route::post('admin/obat/tambah_stok/{id}', [StokobatController::class, 'store'])->name('create.store');
     });
     Route::group(['middleware' => ['cek_login:editor']], function () {
         Route::resource('editor', AdminController::class);
