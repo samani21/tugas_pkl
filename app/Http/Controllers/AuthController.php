@@ -34,10 +34,14 @@ class AuthController extends Controller
 
             if (Auth::attempt($kredensil)) {
                 $user = Auth::user();
-                if ($user->level == 'admin') {
-                    return redirect()->intended('admin');
-                } elseif ($user->level == 'editor') {
-                    return redirect()->intended('editor');
+                if ($user->email_verified_at == null) {
+                    return redirect()->intended('verifikasi');
+                } else{
+                    if ($user->level == 'admin') {
+                        return redirect()->intended('admin');
+                    } elseif ($user->level == 'editor') {
+                        return redirect()->intended('editor');
+                    }
                 }
                 return redirect()->intended('/');
             }
@@ -74,7 +78,7 @@ class AuthController extends Controller
         event(new Registered($user));
         auth()->login($user);
 
-        return redirect()->route('login')->with('success', 'Registration success. Silahkan verifikasi email anda');
+        return redirect()->route('verifikasi')->with('success', 'Registration success. Silahkan verifikasi email anda');
     }
 
     public function logout(Request $request)
@@ -84,4 +88,7 @@ class AuthController extends Controller
        return Redirect('login');
     }
     
+    public function verifikasi(){
+        return view('verifikasi');
+    }
 }

@@ -11,10 +11,10 @@ class StokobatController extends Controller
     public function create($id){
         $obat = Stokobat::find($id);
         $data['title'] = 'Edit Obat';
-        return view('admin.obat.tambah_stok',compact(['obat']),$data);
+        return view('obat.tambah_stok',compact(['obat']),$data);
     }
 
-    public function store(Request $request)
+    public function stok_store(Request $request)
     {
 
         $tobat = new Tambahobat([
@@ -24,6 +24,6 @@ class StokobatController extends Controller
         ]);
         $tobat->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
-        return redirect()->route('admin/obat/obat');
+        return redirect()->route('obat/obat');
     }
 }

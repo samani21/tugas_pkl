@@ -9,7 +9,7 @@ class VerificationController extends Controller
 {
     public function verify(EmailVerificationRequest $request){
         $request->fulfill();
-        return view('dashboard');
+        return view('admin/dashboard/dashboard');
     }
     public function send(Request $request){
         $request->user()->sendEmailVerificationNotification();

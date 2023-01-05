@@ -14,14 +14,14 @@ class MedisController extends Controller
     public function periksa($id)
     {   $berobat = Berobat::find($id);
         $data['title'] = 'Periksa pasien';
-        return view('admin/medis/periksa',compact(['berobat']), $data);
+        return view('medis/periksa',compact(['berobat']), $data);
     }
     
     public function rekam($id,$pasien_id){
         $berobat = Berobat::find($id);
         $pasien = Pasien::find($pasien_id);
         $data['title'] = 'Rekam medis pasien';
-        return view('admin/medis/rekam_medis',['berobat' =>$berobat,'pasien' =>$pasien],$data);
+        return view('medis/rekam_medis',['berobat' =>$berobat,'pasien' =>$pasien],$data);
     }
     
     public function store(Request $request , $id){
@@ -65,12 +65,12 @@ class MedisController extends Controller
         ];
         $ubah->update($dt);
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
-        return redirect()->route('admin/medis/medis');
+        return redirect()->route('medis/medis');
     }
     public function destroy($id){
         $berobat = Berobat::find($id);
         $berobat->delete();
         toast('Yeay Berhasil menghapus data','success');
-        return redirect('admin/medis/medis');
+        return redirect('medis/medis');
     }
 }

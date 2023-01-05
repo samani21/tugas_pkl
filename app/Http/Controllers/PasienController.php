@@ -15,13 +15,13 @@ class PasienController extends Controller
 	{
         $pasien = DB::table('tb_pasien')->get();
  
-        return view('admin/pasien/pasien', ['pasien' => $pasien,'title' => 'Pasien'] );
+        return view('pasien/pasien', ['pasien' => $pasien,'title' => 'Pasien'] );
     }
 
     public function create()
     {
         $data['title'] = 'Tambah Pasien';
-        return view('admin/pasien/tambah_pasien', $data);
+        return view('pasien/tambah_pasien', $data);
     }
 
     public function store(Request $request)
@@ -41,19 +41,19 @@ class PasienController extends Controller
         ]);
         $pasien->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
-        return redirect()->route('admin/pasien/pasien');
+        return redirect()->route('pasien/pasien');
     }
 
     public function editpasien($id){
         $pasien = Pasien::find($id);
         $data['title'] = 'Edit Pasien';
-        return view('admin.pasien.edit_pasien',compact(['pasien']),$data);
+        return view('pasien.edit_pasien',compact(['pasien']),$data);
     }
     public function detail($id,$pasine_id){
         $pasien = Pasien::find($id);
         $berobat = Berobat::find($pasine_id);
         $data['title'] = 'Data Pasien';
-        return view('admin.pasien.detail',['berobat' =>$berobat,'pasien' =>$pasien],$data);
+        return view('pasien.detail',['berobat' =>$berobat,'pasien' =>$pasien],$data);
     }
 
     public function updatepasien(Request $request, $id){
@@ -72,13 +72,13 @@ class PasienController extends Controller
         ];
         $ubah->update($dt);
         alert('Sukses','Simpan Data Berhasil', 'success');
-        return redirect('admin/pasien/pasien');
+        return redirect('pasien/pasien');
     }
 
     public function destroy($id){
         $pasien = Pasien::find($id);
         $pasien->delete();
         toast('Yeay Berhasil menghapus data','success');
-        return redirect('admin/pasien/pasien');
+        return redirect('pasien/pasien');
     }
 }

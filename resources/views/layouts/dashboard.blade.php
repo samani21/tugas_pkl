@@ -34,31 +34,31 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="{{ url('admin/dashboard/dashboard') }}" class="{{ request()->is('admin/dashboard/dashboard/*')?'active' :'' }}">
+                    <a href="{{ url('dashboard/dashboard') }}" class="{{ request()->is('dashboard/dashboard/*')?'active' :'' }}">
                         <span class="las la-tachometer-alt"></span>
                         <span>dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('admin/pegawai/pegawai') }}" class="{{ request()->is('admin/pegawai/pegawai','admin/pegawai/*')?'active' :'' }}">
+                    <a href="{{ url('pegawai/pegawai') }}" class="{{ request()->is('pegawai/pegawai*','pegawai/*')?'active' :'' }}">
                         <span class="las la-user-friends"></span>
                         <span>Pegawai</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('admin/pasien/pasien') }}" class="{{ request()->is('admin/pasien/pasien','admin/pasien/*')?'active' :'' }}">
+                    <a href="{{ url('pasien/pasien') }}" class="{{ request()->is('pasien/pasien','pasien/*')?'active' :'' }}">
                         <span class="las la-users"></span>
                         <span>Pasien</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('admin/medis/medis') }}" class="{{ request()->is('admin/medis/*')?'active' :'' }}">
+                    <a href="{{ url('medis/medis') }}" class="{{ request()->is('medis/*')?'active' :'' }}">
                         <span class="las la-book-medical"></span>
                         <span>Rekam Medis</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('admin/obat/obat')}}"  class="{{ request()->is('admin/obat/*')?'active' :'' }}">
+                    <a href="{{url('obat/obat')}}"  class="{{ request()->is('obat/*')?'active' :'' }}">
                         <span class="las la-capsules"></span>
                         <span>Obat</span>
                     </a>

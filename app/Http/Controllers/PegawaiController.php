@@ -13,12 +13,12 @@ class PegawaiController extends Controller
 	{
         $pegawai = DB::table('tb_pegawai')->get();
  
-        return view('admin/pegawai/pegawai', ['pegawai' => $pegawai,'title' => 'Pegawai'] );
+        return view('pegawai/pegawai', ['pegawai' => $pegawai,'title' => 'Pegawai'] );
     }
     public function create()
     {
         $data['title'] = 'Tambah Pegawai';
-        return view('admin/pegawai/tambah_pegawai', $data);
+        return view('pegawai/tambah_pegawai', $data);
     }
 
     public function store(Request $request)
@@ -35,13 +35,13 @@ class PegawaiController extends Controller
         ]);
         $pegawai->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
-        return redirect()->route('admin/pegawai/pegawai');
+        return redirect()->route('pegawai/pegawai');
     }
 
     public function editpegawai($id){
         $pegawai = Pegawai::find($id);
         $data['title'] = 'Edit Pegawai';
-        return view('admin.pegawai.edit_pegawai',compact(['pegawai']),$data);
+        return view('pegawai.edit_pegawai',compact(['pegawai']),$data);
     }
 
     public function updatepegawai(Request $request, $id){
@@ -57,12 +57,12 @@ class PegawaiController extends Controller
         ];
         $ubah->update($dt);
         alert('Sukses','Simpan Data Berhasil', 'success');
-        return redirect('admin/pegawai/pegawai');
+        return redirect('pegawai/pegawai');
     }
     public function destroy($id){
         $pegawai = Pegawai::find($id);
         $pegawai->delete();
         toast('Yeay Berhasil menghapus data','success');
-        return redirect('admin/pegawai/pegawai');
+        return redirect('pegawai/pegawai');
     }
 }

@@ -33,13 +33,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                <div>
+                    <ul class="navbar-nav me-auto text-end">
+                        <li class="nav-item dropdown text-end">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-black" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-            </div>
         </nav>
 
         <main class="py-4">
@@ -54,36 +60,17 @@
                         <p class="alert alert-danger">{{ $err }}</p>
                         @endforeach
                         @endif
-                        <form class="form card" style="background-color: rgb(229, 231, 235)"
+                        <div class="form card" style="background-color: rgb(229, 231, 235)"
                             action="{{url('proses_login')}}" method="POST">
                             @csrf
-                            <div class="card_header">
-                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0h24v24H0z" fill="none"></path>
-                                    <path
-                                        d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z"
-                                        fill="currentColor"></path>
-                                </svg>
-                                <h1 class="form_heading">LOGIN</h1>
+                            <div class="card_header" tyle="background-color: rgb(229, 231, 235)">
+                                <h1 class="form_heading">VERIFIKASI AKUN DENGAN EMAIL</h1>
                             </div>
-                            <div class="mb-3">
-                                <label>Username <span class="text-danger">*</span></label>
-                                <input class="input" type="username" name="username" value="{{ old('username') }}" />
+                            <div>
+                                <h4>Verifikasi akun anda pada email yang anda cantumkan saat membuat akun. Jika selesai
+                                    verifikasi akun maka logout dulu dan masuk lagi</h4>
                             </div>
-                            <div class="mb-3">
-                                <label>Password <span class="text-danger">*</span></label>
-                                <input class="input" type="password" name="password" />
-                            </div>
-                            <br>
-                            <div class="row g-2">
-                                <div class="col-6">
-                                    <button class="btn btn-success col-12">LOGIN</button>
-                                </div>
-                                <div class="col-6">
-                                    <a href="register"class="btn btn-primary col-12">REGISTRASI</a>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

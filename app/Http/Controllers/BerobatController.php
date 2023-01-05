@@ -13,13 +13,13 @@ class BerobatController extends Controller
 	{
         $berobat = DB::table('tb_berobat')->get();
  
-        return view('admin/medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
+        return view('medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
     }
     
     public function create($id)
     {   $pasien = Pasien::find($id);
         $data['title'] = 'Tambah berobat';
-        return view('admin/pasien/daftar',compact(['pasien']), $data);
+        return view('pasien/daftar',compact(['pasien']), $data);
     }
     
     
@@ -44,7 +44,13 @@ class BerobatController extends Controller
         ]);
         $berobat->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
-        return redirect()->route('admin/pasien/pasien');
+        return redirect()->route('pasien/pasien');
     }
 
+    public function destroy($id){
+        $berobat = Berobat::find($id);
+        $berobat->delete();
+        toast('Yeay Berhasil menghapus data','success');
+        return redirect('medis/medis');
+    }
 }
