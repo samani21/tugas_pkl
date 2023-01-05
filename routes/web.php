@@ -88,3 +88,6 @@ Route::post('register', [AuthController::class, 'register_action'])->name('regis
 Route::get('/email/verify/{id}/{hash}',[VerificationController::class,'verify'])->middleware('auth','signed')->name('verification.verify');
 Route::get('/email/verify/resend-verification',[VerificationController::class,'send'])->middleware('auth','throttle:6,1')->name('verification.send');
 Route::get('verifikasi', [AuthController::class, 'verifikasi'])->name('verifikasi');
+
+Route::get('selectobat', [ObatController::class, 'obat'])->name('obat.index');
+Route::get('selectobat/{nm_obat}', [ObatController::class, 'nama']);

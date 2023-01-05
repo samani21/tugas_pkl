@@ -53,6 +53,7 @@ class MedisController extends Controller
 
         $obat = new Obat([
             'berobat_id' => $request->berobat_id,
+            'kd_obat' => $request->kd_obat,
             'obat' => $request->obat,
             'jumlah' => $request->jumlah,
             'dosis' => $request->dosis,

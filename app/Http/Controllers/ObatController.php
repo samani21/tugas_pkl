@@ -56,4 +56,16 @@ class ObatController extends Controller
         toast('Yeay Berhasil menghapus data','success');
         return redirect('obat/obat');
     }
+
+    public function obat(){
+        $data = Stokobat::where('kode', 'LIKE', '%'.request('q').'%')->paginate(10);
+
+        return response()->json($data);
+    }
+
+    public function nama($nm_obat){
+        $data = Stokobat::where('nm_obat', $nm_obat)->where('kode', 'LIKE', '%'.request('q').'%')->paginate(10);
+
+        return response()->json($data);
+    }
 }

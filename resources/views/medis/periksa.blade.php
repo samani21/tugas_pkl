@@ -29,11 +29,6 @@
                 aria-label="default input example">
         </div>
         <div>
-            <label for="">Nama perawat</label>
-            <input class="form-control" type="text" id="perawat" oninput="this.className = ''" name="perawat"
-                aria-label="default input example">
-        </div>
-        <div>
             <label>Poli</label>
             <select name="poli" class="form-control">
                 <option value="">--Pilih--</option>
@@ -118,20 +113,35 @@
   <br>
   <div class="tab">
     <h3>Resep</h3>
-    <div>
-        <label for="">Nama obat</label>
-        <input class="form-control" type="text" id="obat" name="obat" oninput="this.className = ''"
-        aria-label="default input example" autofocus>
+    <div class="row g-12">
+        <div class="col-3">
+            <label> Nama oabat</label>
+        <select id="selectObat" class="form-select" aria-label="Default select example" name="obat">
+
+        </select>
+        </div>
+        <div class="col-3">
+            <label> Kode obat</label>
+        <select id="selectid" class="form-select" aria-label="Default select example"  name="kd_obat">
+
+        </select>
+        </div>
+        <div class="col3">
+            <div>
+                <label for="">jumlah</label>
+                <input class="form-control" type="text" id="jumlah" name="jumlah" value="-" oninput="this.className = ''"
+                    aria-label="default input example">
+            </div>
+        </div>
+        <div class="col3">
+            <div>
+                <label for="">Dosis</label>
+                <input class="form-control" type="text" id="dosis" name="dosis" value="-" oninput="this.className = ''"
+                    aria-label="default input example">
+            </div>
+        </div>
     </div>
     <div>
-        <label for="">jumlah</label>
-        <input class="form-control" type="text" id="jumlah" name="jumlah" oninput="this.className = ''"
-            aria-label="default input example">
-    </div>
-    <div>
-      <label for="">Dosis</label>
-      <input class="form-control" type="text" id="dosis" name="dosis" oninput="this.className = ''"
-          aria-label="default input example">
   </div>
   <br>
 </div>
