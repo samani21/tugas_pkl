@@ -3,15 +3,16 @@
 @section('content')
 
     <div>
-        <form class="row g-2">
+        <form action="{{route('pegawai/pegawai')}}" method="get" class="row g-12">
             <div class="col-md-10">
-            <input type="text" class="form-control" id="inputPassword2" placeholder="Password">
+            <input class="form-control" type="text" name="cari" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
             </div>
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="col-auto">
-                <a href="{{url('pasien/tambah_pasien')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Tambah</a>
+                <a href="{{url('pasien/tambah_pasien')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah</a>
+                {{-- <a href="{{url('pegawai/cetak')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a> --}}
             </div>
         </form>
     </div>
@@ -58,22 +59,6 @@
             @endforeach
         </tbody>
         </table>
-    </div>
-    <div class="float-end">
-        <nav aria-label="...">
-            <ul class="pagination">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">2</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-            </ul>
-        </nav>
+        {{ $pasien->links() }}
     </div>
 @endsection

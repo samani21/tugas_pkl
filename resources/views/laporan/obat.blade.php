@@ -3,16 +3,16 @@
 @section('content')
 
     <div>
-        <form action="{{route('obat/obat')}}" method="get" class="row g-12">
-            <div class="col-md-8">
+        <form action="{{route('laporan/obat')}}" method="get" class="row g-12">
+            <div class="col-md-10">
             <input class="form-control" type="text" name="cari" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
             </div>
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="col-auto">
-                <a href="{{url('obat/tambah_obat')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Tambah</a>
-                {{-- <a href="{{url('obat/cetak_obat')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a> --}}
+                {{-- <a href="{{url('pegawai/tambah_pegawai')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah</a> --}}
+                <a href="{{url('obat/cetak_obat')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a>
             </div>
         </form>
     </div>
@@ -24,7 +24,6 @@
                 <th scope="col">Kode obat</th>
                 <th scope="col">Nama obat</th>
                 <th scope="col">stok</th>
-                <th scope="col">Aksi</th>
             </tr>
             </thead>
             <tbody>
@@ -37,11 +36,6 @@
                     <td data-title="Nip">{{$o->kode}}</td>
                     <td data-title="nama">{{$o->nm_obat}}</td>
                     <td data-title="Tanggal lahir">{{$o->stok}}</td>
-                    <td data-title="Aksi">
-                        <a href="tambah_stok/{{$o->id}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Stok</a>
-                        <a href="edit_obat/{{$o->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a href="hapus_obat/{{$o->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
-                    </td>
                 </tr>
             @endforeach
         </tbody>

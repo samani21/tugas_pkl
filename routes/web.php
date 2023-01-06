@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('pegawai/edit_pegawai/{id}',[PegawaiController::class,'editpegawai'])->name('pegawai/edit_pegawai');
         Route::post('updatepegawai/{id}',[PegawaiController::class,'updatepegawai'])->name('updatepegawai');
         Route::get('pegawai/hapus_pegawai/{id}', [PegawaiController::class,'destroy'])->name('hapus_pegawai');
+        Route::get('pegawai/cetak', [PegawaiController::class, 'cetak_pegawai'])->name('pegawai/cetak');
 
         //pasien
         Route::get('pasien/pasien', [PasienController::class, 'index'])->name('pasien/pasien');
@@ -60,6 +61,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('pasien/daftar/{id}', [BerobatController::class, 'store'])->name('tambah.store');
         Route::get('pasien/detail/id={id}&pasien_id={pasien_id}',[PasienController::class,'detail'])->name('pasien/detail');
         
+        Route::get('pasien/cetak_pasien', [PasienController::class, 'cetak_pasien'])->name('pasien/cetak_pasien');
+
         //rekam medis
         Route::get('medis/medis', [BerobatController::class, 'index'])->name('medis/medis');
         Route::get('medis/periksa_fisik/{id}',[MedisController::class,'periksa'])->name('medis/periksa_fisik');
@@ -77,6 +80,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('medis/hapus_berobat/{id}', [MedisController::class,'destroy'])->name('hapus_berobat');
         Route::get('pasien/detail/rekam_medis/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'rekam'])->name('medis/rekam_medis');
         Route::get('medis/hapus_medis/{id}', [BerobatController::class,'destroy'])->name('hapus_pasien');
+        
+        Route::get('medis/cetak_rm/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'cetak_rm'])->name('medis/cetak_rm');
+        
         //obat
         Route::get('obat/obat', [ObatController::class, 'index'])->name('obat/obat');
         Route::get('obat/tambah_obat', [ObatController::class, 'create'])->name('obat/tambah_obat');
@@ -86,6 +92,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('obat/hapus_obat/{id}', [ObatController::class,'destroy'])->name('hapus_obat');
         Route::get('obat/tambah_stok/{id}', [StokobatController::class, 'create'])->name('obat/tambah_stok');
         Route::post('obat/tambah_stok/{id}', [StokobatController::class, 'stok_store'])->name('stok.store');
+
+        Route::get('obat/cetak_obat', [ObatController::class, 'cetak_obat'])->name('obat/cetak_obat');
+
+        //laporan
+        Route::get('laporan/pegawai', [PegawaiController::class, 'laporan'])->name('laporan/pegawai');
+        Route::get('laporan/pasien', [PasienController::class, 'laporan'])->name('laporan/pasien');
+        Route::get('laporan/medis', [BerobatController::class, 'laporan'])->name('laporan/medis');
+        Route::get('laporan/obat', [ObatController::class, 'laporan'])->name('laporan/obat');
     });
     Route::group(['middleware' => ['cek_login:editor']], function () {
         Route::resource('editor', AdminController::class);

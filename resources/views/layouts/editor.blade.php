@@ -39,14 +39,14 @@
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="{{ url('dashboard/dashboard') }}"
+                        <a href="{{ url('asrd') }}"
                             class="{{ request()->is('dashboard/dashboard/*')?'active' :'' }}">
                             <span class="las la-tachometer-alt"></span>
                             <span>dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('pegawai/pegawai') }}"
+                        <a href="{{ url('pesadsadawai') }}"
                             class="{{ request()->is('pegawai/pegawai*','pegawai/*')?'active' :'' }}">
                             <span class="las la-user-friends"></span>
                             <span>Pegawai</span>

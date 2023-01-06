@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class BerobatController extends Controller
 {
-    public function index()
-	{
-        $berobat = DB::table('tb_berobat')->get();
+    public function index(Request $request)
+	{   $cari = $request->cari;  
+        $berobat = DB::table('tb_berobat')->where('nama','like',"%".$cari."%",'')->paginate(5);
  
         return view('medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
     }
@@ -52,5 +52,13 @@ class BerobatController extends Controller
         $berobat->delete();
         toast('Yeay Berhasil menghapus data','success');
         return redirect('medis/medis');
+    }
+
+    public function laporan(Request $request)
+	{   $cari = $request->cari;
+        $berobat = DB::table('tb_berobat')->where('nama','like',"%".$cari."%",'')
+		->paginate(5);
+ 
+        return view('laporan/medis', ['berobat' => $berobat,'title' => 'Laporan Berobat'] );
     }
 }

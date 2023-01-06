@@ -6,12 +6,14 @@ use App\Models\Pegawai;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class PegawaiController extends Controller
 {
-    public function index()
-	{
-        $pegawai = DB::table('tb_pegawai')->get();
+    public function index(Request $request)
+	{   $cari = $request->cari;
+        $pegawai = DB::table('tb_pegawai')->where('nama','like',"%".$cari."%",'')
+		->paginate(5);
  
         return view('pegawai/pegawai', ['pegawai' => $pegawai,'title' => 'Pegawai'] );
     }
@@ -65,4 +67,21 @@ class PegawaiController extends Controller
         toast('Yeay Berhasil menghapus data','success');
         return redirect('pegawai/pegawai');
     }
+
+    public function cetak_pegawai()
+    {
+        $pegawai = DB::table('tb_pegawai')->get();
+        $pdf = PDF::loadView('pegawai/cetak',compact('pegawai'));
+        $pdf->setPaper('A4','potrait');
+        return $pdf->stream('cetak_pegawai.pdf');
+    }
+
+    public function laporan(Request $request)
+	{   $cari = $request->cari;
+        $pegawai = DB::table('tb_pegawai')->where('nama','like',"%".$cari."%",'')
+		->paginate(5);
+ 
+        return view('laporan/pegawai', ['pegawai' => $pegawai,'title' => 'Laporan Pegawai'] );
+    }
+    
 }

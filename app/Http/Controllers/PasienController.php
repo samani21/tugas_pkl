@@ -7,13 +7,14 @@ use App\Models\Pasien;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class PasienController extends Controller
 {
 
-    public function index()
-	{
-        $pasien = DB::table('tb_pasien')->get();
+    public function index(Request $request)
+	{  $cari = $request->cari;
+        $pasien = DB::table('tb_pasien')->where('nama','like',"%".$cari."%",'')->paginate(5);
  
         return view('pasien/pasien', ['pasien' => $pasien,'title' => 'Pasien'] );
     }
@@ -80,5 +81,20 @@ class PasienController extends Controller
         $pasien->delete();
         toast('Yeay Berhasil menghapus data','success');
         return redirect('pasien/pasien');
+    }
+
+    public function cetak_pasien()
+    {
+        $pasien = DB::table('tb_pasien')->get();
+        $pdf = PDF::loadView('pasien/cetak_pasien',compact('pasien'));
+        $pdf->setPaper('A4','potrait');
+        return $pdf->stream('cetak_pasien.pdf');
+    }
+    public function laporan(Request $request)
+	{   $cari = $request->cari;
+        $pasien = DB::table('tb_pasien')->where('nama','like',"%".$cari."%",'')
+		->paginate(5);
+ 
+        return view('laporan/pasien', ['pasien' => $pasien,'title' => 'Laporan pasien'] );
     }
 }

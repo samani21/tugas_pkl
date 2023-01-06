@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Stokobat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class ObatController extends Controller
 {
-    public function index()
-	{
-        $obat = DB::table('tb_obat')->get();
+    public function index(Request $request)
+	{   $cari = $request->cari;
+        $obat = DB::table('tb_obat')->where('nm_obat','like',"%".$cari."%",'')->paginate(5);
  
         return view('obat/obat', ['obat' => $obat,'title' => 'Obat'] );
     }
@@ -67,5 +68,21 @@ class ObatController extends Controller
         $data = Stokobat::where('nm_obat', $nm_obat)->where('kode', 'LIKE', '%'.request('q').'%')->paginate(10);
 
         return response()->json($data);
+    }
+
+    public function cetak_obat()
+	{
+        $obat = DB::table('tb_obat')->get();
+        $pdf = PDF::loadView('obat/cetak_obat',compact('obat'));
+        $pdf->setPaper('A4','potrait');
+        return $pdf->stream('cetak_obat.pdf');;
+    }
+
+    public function laporan(Request $request)
+	{   $cari = $request->cari;
+        $obat = DB::table('tb_obat')->where('nm_obat','like',"%".$cari."%",'')
+		->paginate(5);
+ 
+        return view('laporan/obat', ['obat' => $obat,'title' => 'Laporan Obat'] );
     }
 }

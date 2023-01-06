@@ -9,6 +9,7 @@ use App\Models\Obat;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PDF;
 
 class MedisController extends Controller
 {
@@ -116,5 +117,13 @@ class MedisController extends Controller
         $diagnosa->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
         return Redirect::back();
+    }
+
+    public function cetak_rm($id,$pasien_id){
+        $berobat = Berobat::find($id);
+        $pasien = Pasien::find($pasien_id);
+        $pdf = PDF::loadView('medis/cetak_rm',compact('pasien','berobat'));
+        $pdf->setPaper('A4','potrait');
+        return $pdf->stream('cetak_rekam_medis.pdf');
     }
 }

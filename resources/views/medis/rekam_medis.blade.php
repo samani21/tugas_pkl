@@ -8,7 +8,7 @@
             window.history.back();
         }
     </script>
-    <a href="#" class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak rekam medis</a>
+    <a href="/medis/cetak_rm/pasien={{$berobat->id}}&rekammedis={{$pasien->id}}" class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak rekam medis</a>
     <div class="float-end">
 
         <form action="{{route('selesai',$berobat->id)}}" method="POST">
