@@ -58,7 +58,7 @@ class ObatController extends Controller
     }
 
     public function obat(){
-        $data = Stokobat::where('kode', 'LIKE', '%'.request('q').'%')->paginate(10);
+        $data = Stokobat::where('nm_obat', 'LIKE', '%'.request('q').'%')->paginate(10);
 
         return response()->json($data);
     }

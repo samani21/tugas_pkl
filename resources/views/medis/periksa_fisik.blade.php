@@ -2,13 +2,14 @@
 
 @section('content')
 
-<form id="regForm" action="{{route('create.store',$berobat->id)}}" method="POST">
+<form id="regForm" action="{{route('fisik.store',$berobat->id)}}" method="POST">
     @csrf
     <div class="tab">
         <h3>Pemeriksa</h3>
         <div>
             <input type="hidden" id="berobat_id" name="berobat_id" value="{{$berobat->id}}">
             <input type="hidden" id="pasien_id" name="pasien_id" value="{{$berobat->pasien_id}}">
+            <input class="form-control" type="hidden" id="status" name="status" value="1">
             <label for="">No berobat</label>
             <input class="form-control" type="text" value="{{$berobat->no}}" aria-label="default input example"
                 readonly>
@@ -40,7 +41,6 @@
             </select>
         </div>
     </div>
-    <br>
     <div class="tab">
         <h3>Pemeriksaan badan</h3>
         <div>
@@ -78,73 +78,37 @@
             <label for="">Berat</label>
             <input class="form-control" type="text" id="berat" name="berat" oninput="this.className = ''"
                 aria-label="default input example">
-            <input class="form-control" type="hidden" id="status" name="status" value="1">
             <br>
         </div>
     </div>
     <br>
     <div class="tab">
-      <h3>Keluhan</h3>
-      <div>
-          <label for="">Keluhan</label>
-          <textarea id="keluhan" name="keluhan" class="form-control"  style="height: 100px" autofocus></textarea>
-      </div>
-      <div>
-          <label for="">Daignosa</label>
-          <input class="form-control" type="text" id="diagnosa" name="diagnosa" oninput="this.className = ''"
+        <h3>Pemeriksaan badan</h3>
+        <div>
+            <label for="">Keluhan</label>
+            <textarea id="keluhan" name="keluhan" class="form-control"  style="height: 100px" autofocus></textarea>
+        </div>
+        <div>
+            <label for="">Daignosa</label>
+            <input class="form-control" type="text" id="diagnosa" name="diagnosa" oninput="this.className = ''"
+                aria-label="default input example">
+        </div>
+        <div>
+          <label for="">Tindakan berobat</label>
+          <input class="form-control" type="text" id="tindakan" name="tindakan" oninput="this.className = ''"
               aria-label="default input example">
       </div>
-      <div>
-        <label for="">Status berobat</label>
-        <input class="form-control" type="text" id="tindakan" name="tindakan" oninput="this.className = ''"
-            aria-label="default input example">
+        <div>
+          <label>Biaya</label>
+          @php 
+              if($berobat->jenis == 'Umum'){
+                  echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'" aria-label="default input example">';
+              }if ($berobat->jenis == 'BPJS') {
+                  echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'" aria-label="default input example">';
+              }
+          @endphp
+      </div>
     </div>
-      <div>
-        <label>Biaya</label>
-        @php 
-            if($berobat->jenis == 'Umum'){
-                echo '<input class="form-control" type="number" id="biaya" name="biaya" value="0" aria-label="default input example">';
-            }if ($berobat->jenis == 'BPJS') {
-                echo '<input class="form-control" type="number" id="biaya" name="biaya" value="0" aria-label="default input example">';
-            }
-        @endphp
-    </div>
-  </div>
-  <br>
-  <div class="tab">
-    <h3>Resep</h3>
-    <div class="row g-12">
-        <div class="col-3">
-            <label> Nama oabat</label>
-        <select id="selectObat" class="form-select" aria-label="Default select example" name="obat">
-
-        </select>
-        </div>
-        <div class="col-3">
-            <label> Kode obat</label>
-        <select id="selectid" class="form-select" aria-label="Default select example"  name="kd_obat">
-
-        </select>
-        </div>
-        <div class="col3">
-            <div>
-                <label for="">jumlah</label>
-                <input class="form-control" type="text" id="jumlah" name="jumlah" value="-" oninput="this.className = ''"
-                    aria-label="default input example">
-            </div>
-        </div>
-        <div class="col3">
-            <div>
-                <label for="">Dosis</label>
-                <input class="form-control" type="text" id="dosis" name="dosis" value="-" oninput="this.className = ''"
-                    aria-label="default input example">
-            </div>
-        </div>
-    </div>
-    <div>
-  </div>
-  <br>
-</div>
     <div style="overflow:auto;">
         <div style="float:right;">
             <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -153,7 +117,6 @@
     </div>
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:10px;">
-        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>

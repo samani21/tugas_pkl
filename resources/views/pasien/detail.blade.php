@@ -81,13 +81,17 @@
                         <td data-title="No">{{ $no++ }}</td>
                         <td data-title="No">{{ $pas->tgl }}</td>
                         <td data-title="Status"><?php if($pas->status =='1'){
-                            echo '<span class="badge bg-success">Sudah diperiksa</span>';
+                            echo '<span class="badge bg-warning text-black">Sedang diperiksa</span>';
+                         }if($pas->status =='2'){
+                            echo '<span class="badge bg-warning">Selesai diperiksa</span>';
                          }if($pas->status =='0'){
                              echo '<span class="badge bg-danger">Belum diperiksa</span>';
                           }?></td>
                        <td>
-                        <?php if($pas->status =='1'){
+                        <?php if($pas->status =='2'){
                             echo '<a href="rekam_medis/pasien='.$pas->id.'&rekammedis='.$pas->pasien_id.'" class="btn btn-success"><i class="fa-solid fa-laptop-medical"></i>Lihat</a>';
+                         }if($pas->status =='1'){
+                            echo '<a href="rekam_medis/pasien='.$pas->id.'&rekammedis='.$pas->pasien_id.'" class="btn btn-warning"><i class="fa-solid fa-laptop-medical"></i>Lihat</a>';
                          }if($pas->status =='0'){
                              echo '<a href="rekam_medis/pasien='.$pas->id.'&rekammedis='.$pas->pasien_id.'" class="btn btn-success" style="pointer-events: none"><i class="fa-solid fa-laptop-medical"></i>Lihat</a>';
                           }?>

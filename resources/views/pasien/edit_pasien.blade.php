@@ -17,31 +17,17 @@
             <div>
                 <label>Jenis berobat</label>
                 <select name="jenis" class="form-control" onchange=" 
-                    if (this.selectedIndex==1 )
-                    { document.getElementById('umum').style.display ='inline'}
-                    else { document.getElementById('umum').style.display = 'none' }if (this.selectedIndex==2 )
+                    if (this.selectedIndex==2 )
                     { document.getElementById('bpjs').style.display ='inline'}
                     else { document.getElementById('bpjs').style.display = 'none' };">
-    
-                    <option value="{{$pasien->jenis}}">{{$pasien->jenis}}</option>
-                    <option value="Umum">Umum</option>
-                    <option value="BPJS">BPJS</option>
+
+<option value="{{$pasien->jenis}}">{{$pasien->jenis}}</option>
+<option value="Umum">Umum</option>
+<option value="BPJS">BPJS</option>
                 </select>
-    
-                <span id="umum" style="display:none;">
-                    <input type="hidden" name="bpjs" value="-" class="form-control">
-                </span>
-                <span id="bpjs" <?php if($pasien->jenis =='BPJS'){
-                    echo 'style="display:inline;"';
-                 }if($pasien->jenis =='Umum'){
-                     echo 'style="display:none;"';
-                  }?>>
+                <span id="bpjs" style="display:none;">
                     <label>No BPJS</label>
-                    <input type="text" name="bpjs" <?php if($pasien->jenis =='BPJS'){
-                        echo 'value="'.$pasien->bpjs.'"';
-                     }if($pasien->jenis =='Umum'){
-                         echo 'value="-" ';
-                      }?>  class="form-control">
+                    <input type="text" name="bpjs" value="-" class="form-control">
                 </span>
             </div>
             <div>

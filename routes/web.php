@@ -62,8 +62,17 @@ Route::group(['middleware' => ['auth']], function () {
         
         //rekam medis
         Route::get('medis/medis', [BerobatController::class, 'index'])->name('medis/medis');
-        Route::get('medis/periksa/{id}',[MedisController::class,'periksa'])->name('medis/periksa');
-        Route::post('medis/periksa/{id}',[MedisController::class,'store'])->name('create.store');
+        Route::get('medis/periksa_fisik/{id}',[MedisController::class,'periksa'])->name('medis/periksa_fisik');
+        Route::post('medis/periksa_fisik/{id}',[MedisController::class,'store'])->name('fisik.store');
+        //pemberian resep
+        Route::get('medis/periksa_obat/{id}',[MedisController::class,'obat'])->name('medis/periksa_obat');
+        Route::post('medis/periksa_obat/{id}',[MedisController::class,'obat_store'])->name('resep.store');
+
+        Route::post('selesai/{id}',[MedisController::class,'selesai'])->name('selesai');
+        //Diagnosa
+        Route::get('medis/periksa_diagnosa/{id}',[MedisController::class,'diagnosa'])->name('medis/diagnosa');
+        Route::post('medis/periksa_diagnosa/{id}',[MedisController::class,'diagnosa_store'])->name('diagnosa.store');
+
         Route::get('medis/rekam_medis/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'rekam'])->name('medis/rekam_medis');
         Route::get('medis/hapus_berobat/{id}', [MedisController::class,'destroy'])->name('hapus_berobat');
         Route::get('pasien/detail/rekam_medis/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'rekam'])->name('medis/rekam_medis');

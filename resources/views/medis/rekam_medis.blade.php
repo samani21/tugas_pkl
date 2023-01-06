@@ -9,6 +9,20 @@
         }
     </script>
     <a href="#" class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak rekam medis</a>
+    <div class="float-end">
+
+        <form action="{{route('selesai',$berobat->id)}}" method="POST">
+            @csrf
+            <input type="hidden" name="status" value="2">
+        <?php if($berobat->status =='1'){
+            echo '<button class="btn btn-success" type="submit" name="simpan">Selsai</button>
+             <a href="/medis/periksa_diagnosa/'.$berobat->id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Diagnosa</a>
+        <a href="/medis/periksa_obat/'.$berobat->id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Obat</a>';
+         }if($berobat->status =='2'){
+             echo '';
+          }?>
+          </form>
+    </div>
     <hr>
     <div class="row g-2">
         <div class="col-6">

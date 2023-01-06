@@ -38,16 +38,26 @@
                     <td data-title="Jenis berobat">{{$medis->jenis}}</td>
                     <td data-title="Nama">{{$medis->nama}}</td>
                     <td data-title="Tanggal berobat"><?php echo $medis->tgl;?></td>
-                    <td data-title="Status"><?php if($medis->status =='1'){
-                        echo '<span class="badge bg-success">Sudah diperiksa</span>';
+                    <td data-title="Status"><?php if($medis->status =='2'){
+                        echo '<span class="badge bg-success">Selesai diperiksa</span>';
+                     }if($medis->status =='1'){
+                        echo '<span class="badge bg-warning">Sedang diperiksa</span>';
                      }if($medis->status =='0'){
                          echo '<span class="badge bg-danger">Belum diperiksa</span>';
                       }?></td>
                     <td data-title="Aksi">
-                        <?php if($medis->status =='1'){
+                        <?php if($medis->status =='0'){
+                            echo '<a href="periksa_fisik/'.$medis->id.'" class="btn btn-primary"><i class="fa-solid fa-book-medical"></i></a>';
+                         }if($medis->status =='1'){
+                             echo '<a href="periksa_obat/'.$medis->id.'" class="btn btn-primary"><i class="fa-solid fa-book-medical"></i></a>';
+                          }?>
+                          <?php if($medis->status =='1'){
+                            echo '<a href="rekam_medis/pasien='.$medis->id.'&rekammedis='.$medis->pasien_id.'" class="btn btn-warning"><i class="fa-solid fa-laptop-medical"></i></a>';
+                         }
+                          if($medis->status =='2'){
                             echo '<a href="rekam_medis/pasien='.$medis->id.'&rekammedis='.$medis->pasien_id.'" class="btn btn-success"><i class="fa-solid fa-laptop-medical"></i></a>';
                          }if($medis->status =='0'){
-                             echo '<a href="periksa/'.$medis->id.'" class="btn btn-primary"><i class="fa-solid fa-book-medical"></i></a>';
+                             echo '';
                           }?>
                         <a href="hapus_medis/{{$medis->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                     </td>
