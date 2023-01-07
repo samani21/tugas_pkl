@@ -5,8 +5,14 @@
 <form action="{{route('stok.store',$obat->id)}}" method="POST">
     @csrf
         <div>
+            <label for="">Tanggal</label>
+            <input class="form-control" type="text" id="tgl" name="tgl" value="{{date('d-m-Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="hidden" id="bulan" name="bulan" value="{{date('m')}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
+        </div>
+        <div>
             <label for="">Kode obat</label>
-            <input class="form-control" type="text" id="kode" name="kode" value="{{$obat->kode}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="text" id="kode" name="kode" value="{{$obat->id}}" placeholder="Masukkan NIP" aria-label="default input example">
         </div>
         <div>
             <label for="">Nama obat</label>

@@ -55,14 +55,14 @@
                     <li>
                         <a href="{{ url('dokter/dokter?dokter=dokter') }}"
                             class="{{ request()->is('dokter/dokter*','dokter/*')?'active' :'' }}">
-                            <span class="las la-user-friends"></span>
+                            <span class="fa-solid fa-user-doctor"></span>
                             <span>Dokter</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('perawat/perawat') }}"
                             class="{{ request()->is('perawat/perawat*','perawat/*')?'active' :'' }}">
-                            <span class="las la-user-friends"></span>
+                            <span class="fa-solid fa-user-nurse"></span>
                             <span>Perawat</span>
                         </a>
                     </li>
@@ -183,43 +183,48 @@
             });
             $(document).ready(function () {
 
-                $("#selectpegawai").select2({
-                    placeholder: 'Pilih nama dokter',
+                $("#selecticd").select2({
+                    placeholder: 'Pilih nama Icd',
                     ajax: {
-                        url: "{{route('pegawai.index')}}",
+                        url: "{{route('icd.index')}}",
                         processResults: function ({
                             data
                         }) {
                             return {
                                 results: $.map(data, function (item) {
                                     return {
-                                        id: item.nama,
-                                        text: item.nama
+                                        id: item.name_id,
+                                        text: item.name_id
                                     }
                                 })
                             }
                         }
                     }
                 });
-                $("#selectperawat").select2({
-                    placeholder: 'Pilih nama perawat',
-                    ajax: {
-                        url: "{{route('perawat.index')}}",
-                        processResults: function ({
-                            data
-                        }) {
-                            return {
-                                results: $.map(data, function (item) {
-                                    return {
-                                        id: item.nama,
-                                        text: item.nama
-                                    }
-                                })
+                $("#selecticd").change(function () {
+                    let name_id = $('#selecticd').val();
+
+                    $("#selectid").select2({
+                        placeholder: 'Pilih Kode',
+                        ajax: {
+                            url: "{{url('selecicd')}}/" + name_id,
+                            processResults: function ({
+                                data
+                            }) {
+                                return {
+                                    results: $.map(data, function (item) {
+                                        return {
+                                            id: item.code,
+                                            text: item.code
+                                        }
+                                    })
+                                }
                             }
                         }
-                    }
+                    });
                 });
             });
+            
         </script>
         <script>
             /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

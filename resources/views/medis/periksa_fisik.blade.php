@@ -98,25 +98,37 @@
             <textarea id="keluhan" name="keluhan" class="form-control"  style="height: 100px" autofocus></textarea>
         </div>
         <div>
-            <label for="">Daignosa</label>
-            <input class="form-control" type="text" id="diagnosa" name="diagnosa" oninput="this.className = ''"
-                aria-label="default input example">
+            <label for="">Nama Diagnosa</label>
+            <br>
+            <select id="selecticd" class="form-select" aria-label="Default select example" name="diagnosa">
+
+            </select>
         </div>
         <div>
-          <label for="">Tindakan berobat</label>
-          <input class="form-control" type="text" id="tindakan" name="tindakan" oninput="this.className = ''"
-              aria-label="default input example">
-      </div>
+            <label for="">Kode Diagnosa</label>
+            <select id="selectid" class="form-select" aria-label="Default select example" name="kode">
+
+            </select>
+        </div>
         <div>
-          <label>Biaya</label>
-          @php 
-              if($berobat->jenis == 'Umum'){
-                  echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'" aria-label="default input example">';
-              }if ($berobat->jenis == 'BPJS') {
-                  echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'" aria-label="default input example">';
-              }
-          @endphp
-      </div>
+            <label>Tindakan berobat</label>
+            <select name="tindakan" class="form-control">
+                <option value="">--Pilih--</option>
+                <option value="Tindakan">Tindakan</option>
+                <option value="Pemeriksaan">Pemeriksaan</option>
+                <option value="Konsultasi">Konsultasi</option>
+            </select>
+        </div>
+        <div>
+            <label>Biaya</label>
+            @php 
+                if($berobat->jenis == 'Umum'){
+                    echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'" aria-label="default input example">';
+                }if ($berobat->jenis == 'BPJS') {
+                    echo '<input class="form-control" type="text" id="biaya" name="biaya" value="Gratis" aria-label="default input example">';
+                }
+            @endphp
+        </div>
     </div>
     <div style="overflow:auto;">
         <div style="float:right;">

@@ -68,6 +68,7 @@ class MedisController extends Controller
         ];
         $diagnosa = new Diagnosa([
             'berobat_id' => $request->berobat_id,
+            'kode' => $request->kode,
             'diagnosa' => $request->diagnosa,
         ]);
         $diagnosa->save();
@@ -90,6 +91,9 @@ class MedisController extends Controller
             'obat' => $request->obat,
             'jumlah' => $request->jumlah,
             'dosis' => $request->dosis,
+            'tgl' => $request->tgl,
+            'bulan' => $request->bulan,
+            'tahun' => $request->tahun,
         ]);
         $obat->save();
 
@@ -116,6 +120,8 @@ class MedisController extends Controller
         $diagnosa = new Diagnosa([
             'berobat_id' => $request->berobat_id,
             'diagnosa' => $request->diagnosa,
+            'kode' => $request->kode,
+            
         ]);
         $diagnosa->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');

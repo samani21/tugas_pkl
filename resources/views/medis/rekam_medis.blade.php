@@ -215,7 +215,7 @@
                             <h5><b>Diagnosa</b></h5>
                         </td>
                         <td> @foreach($berobat->diagnosa as $d)
-                            <h5>{{ $d->diagnosa }} ,</h5>
+                            <h5>({{ $d->kode }}).{{ $d->diagnosa }} ,</h5>
                             @endforeach
                         </td>
                     </tr>

@@ -10,8 +10,15 @@
     <div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <input class="form-control" type="text" id="diagnosa" name="diagnosa" oninput="this.className = ''"
-                aria-label="default input example">
+            <select id="selecticd" class="form-select" aria-label="Default select example" name="diagnosa">
+
+            </select>
+        </div>
+        <div>
+            <label for="">Kode Diagnosa</label>
+            <select id="selectid" class="form-select" aria-label="Default select example" name="kode">
+
+            </select>
         </div>
     </div>
   <br>

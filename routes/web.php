@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerobatController;
+use App\Http\Controllers\IcdController;
 use App\Http\Controllers\MedisController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
@@ -139,8 +140,5 @@ Route::get('selectobat/{nm_obat}', [ObatController::class, 'nama']);
 Route::get('selecpegawai', [PegawaiController::class, 'pegawai'])->name('pegawai.index');
 Route::get('selectpegawai/{nama}', [PegawaiController::class, 'nama']);
 
-Route::get('selecperawat', [PegawaiController::class, 'perawat'])->name('perawat.index');
-Route::get('selectpegawai/{nama}', [PegawaiController::class, 'nama']);
-
-Route::get('selecicd', [PegawaiController::class, 'icd'])->name('icd.index');
-Route::get('selecticd/{nama}', [PegawaiController::class, 'nama']);
+Route::get('selecicd', [IcdController::class, 'icd'])->name('icd.index');
+Route::get('selecicd/{name_id}', [IcdController::class, 'nama']);

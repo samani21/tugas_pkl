@@ -21,6 +21,10 @@ class StokobatController extends Controller
             'kode' => $request->kode,
             'nama_obat' => $request->nama_obat,
             'jumlah' => $request->jumlah,
+            'tgl' => $request->tgl,
+            'bulan' => $request->bulan,
+            'tahun' => $request->tahun,
+
         ]);
         $tobat->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
