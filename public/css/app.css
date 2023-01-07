@@ -37,7 +37,7 @@ body{
 
 .sidebar-brand h1{
     font-size: 1rem;
-    padding: 20px 0px;
+    padding: 0px 0px;
 }
 
 .sidebar-brand span{
@@ -52,7 +52,7 @@ body{
 }
 
 .sidebar-menu a{
-    padding-left: 1rem;
+    padding-left: 0rem;
     display: block;
     color: #fff;
     font-size: 1.1rem;

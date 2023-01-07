@@ -10,9 +10,9 @@ class PelayananController extends Controller
 {
     public function dokter(Request $request)
     {   $dokter = $request->dokter;
-        $cari = $request->cari;
+        $namanama = $request->namanama;
         $dokter = DB::table('tb_pelayanan')->where('kelompok','like','dokter')
-                                            ->where('nama','like',"%".$cari."%")
+                                            ->where('nama','like',"%".$namanama."%")
                                             ->paginate(10);
  
         return view('dokter/dokter', ['dokter' => $dokter,'title' => 'Dokter'] );
@@ -64,9 +64,9 @@ class PelayananController extends Controller
 
     public function perawat(Request $request)
     {   $perawat = $request->perawat;
-        $cari = $request->cari;
+        $nama = $request->nama;
         $perawat = DB::table('tb_pelayanan')->where('kelompok','like','perawat')
-                                            ->where('nama','like',"%".$cari."%")
+                                            ->where('nama','like',"%".$nama."%")
                                             ->paginate(10);
  
         return view('perawat/perawat', ['perawat' => $perawat,'title' => 'perawat'] );

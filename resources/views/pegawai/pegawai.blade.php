@@ -6,7 +6,7 @@
         
         <form action="{{route('pegawai/pegawai')}}" method="get" class="row g-12">
             <div class="col-md-10">
-            <input class="form-control" type="text" name="cari" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
+            <input class="form-control" type="text" name="cari" placeholder="Cari nama pegawai" aria-label="default input example">
             </div>
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>

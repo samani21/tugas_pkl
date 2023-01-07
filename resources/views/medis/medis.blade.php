@@ -4,9 +4,14 @@
 
     <div>
         <form action="{{route('medis/medis')}}" method="get" class="row g-12">
-            <div class="col-md-11">
-                <input class="form-control" type="hidden" name="tgl" value="{{date('d-m-Y')}}" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
-            <input class="form-control" type="text" name="cari"placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
+            <div class="col-md-2">
+                <input class="form-control" type="text" name="tgl" value="{{date('d-m-Y')}}" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" type="text" name="nama"placeholder="Cari nama pasien" aria-label="default input example">
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" type="text" name="no"placeholder="Cari pasien no berobat" aria-label="default input example">
             </div>
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>

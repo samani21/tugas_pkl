@@ -104,7 +104,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('medis/hapus_medis/{id}', [BerobatController::class,'destroy'])->name('hapus_pasien');
         
         Route::get('medis/cetak_rm/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'cetak_rm'])->name('medis/cetak_rm');
-        
+        Route::get('medis/cetak_medis', [MedisController::class, 'cetak_medis'])->name('medis/cetak_medis');
         //obat
         Route::get('obat/obat', [ObatController::class, 'index'])->name('obat/obat');
         Route::get('obat/tambah_obat', [ObatController::class, 'create'])->name('obat/tambah_obat');
@@ -116,12 +116,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('obat/tambah_stok/{id}', [StokobatController::class, 'stok_store'])->name('stok.store');
 
         Route::get('obat/cetak_obat', [ObatController::class, 'cetak_obat'])->name('obat/cetak_obat');
+        Route::get('obat/cetak_obatmasuk', [ObatController::class, 'cetak_obatmasuk'])->name('obat/cetak_obatmasuk');
+        Route::get('obat/cetak_obatkeluar', [ObatController::class, 'cetak_obatkeluar'])->name('obat/cetak_obatkeluar');
 
         //laporan
         Route::get('laporan/pegawai', [PegawaiController::class, 'laporan'])->name('laporan/pegawai');
         Route::get('laporan/pasien', [PasienController::class, 'laporan'])->name('laporan/pasien');
         Route::get('laporan/medis', [BerobatController::class, 'laporan'])->name('laporan/medis');
         Route::get('laporan/obat', [ObatController::class, 'laporan'])->name('laporan/obat');
+        Route::get('laporan/obat_masuk', [ObatController::class, 'laporan_masuk'])->name('laporan/obat_masuk');
+        Route::get('laporan/obat_keluar', [ObatController::class, 'laporan_keluar'])->name('laporan/obat_keluar');
     });
     Route::group(['middleware' => ['cek_login:editor']], function () {
         Route::resource('editor', AdminController::class);

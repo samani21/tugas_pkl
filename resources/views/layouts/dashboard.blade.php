@@ -74,7 +74,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('medis/medis?tgl='.date('d-m-Y').'') }}" class="{{ request()->is('medis/*')?'active' :'' }}">
+                        <a href="{{ url('medis/medis?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('medis/*')?'active' :'' }}">
                             <span class="las la-book-medical"></span>
                             <span>Rekam Medis</span>
                         </a>
@@ -98,6 +99,10 @@
                                 class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>
                             <a href="{{url('laporan/obat')}}"
                                 class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
+                            <a href="{{url('laporan/obat_masuk')}}"
+                                class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
+                            <a href="{{url('laporan/obat_keluar')}}"
+                                class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a>
                         </div>
                     </li>
                 </ul>
@@ -224,7 +229,6 @@
                     });
                 });
             });
-            
         </script>
         <script>
             /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

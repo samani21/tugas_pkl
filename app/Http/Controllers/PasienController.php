@@ -13,8 +13,10 @@ class PasienController extends Controller
 {
 
     public function index(Request $request)
-	{  $cari = $request->cari;
-        $pasien = DB::table('tb_pasien')->where('nama','like',"%".$cari."%",'')->paginate(5);
+	{  $nama = $request->nama;
+        $no = $request->no;
+        $pasien = DB::table('tb_pasien')->where('nama','like',"%".$nama."%")
+        ->where('no','like',"%".$no."%")->paginate(7);
  
         return view('pasien/pasien', ['pasien' => $pasien,'title' => 'Pasien'] );
     }
@@ -101,7 +103,7 @@ class PasienController extends Controller
     public function laporan(Request $request)
 	{   $cari = $request->cari;
         $pasien = DB::table('tb_pasien')->where('nama','like',"%".$cari."%",'')
-		->paginate(5);
+		->paginate(7);
  
         return view('laporan/pasien', ['pasien' => $pasien,'title' => 'Laporan pasien'] );
     }

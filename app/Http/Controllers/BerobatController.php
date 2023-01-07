@@ -11,12 +11,12 @@ class BerobatController extends Controller
 {
     public function index(Request $request)
 	{   $tgl = $request->tgl;
-        $cari = $request->cari;
+        $nama = $request->nama;
         $no = $request->no;
         $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
-                                            ->where('nama','like',"%".$cari."%")
+                                            ->where('nama','like',"%".$nama."%")
                                             ->where('no','like',"%".$no."%")
-                                            ->paginate(5);
+                                            ->paginate(7);
         return view('medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
     }
     
@@ -62,8 +62,12 @@ class BerobatController extends Controller
 
     public function laporan(Request $request)
 	{   $tgl = $request->tgl;
-        $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%",'')
-		->paginate(5);
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+        $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
+        ->where('tahun','like',"%".$tahun."%")
+        ->where('bulan','like',"%".$bulan."%")
+		->paginate(7);
  
         return view('laporan/medis', ['berobat' => $berobat,'title' => 'Laporan Berobat'] );
     }
