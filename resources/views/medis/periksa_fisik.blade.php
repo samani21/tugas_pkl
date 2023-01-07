@@ -20,15 +20,22 @@
                 aria-label="default input example" readonly>
         </div>
         <div>
-            <label for="">Nama dokter</label>
-            <select id="selectpegawai" class="form-select" aria-label="Default select example" name="obat">
-
-            </select>
-        <div>
+            <label for="">Dokter</label>
+            <select class="form-select" name="dokter" aria-label="Default select example">
+                <option selected>--pilih--</option>
+                @foreach($dokter as $dok)
+                <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
+                @endforeach
+              </select>
+        </div>
+        <div>  
             <label for="">Nama perawat</label>
-            <select id="selectperawat" class="form-select" aria-label="Default select example" name="obat">
-
-            </select>
+            <select class="form-select" name="perawat" aria-label="Default select example">
+                <option selected>--pilih--</option>
+                @foreach($perawat as $per)
+                <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
+                @endforeach
+              </select>
         </div>
         <div>
             <label>Poli</label>
@@ -42,6 +49,7 @@
             </select>
         </div>
     </div>
+<br>
     <div class="tab">
         <h3>Pemeriksaan badan</h3>
         <div>

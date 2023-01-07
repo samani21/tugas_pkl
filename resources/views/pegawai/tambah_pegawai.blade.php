@@ -30,7 +30,33 @@
         </div>
         <div>
             <label for="">Kelompok pegawai</label>
-            <input class="form-control" type="text" id="kelompok" name="kelompok" placeholder="TENAGA KEPERAWATAN-Perawat" aria-label="default input example">
+            <select class="form-select" name="kelompok" aria-label="Default select example">
+                <option selected>--pilih--</option>
+                <option value="TENAGA MEDIS">TENAGA MEDIS</option>
+                <option value="TENAGA KEPERAWATAN">TENAGA KEPERAWATAN</option>
+                <option value="TENAGA KETEKNISIAN MEDIS">TENAGA KETEKNISIAN MEDIS</option>
+                <option value="TENAGA GIZI">TENAGA GIZI</option>
+                <option value="TENAGA KESEHATAN MASYARAKAT">TENAGA KESEHATAN MASYARAKAT</option>
+                <option value="TENAGA KEFARMASIAN">TENAGA KEFARMASIAN</option>
+                <option value="NON MEDIS">NON MEDIS</option>
+              </select>
+        </div>
+        <div>
+            <label for="">Spesialis</label>
+            <select class="form-select" name="spesialis" aria-label="Default select example">
+                <option selected>--pilih--</option>
+                <option value="Dokter Umum">Dokter Umum</option>
+                <option value="Dokter Gigi">Dokter Gigi</option>
+                <option value="Bidan">Bidan</option>
+                <option value="Asisten Apoteker">Asisten Apoteker</option>
+                <option value="Perawat">Perawat</option>
+                <option value="Ahli Teknologi laboratorium Medis">Ahli Teknologi laboratorium Medis</option>
+                <option value="Perawat Gigi">Perawat Gigi</option>
+                <option value="Ahli Gizi">Ahli Gizi</option>
+                <option value="Penuluhan Kesehatan">Penuluhan Kesehatan</option>
+                <option value="Apoteker">Apoteker</option>
+                <option value="Staf Non Medis">Staf Non Medis</option>
+              </select>
         </div>
         <hr>
         <div>

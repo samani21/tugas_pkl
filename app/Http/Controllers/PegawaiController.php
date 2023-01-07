@@ -34,6 +34,7 @@ class PegawaiController extends Controller
             'alamat' => $request->alamat,
             'hp' => $request->hp,
             'kelompok' => $request->kelompok,
+            'spesialis' => $request->spesialis,
         ]);
         $pegawai->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
@@ -56,6 +57,7 @@ class PegawaiController extends Controller
             'alamat' => $request['alamat'],
             'hp' => $request['hp'],
             'kelompok' => $request['kelompok'],
+            'spesialis' => $request['spesialis'],
         ];
         $ubah->update($dt);
         alert('Sukses','Simpan Data Berhasil', 'success');
@@ -94,4 +96,5 @@ class PegawaiController extends Controller
 
         return response()->json($data);
     }
+    
 }

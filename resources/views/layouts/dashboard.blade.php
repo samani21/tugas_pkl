@@ -53,6 +53,20 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ url('dokter/dokter?dokter=dokter') }}"
+                            class="{{ request()->is('dokter/dokter*','dokter/*')?'active' :'' }}">
+                            <span class="las la-user-friends"></span>
+                            <span>Dokter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('perawat/perawat') }}"
+                            class="{{ request()->is('perawat/perawat*','perawat/*')?'active' :'' }}">
+                            <span class="las la-user-friends"></span>
+                            <span>Perawat</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ url('pasien/pasien') }}"
                             class="{{ request()->is('pasien/pasien','pasien/*')?'active' :'' }}">
                             <span class="las la-users"></span>

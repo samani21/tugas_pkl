@@ -8,6 +8,7 @@ use App\Models\Medis;
 use App\Models\Obat;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
 
@@ -15,8 +16,10 @@ class MedisController extends Controller
 {
     public function periksa($id)
     {   $berobat = Berobat::find($id);
+        $dokter = DB::table('tb_pelayanan')->where('kelompok','like','dokter','')->paginate(100);
+        $perawat = DB::table('tb_pelayanan')->where('kelompok','like','perawat','')->paginate(100);
         $data['title'] = 'Periksa pasien';
-        return view('medis/periksa_fisik',compact(['berobat']), $data);
+        return view('medis/periksa_fisik',compact(['berobat','dokter','perawat']), $data);
     }
 
     public function obat($id)

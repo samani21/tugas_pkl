@@ -1,62 +1,30 @@
-@extends('layouts.admin')
-
-@section('content')
-
-<form action="{{route('create.store',$berobat->id)}}" method="POST">
-    @csrf
-                <div>
-                    <input type="hidden" id="id_pasien" name="id_pasien" value="{{$berobat->id_pasien}}">
-                    <label for="">No berobat</label>
-                    <input class="form-control" type="text" value="{{$berobat->no}}" aria-label="default input example" readonly>
-                </div>
-                <div>
-                    <label for="">Tanggal berobat</label>
-                    <input class="form-control" type="text" id="tgl" name="tgl" value="@php echo date('d-m-Y') @endphp" aria-label="default input example" readonly>
-                </div>
-                <div>
-                    <label for="">Nama dokter</label>
-                    <input class="form-control" type="text" id="dokter" name="dokter" aria-label="default input example">
-                </div>
-                <div>
-                    <label for="">Nama perawat</label>
-                    <input class="form-control" type="text" id="perawat" name="perawat" aria-label="default input example">
-                </div>
-                <div>
-                    <input class="form-control" type="hidden" id="status" name="status" value="1">
-                </div>
-                <div>
-                    <label for="">Sistolik</label>
-                    <input class="form-control" type="text" id="sistolik" name="sistolik" aria-label="default input example">
-                </div>
-                <div>
-                    <label for="">Diastolik</label>
-                    <input class="form-control" type="text" id="diastolik" name="diastolik" aria-label="default input example">
-                </div>
-                <div>
-                    <label for="">Saturasi</label>
-                    <input class="form-control" type="text" id="saturasi" name="saturasi" aria-label="default input example">
-                </div>
-                <div>
-                    <label for="">Suhu</label>
-                    <input class="form-control" type="text" id="suhu" name="suhu" aria-label="default input example">
-                </div>
-                <div>
-                    <label for="">Tinggi</label>
-                    <input class="form-control" type="text" id="tinggi" name="tinggi" aria-label="default input example">
-                </div>
-                <div>
-                    <label for="">Berat</label>
-                    <input class="form-control" type="text" id="berat" name="berat" aria-label="default input example">
-                </div>
-                <div>
-                    <br>
-                    <input type="submit" class="btn btn-success" name="simpan" value="Simpan">
-                    <a href="#" onclick="goBack()" class="btn btn-warning">Batal</a>
-                        <script>
-                            function goBack() {
-                                window.history.back();
-                            }
-                        </script>
-                </div>
-  </form>
-@endsection
+<div>
+            <label for="">Kelompok pegawai</label>
+            <select class="form-select" name="dokter" aria-label="Default select example">
+                <option selected>--pilih--</option>
+                @foreach($dokter as $dok)
+                <option value="TENAGA MEDIS">{{$dok->nama}}({{$dok->spesialis}})</option>
+                @endforeach
+              </select>
+        </div>
+        </div>  
+            <label for="">Nama perawat</label>
+            <select class="form-select" name="perawat" aria-label="Default select example">
+                <option selected>--pilih--</option>
+                @foreach($perawat as $per)
+                <option value="TENAGA MEDIS">{{$per->nama}}({{$per->spesialis}})</option>
+                @endforeach
+              </select>
+        </div>
+        <div>
+            <label>Poli</label>
+            <select name="poli" class="form-control">
+                <option value="">--Pilih--</option>
+                <option value="Umum">Umum</option>
+                <option value="Anak">Anak</option>
+                <option value="Gigi">Gigi</option>
+                <option value="KB">KB</option>
+                <option value="kandungan">kandungan</option>
+            </select>
+        </div>
+    </div>

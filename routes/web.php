@@ -7,6 +7,7 @@ use App\Http\Controllers\MedisController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\StokobatController;
 use App\Http\Controllers\VerificationController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,8 @@ Route::group(['middleware' => ['auth']], function () {
             return view('admin/dashboard/dashboard', ['title' => 'Dashboard']);
         })->name('admin/dashboard/dashboard');
 
+        
+        
         //Pegawai
         Route::get('pegawai/pegawai', [PegawaiController::class, 'index'])->name('pegawai/pegawai');
         Route::get('pegawai/tambah_pegawai', [PegawaiController::class, 'create'])->name('pegawai/tambah_pegawai');
@@ -49,6 +52,24 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('updatepegawai/{id}',[PegawaiController::class,'updatepegawai'])->name('updatepegawai');
         Route::get('pegawai/hapus_pegawai/{id}', [PegawaiController::class,'destroy'])->name('hapus_pegawai');
         Route::get('pegawai/cetak', [PegawaiController::class, 'cetak_pegawai'])->name('pegawai/cetak');
+
+        //Dokter
+        Route::get('dokter/dokter', [PelayananController::class, 'dokter'])->name('dokter/dokter');
+        Route::get('dokter/tambah_dokter', [PelayananController::class, 'create'])->name('dokter/tambah_dokter');
+        Route::post('dokter/tambah_dokter', [PelayananController::class, 'store_perawat'])->name('dokter.store');
+        Route::get('dokter/edit_dokter/{id}',[PelayananController::class,'editdokter'])->name('dokter/edit_dokter');
+        Route::post('updatedokter/{id}',[PelayananController::class,'updatedokter'])->name('updatedokter');
+        Route::get('dokter/hapus_dokter/{id}', [PelayananController::class,'destroy'])->name('hapus_dokter');
+        Route::get('dokter/cetak', [PelayananController::class, 'cetak_dokter'])->name('dokter/cetak');
+
+        //perawat
+        Route::get('perawat/perawat', [PelayananController::class, 'perawat'])->name('perawat/perawat');
+        Route::get('perawat/tambah_perawat', [PelayananController::class, 'create_perawat'])->name('perawat/tambah_perawat');
+        Route::post('perawat/tambah_perawat', [PelayananController::class, 'store_perawat'])->name('perawat.store');
+        Route::get('perawat/edit_perawat/{id}',[PelayananController::class,'editperawat'])->name('perawat/edit_perawat');
+        Route::post('updateperawat/{id}',[PelayananController::class,'updateperawat'])->name('updateperawat');
+        Route::get('perawat/hapus_perawat/{id}', [PelayananController::class,'destroy'])->name('hapus_perawat');
+        Route::get('perawat/cetak', [PelayananController::class, 'cetak_perawat'])->name('perawat/cetak');
 
         //pasien
         Route::get('pasien/pasien', [PasienController::class, 'index'])->name('pasien/pasien');
@@ -120,3 +141,6 @@ Route::get('selectpegawai/{nama}', [PegawaiController::class, 'nama']);
 
 Route::get('selecperawat', [PegawaiController::class, 'perawat'])->name('perawat.index');
 Route::get('selectpegawai/{nama}', [PegawaiController::class, 'nama']);
+
+Route::get('selecicd', [PegawaiController::class, 'icd'])->name('icd.index');
+Route::get('selecticd/{nama}', [PegawaiController::class, 'nama']);
