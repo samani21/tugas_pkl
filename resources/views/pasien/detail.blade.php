@@ -83,7 +83,7 @@
                         <td data-title="Status"><?php if($pas->status =='1'){
                             echo '<span class="badge bg-warning text-black">Sedang diperiksa</span>';
                          }if($pas->status =='2'){
-                            echo '<span class="badge bg-warning">Selesai diperiksa</span>';
+                            echo '<span class="badge bg-success">Selesai diperiksa</span>';
                          }if($pas->status =='0'){
                              echo '<span class="badge bg-danger">Belum diperiksa</span>';
                           }?></td>

@@ -84,4 +84,14 @@ class PegawaiController extends Controller
         return view('laporan/pegawai', ['pegawai' => $pegawai,'title' => 'Laporan Pegawai'] );
     }
     
+    public function pegawai(){
+        $data = Pegawai::where('nama', 'LIKE', '%'.request('q').'%')->paginate(10);
+
+        return response()->json($data);
+    }
+    public function perawat(){
+        $data = Pegawai::where('nama', 'LIKE', '%'.request('q').'%')->paginate(10);
+
+        return response()->json($data);
+    }
 }

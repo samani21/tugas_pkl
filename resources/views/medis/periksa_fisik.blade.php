@@ -21,13 +21,14 @@
         </div>
         <div>
             <label for="">Nama dokter</label>
-            <input class="form-control" type="text" id="dokter" oninput="this.className = ''" name="dokter"
-                aria-label="default input example" autofocus>
-        </div>
+            <select id="selectpegawai" class="form-select" aria-label="Default select example" name="obat">
+
+            </select>
         <div>
             <label for="">Nama perawat</label>
-            <input class="form-control" type="text" id="perawat" oninput="this.className = ''" name="perawat"
-                aria-label="default input example">
+            <select id="selectperawat" class="form-select" aria-label="Default select example" name="obat">
+
+            </select>
         </div>
         <div>
             <label>Poli</label>

@@ -18,7 +18,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
- 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -72,16 +72,20 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-btn">Laporan 
+                        <a class="dropdown-btn">Laporan
                             <i class="fa fa-caret-down"></i>
-                          </a>
-                          <div class="dropdown-container" style="display: none">
-                            <a href="{{url('laporan/pegawai')}}" class="{{ request()->is('laporan/pegawai')?'active' :'' }}">Pegawai</a>
-                            <a href="{{url('laporan/pasien')}}" class="{{ request()->is('laporan/pasien')?'active' :'' }}">Pasien</a>
-                            <a href="{{url('laporan/medis')}}" class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>
-                            <a href="{{url('laporan/obat')}}" class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
-                          </div>
-                </li>
+                        </a>
+                        <div class="dropdown-container" style="display: none">
+                            <a href="{{url('laporan/pegawai')}}"
+                                class="{{ request()->is('laporan/pegawai')?'active' :'' }}">Pegawai</a>
+                            <a href="{{url('laporan/pasien')}}"
+                                class="{{ request()->is('laporan/pasien')?'active' :'' }}">Pasien</a>
+                            <a href="{{url('laporan/medis')}}"
+                                class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>
+                            <a href="{{url('laporan/obat')}}"
+                                class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -99,11 +103,11 @@
                 </h1>
                 <div>
                     {{ Auth::user()->name }}
-                  
-                        <a  href="{{ route('logout') }}">Logout</a>
-                  
+
+                    <a href="{{ route('logout') }}">Logout</a>
+
                 </div>
-                
+
             </header>
             <main>
                 @yield('content')
@@ -125,7 +129,9 @@
                     placeholder: 'Pilih nama Obat',
                     ajax: {
                         url: "{{route('obat.index')}}",
-                        processResults: function({data }) {
+                        processResults: function ({
+                            data
+                        }) {
                             return {
                                 results: $.map(data, function (item) {
                                     return {
@@ -161,24 +167,63 @@
                     });
                 });
             });
+            $(document).ready(function () {
+
+                $("#selectpegawai").select2({
+                    placeholder: 'Pilih nama dokter',
+                    ajax: {
+                        url: "{{route('pegawai.index')}}",
+                        processResults: function ({
+                            data
+                        }) {
+                            return {
+                                results: $.map(data, function (item) {
+                                    return {
+                                        id: item.nama,
+                                        text: item.nama
+                                    }
+                                })
+                            }
+                        }
+                    }
+                });
+                $("#selectperawat").select2({
+                    placeholder: 'Pilih nama perawat',
+                    ajax: {
+                        url: "{{route('perawat.index')}}",
+                        processResults: function ({
+                            data
+                        }) {
+                            return {
+                                results: $.map(data, function (item) {
+                                    return {
+                                        id: item.nama,
+                                        text: item.nama
+                                    }
+                                })
+                            }
+                        }
+                    }
+                });
+            });
         </script>
         <script>
             /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
             var dropdown = document.getElementsByClassName("dropdown-btn");
             var i;
-            
+
             for (i = 0; i < dropdown.length; i++) {
-              dropdown[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var dropdownContent = this.nextElementSibling;
-                if (dropdownContent.style.display === "block") {
-                  dropdownContent.style.display = "none";
-                } else {
-                  dropdownContent.style.display = "block";
-                }
-              });
+                dropdown[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
             }
-            </script>
+        </script>
 </body>
 
 </html>

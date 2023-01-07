@@ -1,25 +1,36 @@
-
-        <table class="table table-striped table-hover">
-            <thead>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">LAPORAN DATA OBAT</h1>
+    <hr>
+    <table align="center" style="border-collapse:collapse;border-spacing:1;" border="1">
+        <thead>
             <tr align="center">
-                <th scope="col">No</th>
-                <th scope="col">Kode obat</th>
-                <th scope="col">Nama obat</th>
-                <th scope="col">stok</th>
+                <th width="40">No</th>
+                <th width="100">Kode obat</th>
+                <th width="200">Nama obat</th>
+                <th width="100">stok</th>
             </tr>
-            </thead>
             <tbody>
                 @php 
                 $no=1;
             @endphp
             @foreach($obat as $o)
-                <tr align="center">
-                    <td data-title="No">{{ $no++ }}</td>
-                    <td data-title="Nip">{{$o->kode}}</td>
-                    <td data-title="nama">{{$o->nm_obat}}</td>
-                    <td data-title="Tanggal lahir">{{$o->stok}}</td>
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{$o->kode}}</td>
+                    <td>{{$o->nm_obat}}</td>
+                    <td>{{$o->stok}}</td>
                 </tr>
             @endforeach
         </tbody>
-        </table>
-    </div>
+        </thead>
+    </table>
+</body>
+</html>

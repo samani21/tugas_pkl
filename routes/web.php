@@ -114,3 +114,9 @@ Route::get('verifikasi', [AuthController::class, 'verifikasi'])->name('verifikas
 
 Route::get('selectobat', [ObatController::class, 'obat'])->name('obat.index');
 Route::get('selectobat/{nm_obat}', [ObatController::class, 'nama']);
+
+Route::get('selecpegawai', [PegawaiController::class, 'pegawai'])->name('pegawai.index');
+Route::get('selectpegawai/{nama}', [PegawaiController::class, 'nama']);
+
+Route::get('selecperawat', [PegawaiController::class, 'perawat'])->name('perawat.index');
+Route::get('selectpegawai/{nama}', [PegawaiController::class, 'nama']);
