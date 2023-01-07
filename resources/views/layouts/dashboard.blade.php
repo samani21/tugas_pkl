@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('medis/medis') }}" class="{{ request()->is('medis/*')?'active' :'' }}">
+                        <a href="{{ url('medis/medis?tgl='.date('d-m-Y').'') }}" class="{{ request()->is('medis/*')?'active' :'' }}">
                             <span class="las la-book-medical"></span>
                             <span>Rekam Medis</span>
                         </a>
@@ -80,7 +80,7 @@
                                 class="{{ request()->is('laporan/pegawai')?'active' :'' }}">Pegawai</a>
                             <a href="{{url('laporan/pasien')}}"
                                 class="{{ request()->is('laporan/pasien')?'active' :'' }}">Pasien</a>
-                            <a href="{{url('laporan/medis')}}"
+                            <a href="{{url('laporan/medis?tgl='.date('d-m-Y').'')}}"
                                 class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>
                             <a href="{{url('laporan/obat')}}"
                                 class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>

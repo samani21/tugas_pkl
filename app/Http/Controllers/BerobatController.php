@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\DB;
 class BerobatController extends Controller
 {
     public function index(Request $request)
-	{   $cari = $request->cari;  
-        $berobat = DB::table('tb_berobat')->where('nama','like',"%".$cari."%",'')->paginate(5);
- 
+	{   $tgl = $request->tgl;
+        $cari = $request->cari;
+        $no = $request->no;
+        $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
+                                            ->where('nama','like',"%".$cari."%")
+                                            ->where('no','like',"%".$no."%")
+                                            ->paginate(5);
         return view('medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
     }
     
@@ -55,8 +59,8 @@ class BerobatController extends Controller
     }
 
     public function laporan(Request $request)
-	{   $cari = $request->cari;
-        $berobat = DB::table('tb_berobat')->where('nama','like',"%".$cari."%",'')
+	{   $tgl = $request->tgl;
+        $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%",'')
 		->paginate(5);
  
         return view('laporan/medis', ['berobat' => $berobat,'title' => 'Laporan Berobat'] );
