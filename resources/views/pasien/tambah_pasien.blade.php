@@ -38,8 +38,22 @@
                 <label for="">Tanggal lahir</label>
                 <input class="form-control" type="date" id="tanggal" name="tanggal"  aria-label="default input example" required>
             </div>
+            <div>
+                <label>Jenis berobat</label>
+                <select name="jk" class="form-control" >
+                    <option value="pilih">--Pilih--</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
         </div>
         <div class="col-6">
+            <div>
+                <label for="">Tanggal</label>
+                <input class="form-control" type="text" id="tgl" name="tgl" value="{{date('d-m-Y')}}" placeholder="Masukkan NIP" aria-label="default input example" readonly>
+                <input class="form-control" type="hidden" id="bulan" name="bulan" value="{{date('m')}}" placeholder="Masukkan NIP" aria-label="default input example">
+                <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
+            </div>
             <div>
                 <label for="">Tempat lahir</label>
                 <input class="form-control" type="text" id="tempat" name="tempat" placeholder="Tempat lahir" aria-label="default input example" required>

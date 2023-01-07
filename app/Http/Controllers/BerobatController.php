@@ -45,6 +45,8 @@ class BerobatController extends Controller
             'darah' => $request->darah,
             'hp' => $request->hp,
             'status' => $request->status,
+            'bulan' => $request->bulan,
+            'tahun' => $request->tahun,
         ]);
         $berobat->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');

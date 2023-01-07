@@ -35,10 +35,14 @@ class PasienController extends Controller
             'bpjs' => $request->bpjs,
             'nama' => $request->nama,
             'tanggal' => $request->tanggal,
+            'jk' => $request->jk,
             'tempat' => $request->tempat,
             'alamat' => $request->alamat,
             'darah' => $request->darah,
             'hp' => $request->hp,
+            'tgl' => $request->tgl,
+            'bulan' => $request->bulan,
+            'tahun' => $request->tahun,
         ]);
         $pasien->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
@@ -66,10 +70,14 @@ class PasienController extends Controller
             'bpjs' => $request['bpjs'],
             'nama' => $request['nama'],
             'tanggal' => $request['tanggal'],
+            'jk' => $request['jk'],
             'tempat' => $request['tempat'],
             'alamat' => $request['alamat'],
             'darah' => $request['darah'],
             'hp' => $request['hp'],
+            'tgl' => $request['tgl'],
+            'bulan' => $request['bulan'],
+            'tahun' => $request['tahun'],
         ];
         $ubah->update($dt);
         alert('Sukses','Simpan Data Berhasil', 'success');

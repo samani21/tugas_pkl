@@ -70,18 +70,18 @@
                     </tr>
                     <tr>
                         <td>
-                            <h5><b>Tanggal lahir</b></h5>
+                            <h5><b>Tempat tanggal lahir</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->tanggal}}</h5>
+                            <h5>{{$pasien->tempat}}, {{$pasien->tanggal}}</h5>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <h5><b>Tempat lahir</b></h5>
+                            <h5><b>Jenis kelamin</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->tempat}}</h5>
+                            <h5>{{$pasien->jk}}</h5>
                         </td>
                     </tr>
                     <tr>

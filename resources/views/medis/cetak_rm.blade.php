@@ -40,6 +40,7 @@
                 <p><b>No BPJS :</b> {{$pasien->bpjs}}</p>
                 <p><b>Nama :</b> {{$pasien->nama}}</p>
                 <p><b>Tempat tanggal ahir :</b> {{$pasien->tempat}},{{$pasien->tanggal}}</p>
+                <p><b>Jenis Kelamin :</b> {{$pasien->jk}}</p>
                 <p><b>Alamat :</b> {{$pasien->alamat}}</p>
                 <p><b>Golongan darah :</b> {{$pasien->darah}}</p>
                 <p><b>No hp :</b> {{$pasien->hp}}</p>
@@ -71,15 +72,15 @@
                 <p><b>Perawat :</b> {{$berobat->medis->perawat}}</p>
                 <p><b>Sistolik :</b> {{$berobat->medis->sistolik}}</p>
                 <p><b>Diastolik :</b> {{$berobat->medis->diastolik}}</p>
-                <p><b>Tinggi badan :</b>{{$berobat->medis->diastolik}}</p>
-                <p><b>Berat badan :</b> {{$berobat->medis->diastolik}}</p>
-                <p><b>Suhu :</b> {{$berobat->medis->diastolik}}</p>
+                <p><b>Tinggi badan :</b>{{$berobat->medis->diastolik}} Cm</p>
+                <p><b>Berat badan :</b> {{$berobat->medis->diastolik}} Kg</p>
+                <p><b>Suhu :</b> {{$berobat->medis->suhu}} °C</p>
                 <p><b>Saturasi :</b> {{$berobat->medis->saturasi}}</p>
                 <p><b>Napas :</b> {{$berobat->medis->napas}}</p>
-                <p><b>Suhu :</b> {{$berobat->medis->diastolik}}</p>
+                <p><b>Keluhan :</b> {{$berobat->medis->keluhan}}</p>
                 <p><b>Diagnosa :</b>
                     @foreach($berobat->diagnosa as $d)
-                    {{ $d->diagnosa }} ,
+                    ({{ $d->kode }}).{{ $d->diagnosa }} ,
                     @endforeach
                 </p>
             </td>

@@ -58,6 +58,8 @@
             <div>
                 <label for="">Tanggal berobat</label>
                 <input class="form-control" type="text" id="tgl" name="tgl" value="@php echo date('d-m-Y') @endphp" aria-label="default input example" readonly>
+                <input class="form-control" type="hidden" id="bulan" name="bulan" value="{{date('m')}}" placeholder="Masukkan NIP" aria-label="default input example">
+                <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
             </div>
             <div>
                 <label for="">Tempat lahir</label>

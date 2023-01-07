@@ -10,13 +10,13 @@
     <div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <select id="selecticd" class="form-select" aria-label="Default select example" name="diagnosa">
+            <select id="selecticd" class="form-select" aria-label="Default select example" name="diagnosa" required>
 
             </select>
         </div>
         <div>
             <label for="">Kode Diagnosa</label>
-            <select id="selectid" class="form-select" aria-label="Default select example" name="kode">
+            <select id="selectid" class="form-select" aria-label="Default select example" name="kode" required>
 
             </select>
         </div>

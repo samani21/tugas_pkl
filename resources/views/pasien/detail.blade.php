@@ -8,7 +8,6 @@
                 window.history.back();
             }
         </script>
-    <a href="#" class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak rekam medis</a>
     <hr>
     <div class="row g-2">
         <div class="col-6">
@@ -35,12 +34,12 @@
                         <td><h5>{{$pasien->nama}}</h5></td>
                     </tr>
                     <tr>
-                        <td><h5><b>Tanggal lahir</b></h5></td>
-                        <td><h5>{{$pasien->tanggal}}</h5></td>
+                        <td><h5><b>Tempat tanggal lahir</b></h5></td>
+                        <td><h5>{{$pasien->tempat}} ,{{$pasien->tanggal}}</h5></td>
                     </tr>
                     <tr>
-                        <td><h5><b>Tempat lahir</b></h5></td>
-                        <td><h5>{{$pasien->tempat}}</h5></td>
+                        <td><h5><b>Jenis Kelamin</b></h5></td>
+                        <td><h5>{{$pasien->jk}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>Alamat</b></h5></td>
