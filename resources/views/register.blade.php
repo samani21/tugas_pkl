@@ -97,9 +97,8 @@
                                             <label>Level</label>
                                             <select name="level" class="form-control">
                                                 <option value="--pilih">--pilih--</option>
-                                                <option value="operator">Operator</option>
                                                 <option value="admin">Admin</option>
-                                                <option value="ruang_medis">R.Medis</option>
+                                                <option value="rekam_medis">Rekam medis</option>
                                                 <option value="apotek">Apotek</option>
                                             </select>
                                         </div>

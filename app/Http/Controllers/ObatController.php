@@ -70,9 +70,9 @@ class ObatController extends Controller
         return response()->json($data);
     }
 
-    public function cetak_obat()
-	{
-        $obat = DB::table('tb_obat')->get();
+    public function cetak_obat(Request $request)
+	{   $cari = $request->cari;
+        $obat = DB::table('tb_obat')->where('nm_obat','like',"%".$cari."%",'')->get();
         $pdf = PDF::loadView('obat/cetak_obat',compact('obat'));
         $pdf->setPaper('A4','potrait');
         return $pdf->stream('cetak_obat.pdf');;

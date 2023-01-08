@@ -36,7 +36,7 @@
                 <th width="100">Kode obat</th>
                 <th width="100">Nama obat</th>
                 <th width="100">stok</th>
-                <th width="100">Tanggal masuk</th>
+                <th width="100">Tanggal keluar</th>
             </tr>
             </thead>
             <tbody>

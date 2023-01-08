@@ -32,11 +32,11 @@
     <table align="center" style="border-collapse:collapse;border-spacing:1;" border="1">
         <thead>
             <tr align="center">
-                <th>No</th>
-                <th>Kode obat</th>
-                <th>Nama obat</th>
-                <th>stok</th>
-                <th>Tanggal masuk</th>
+                <th width="40">No</th>
+                <th width="100">Kode obat</th>
+                <th width="100">Nama obat</th>
+                <th width="100">stok</th>
+                <th width="100">Tanggal masuk</th>
             </tr>
             </thead>
             <tbody>

@@ -90,9 +90,9 @@
                         <?php if($pas->status =='2'){
                             echo '<a href="rekam_medis/pasien='.$pas->id.'&rekammedis='.$pas->pasien_id.'" class="btn btn-success"><i class="fa-solid fa-laptop-medical"></i>Lihat</a>';
                          }if($pas->status =='1'){
-                            echo '<a href="rekam_medis/pasien='.$pas->id.'&rekammedis='.$pas->pasien_id.'" class="btn btn-warning"><i class="fa-solid fa-laptop-medical"></i>Lihat</a>';
+                            echo '';
                          }if($pas->status =='0'){
-                             echo '<a href="rekam_medis/pasien='.$pas->id.'&rekammedis='.$pas->pasien_id.'" class="btn btn-success" style="pointer-events: none"><i class="fa-solid fa-laptop-medical"></i>Lihat</a>';
+                             echo '';
                           }?>
                        </td>
                     </tr>

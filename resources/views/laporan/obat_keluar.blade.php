@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-2">
                     <select name="bulan" class="form-control" >
-                        <option value="">--Pilih--</option>
+                        <option value="">--Pilih Bulan--</option>
                         <option value="1">Januari</option>
                         <option value="2">Pebruari</option>
                         <option value="3">Maret</option>
@@ -29,11 +29,6 @@
                 </div>
                 <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-                <button type="submit" class="btn btn-danger mb-3">Reset</button>
-                </div>
-                <div class="col-auto">
-                    {{-- <a href="{{url('pegawai/tambah_pegawai')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah</a> --}}
-                    <a href="{{url('obat/cetak_obatkeluar')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a>
                 </div>
         </form>
     </div>

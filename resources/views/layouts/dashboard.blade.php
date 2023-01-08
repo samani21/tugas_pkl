@@ -38,9 +38,10 @@
             </div>
             <div class="sidebar-menu">
                 <ul>
+                    @if(Auth::user()->level =='admin')
                     <li>
-                        <a href="{{ url('dashboard/dashboard') }}"
-                            class="{{ request()->is('dashboard/dashboard/*')?'active' :'' }}">
+                        <a href="{{ url('dashboard/dashboard?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('dashboard/dashboard?tgl='.date('d-m-Y').'','apotek','admin','rekam')?'active' :'' }}">
                             <span class="las la-tachometer-alt"></span>
                             <span>dashboard</span>
                         </a>
@@ -105,6 +106,76 @@
                                 class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a>
                         </div>
                     </li>
+                    @endif
+                    @if(Auth::user()->level =='rekam_medis')
+                    <li>
+                        <a href="{{ url('dashboard/dashboard?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('dashboard/dashboard?tgl='.date('d-m-Y').'','apotek','admin','rekam')?'active' :'' }}">
+                            <span class="las la-tachometer-alt"></span>
+                            <span>dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('dokter/dokter?dokter=dokter') }}"
+                            class="{{ request()->is('dokter/dokter*','dokter/*')?'active' :'' }}">
+                            <span class="fa-solid fa-user-doctor"></span>
+                            <span>Dokter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('perawat/perawat') }}"
+                            class="{{ request()->is('perawat/perawat*','perawat/*')?'active' :'' }}">
+                            <span class="fa-solid fa-user-nurse"></span>
+                            <span>Perawat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('medis/medis?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('medis/*')?'active' :'' }}">
+                            <span class="las la-book-medical"></span>
+                            <span>Rekam Medis</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-btn">Laporan
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        <div class="dropdown-container" style="display: none">
+                            <a href="{{url('laporan/pasien')}}"
+                                class="{{ request()->is('laporan/pasien')?'active' :'' }}">Pasien</a>
+                            <a href="{{url('laporan/medis?tgl='.date('d-m-Y').'')}}"
+                                class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>
+                        </div>
+                    </li>
+                    @endif
+                    @if(Auth::user()->level =='apotek')
+                    <li>
+                        <a href="{{ url('dashboard/dashboard?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('dashboard/dashboard?tgl='.date('d-m-Y').'','apotek','admin','rekam')?'active' :'' }}">
+                            <span class="las la-tachometer-alt"></span>
+                            <span>dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('obat/obat')}}" class="{{ request()->is('obat/*')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            <span>Obat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-btn">Laporan
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        <div class="dropdown-container" style="display: none">
+                            <a href="{{url('laporan/obat')}}"
+                                class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
+                            <a href="{{url('laporan/obat_masuk')}}"
+                                class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
+                            <a href="{{url('laporan/obat_keluar')}}"
+                                class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a>
+                        </div>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>

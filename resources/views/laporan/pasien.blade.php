@@ -3,16 +3,23 @@
 @section('content')
 
     <div>
-        <form action="{{route('laporan/pegawai')}}" method="get" class="row g-12">
+        <form action="{{route('laporan/pasien')}}" method="get" class="row g-12">
             <div class="col-md-10">
-            <input class="form-control" type="text" name="cari" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
+            <input class="form-control" type="text" name="cari" placeholder="Cetak laporan berdasarkan nama" aria-label="default input example">
+            </div>
+            <div class="col-auto">
+                <a href="{{url('pasien/cetak_pasien')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div>
+        <form action="{{route('laporan/pasien')}}" method="get" class="row g-12">
+            <div class="col-md-10">
+            <input class="form-control" type="text" name="cari" placeholder="Cari berdasarkan nama" aria-label="default input example">
             </div>
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="col-auto">
-                {{-- <a href="{{url('pegawai/tambah_pegawai')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah</a> --}}
-                <a href="{{url('pasien/cetak_pasien')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a>
             </div>
         </form>
     </div>

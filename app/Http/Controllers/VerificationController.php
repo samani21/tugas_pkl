@@ -15,4 +15,13 @@ class VerificationController extends Controller
         $request->user()->sendEmailVerificationNotification();
         return "verifikasi email berhasil dikirim";
     }
+
+    public function rekam(EmailVerificationRequest $request){
+        $request->fulfill();
+        return view('rekam/dashboard/dashboard');
+    }
+    public function apotek(EmailVerificationRequest $request){
+        $request->fulfill();
+        return redirect()->route('verifikasi')->with('success', 'Registration success. Silahkan verifikasi email anda');
+    }
 }
