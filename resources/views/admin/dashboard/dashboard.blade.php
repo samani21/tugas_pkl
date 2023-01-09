@@ -57,7 +57,7 @@
             <div class="card bg-c-green order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Total Nama Obat</h6>
-                    <h2 class="text-right"><i class="fa-solid fa-user-doctor"></i><span>{{$obat->count()}}</span></h2>
+                    <h2 class="text-right"><i class="las la-capsules"></i><span>{{$obat->count()}}</span></h2>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="card bg-c-yellow order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Jumlah Obat Masuk Perhari</h6>
-                    <h2 class="text-right"><i class="fa-solid fa-user-nurse"></i><span>{{$obatmasuk->count()}}</span></h2>
+                    <h2 class="text-right"><i class="las la-capsules"></i><span>{{$obatmasuk->count()}}</span></h2>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="card bg-c-pink order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Jumlah Obat Keluar Perhari</h6>
-                    <h2 class="text-right"><i class="las la-users"></i><span>{{$obatkeluar->count()}}</span></h2>
+                    <h2 class="text-right"><i class="las la-capsules"></i><span>{{$obatkeluar->count()}}</span></h2>
                 </div>
             </div>
         </div>

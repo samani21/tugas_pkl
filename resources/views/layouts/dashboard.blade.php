@@ -82,9 +82,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('obat/obat')}}" class="{{ request()->is('obat/*')?'active' :'' }}">
+                        <a href="{{url('obat/obat')}}" class="{{ request()->is('obat/obat')?'active' :'' }}">
                             <span class="las la-capsules"></span>
                             <span>Obat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('obat/masuk?tgl='.date('d-m-Y').'') }}" class="{{ request()->is('obat/masuk')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            <span>Obat Masuk</span>
                         </a>
                     </li>
                     <li>
@@ -100,9 +106,9 @@
                                 class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>
                             <a href="{{url('laporan/obat')}}"
                                 class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
-                            <a href="{{url('laporan/obat_masuk')}}"
+                            <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}"
                                 class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
-                            <a href="{{url('laporan/obat_keluar')}}"
+                            <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}"
                                 class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a>
                         </div>
                     </li>
@@ -163,16 +169,22 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{url('obat/masuk?tgl='.date('d-m-Y').'') }}" class="{{ request()->is('obat/masuk')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            <span>Obat Masuk</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-btn">Laporan
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <div class="dropdown-container" style="display: none">
                             <a href="{{url('laporan/obat')}}"
                                 class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
-                            <a href="{{url('laporan/obat_masuk')}}"
-                                class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
-                            <a href="{{url('laporan/obat_keluar')}}"
-                                class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a>
+                                <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}"
+                                    class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
+                                <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}"
+                                    class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a> 
                         </div>
                     </li>
                     @endif

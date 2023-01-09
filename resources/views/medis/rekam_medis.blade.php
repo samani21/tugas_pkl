@@ -215,7 +215,11 @@
                             <h5><b>Diagnosa</b></h5>
                         </td>
                         <td> @foreach($berobat->diagnosa as $d)
-                            <h5>({{ $d->kode }}).{{ $d->diagnosa }} ,</h5>
+                            <h5>({{ $d->kode }}).{{ $d->diagnosa }},  <?php if($berobat->status =='1'){
+                                echo '<a href="hapus_diagnosa/'.$d->id.'"  class="">Hapus</a>';
+                             }if($berobat->status =='2'){
+                                 echo '';
+                              }?> ,</h5>
                             @endforeach
                         </td>
                     </tr>
@@ -245,12 +249,22 @@
             <th>Nama Obat</th>
             <th>Jumlah</th>
             <th>Dosis</th>
+            <?php if($berobat->status =='1'){
+                echo '<th>Aksi</th>';
+             }if($berobat->status =='2'){
+                 echo '';
+              }?>
         </thead>
         @foreach($berobat->resep as $a)
         <tr>
             <td>{{ $a->obat }}</td>
             <td>{{ $a->jumlah }}</td>
             <td>{{ $a->dosis }}</td>
+            <?php if($berobat->status =='1'){
+                echo '<td><a href="hapus_resep/'.$a->id.'" class="">Hapus</a></td>';
+             }if($berobat->status =='2'){
+                 echo '';
+              }?>
         </tr>
 
 

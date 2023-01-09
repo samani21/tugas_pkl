@@ -83,6 +83,20 @@ class MedisController extends Controller
         return redirect('medis/medis');
     }
 
+    public function hapus_resep($id){
+        $resep = Obat::find($id);
+        $resep->delete();
+        toast('Yeay Berhasil menghapus data','success');
+        return Redirect::back();
+    }
+
+    public function hapus_diagnosa($id){
+        $diagnosa = Diagnosa::find($id);
+        $diagnosa->delete();
+        toast('Yeay Berhasil menghapus data','success');
+        return Redirect::back();
+    }
+
     public function obat_store(Request $request , $id){
 
         $obat = new Obat([

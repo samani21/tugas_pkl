@@ -23,12 +23,7 @@
     </div>
   <br>
   <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
-  <a href="#" onclick="goBack()" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+  <a href="#" onClick="history.go(-2);" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
 </div>
   </form>
 @endsection

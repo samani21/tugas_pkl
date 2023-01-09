@@ -15,6 +15,16 @@ class ObatController extends Controller
  
         return view('obat/obat', ['obat' => $obat,'title' => 'Obat'] );
     }
+
+    public function obat_masuk(Request $request)
+	{   $cari = $request->cari;
+        $tgl = $request->tgl;
+        $obat = DB::table('tb_obatmasuk')->where('nama_obat','like',"%".$cari."%")->where('tgl','like',"%".$tgl."%")
+        ->paginate(7);
+ 
+        return view('obat/masuk', ['obat' => $obat,'title' => 'Obat Masuk'] );
+    }
+
     public function create()
     {
         $data['title'] = 'Tambah Obat';

@@ -123,16 +123,17 @@ Route::post('medis/periksa_fisik/{id}',[MedisController::class,'store'])->name('
 //pemberian resep
 Route::get('medis/periksa_obat/{id}',[MedisController::class,'obat'])->name('medis/periksa_obat');
 Route::post('medis/periksa_obat/{id}',[MedisController::class,'obat_store'])->name('resep.store');
-
 Route::post('selesai/{id}',[MedisController::class,'selesai'])->name('selesai');
+Route::post('medis/hapus_resep/{id}',[MedisController::class,'hapus_resep'])->name('hapus_resep');
 //Diagnosa
 Route::get('medis/periksa_diagnosa/{id}',[MedisController::class,'diagnosa'])->name('medis/diagnosa');
 Route::post('medis/periksa_diagnosa/{id}',[MedisController::class,'diagnosa_store'])->name('diagnosa.store');
+Route::get('medis/rekam_medis/hapus_diagnosa/{id}', [MedisController::class,'hapus_diagnosa'])->name('hapus_diagnosa');
 
 Route::get('medis/rekam_medis/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'rekam'])->name('medis/rekam_medis');
 Route::get('medis/hapus_berobat/{id}', [MedisController::class,'destroy'])->name('hapus_berobat');
 Route::get('pasien/detail/rekam_medis/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'rekam'])->name('medis/rekam_medis');
-Route::get('medis/hapus_medis/{id}', [BerobatController::class,'destroy'])->name('hapus_pasien');
+Route::get('medis/rekam_medis/hapus_resep/{id}', [MedisController::class,'hapus_resep'])->name('hapus_resep');
         
 Route::get('medis/cetak_rm/pasien={id}&rekammedis={pasien_id}',[MedisController::class,'cetak_rm'])->name('medis/cetak_rm');
 Route::get('medis/cetak_medis', [MedisController::class, 'cetak_medis'])->name('medis/cetak_medis');
@@ -145,7 +146,11 @@ Route::post('updateobat/{id}',[ObatController::class,'updateobat'])->name('updat
 Route::get('obat/hapus_obat/{id}', [ObatController::class,'destroy'])->name('hapus_obat');
 Route::get('obat/tambah_stok/{id}', [StokobatController::class, 'create'])->name('obat/tambah_stok');
 Route::post('obat/tambah_stok/{id}', [StokobatController::class, 'stok_store'])->name('stok.store');
-
+Route::get('obat/edit_stok/{id}',[StokobatController::class,'editstok'])->name('obat/edit_stok');
+Route::get('obat/hapus_masuk/{id}', [StokobatController::class,'destroy'])->name('hapus_masuk');
+Route::post('updatestok/{id}', [StokobatController::class, 'updatestok'])->name('updatestok');
+Route::post('obat/edit_stok/{id}', [StokobatController::class, 'stok_edit'])->name('edit.store');
+Route::get('obat/masuk', [ObatController::class, 'obat_masuk'])->name('obat/obat_masuk');
 Route::get('obat/cetak_obat', [ObatController::class, 'cetak_obat'])->name('obat/cetak_obat');
 Route::get('obat/cetak_obatmasuk', [ObatController::class, 'cetak_obatmasuk'])->name('obat/cetak_obatmasuk');
 Route::get('obat/cetak_obatkeluar', [ObatController::class, 'cetak_obatkeluar'])->name('obat/cetak_obatkeluar');
