@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('tb_diagnosa', function (Blueprint $table) {
             $table->id();
-            $table->string('id_diagnosa');
+            $table->string('berobat_id');
             $table->string('diagnosa');
+            $table->string('kode');
             $table->timestamps();
         });
     }

@@ -3,22 +3,78 @@
 @section('content')
 
     <div>
-        <form action="{{route('laporan/pasien')}}" method="get" class="row g-12">
-            <div class="col-md-10">
-            <input class="form-control" type="text" name="cari" placeholder="Cetak laporan berdasarkan nama" aria-label="default input example">
+        <form action="{{route('pasien/cetak_pasien')}}" method="get" class="row g-12">
+            <div class="col-md-2">
+                <label for="">Cari data</label>
+            <input class="form-control" type="number" name="tahun" value="{{date('Y')}}" aria-label="default input example">
+            </div>
+            <div class="col-md-2">
+                <label for=""></label>
+                <input type="text" name="tgl" class="form-control"  value="{{date('d-m-Y')}}" id="">
+            </div>
+            <div class="col-md-2">
+                <label for=""></label>
+                <select name="bulan" class="form-control" >
+                    <option value="">--Pilih--</option>
+                    <option value="01">Januari</option>
+                    <option value="02">Pebruari</option>
+                    <option value="03">Maret</option>
+                    <option value="04">April</option>
+                    <option value="05">Mei</option>
+                    <option value="06">Juni</option>
+                    <option value="07">Juli</option>
+                    <option value="08">Agustus</option>
+                    <option value="09">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                </select>
             </div>
             <div class="col-auto">
-                <a href="{{url('pasien/cetak_pasien')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a>
+                <br>
+                <input class="form-control" type="text" name="cari" placeholder="Cari berdasarkan nama" aria-label="default input example">
+            </div>
+            <div class="col-auto">
+                <br>
+            <button type="submit" class="btn btn-success mb-3"><i class="fa-solid fa-print"></i> Cetak</button>
             </div>
         </form>
     </div>
     <br>
     <div>
         <form action="{{route('laporan/pasien')}}" method="get" class="row g-12">
-            <div class="col-md-10">
-            <input class="form-control" type="text" name="cari" placeholder="Cari berdasarkan nama" aria-label="default input example">
+            <div class="col-md-2">
+                <label for="">Cari data</label>
+            <input class="form-control" type="number" name="tahun" value="{{date('Y')}}" aria-label="default input example">
+            </div>
+            <div class="col-md-2">
+                <label for=""></label>
+                <input type="text" name="tgl" class="form-control"  value="{{date('d-m-Y')}}" id="">
+            </div>
+            <div class="col-md-2">
+                <label for=""></label>
+                <select name="bulan" class="form-control" >
+                    <option value="">--Pilih--</option>
+                    <option value="1">Januari</option>
+                    <option value="2">Pebruari</option>
+                    <option value="3">Maret</option>
+                    <option value="04">April</option>
+                    <option value="5">Mei</option>
+                    <option value="6">Juni</option>
+                    <option value="7">Juli</option>
+                    <option value="8">Agustus</option>
+                    <option value="9">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                </select>
             </div>
             <div class="col-auto">
+                <br>
+                <input class="form-control" type="text" name="cari" placeholder="Cari berdasarkan nama" aria-label="default input example">
+            </div>
+            <div class="col-auto">
+                <br>
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
@@ -37,7 +93,6 @@
                 <th scope="col">Alamat</th>
                 <th scope="col">Gol darah</th>
                 <th scope="col">No hp</th>
-                <th scope="col">Aksi</th>
             </tr>
             </thead>
             <tbody>
@@ -56,12 +111,6 @@
                     <td data-title="Alamat">{{$pas->alamat}}</td>
                     <td data-title="Gol darah">{{$pas->darah}}</td>
                     <td data-title="No Hp">{{$pas->hp}}</td>
-                    <td data-title="Aksi">
-                        <a href="detail/id={{$pas->id}}&pasien_id={{$pas->id}}" class="btn btn-success"><i class="fa-solid fa-book-medical"></i></i></a>
-                        <a href="edit_pasien/{{$pas->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="daftar/{{$pas->id}}" class="btn btn-primary"><i class="fa-solid fa-syringe"></i></i></a>
-                        <a href="hapus_pasien/{{$pas->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                    </td>
                 </tr>
             @endforeach
         </tbody>

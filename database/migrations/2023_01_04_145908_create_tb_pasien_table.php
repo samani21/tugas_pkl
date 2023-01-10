@@ -21,10 +21,14 @@ return new class extends Migration
             $table->string('bpjs');
             $table->string('nama');
             $table->string('tanggal');
+            $table->string('jk');
             $table->string('tempat');
             $table->string('alamat');
             $table->string('darah');
             $table->string('hp');
+            $table->string('tgl');
+            $table->string('bulan');
+            $table->string('tahun');
             $table->timestamps();
         });
     }

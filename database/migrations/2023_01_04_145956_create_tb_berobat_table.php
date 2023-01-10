@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('darah');
             $table->string('hp');
+            $table->string('bulan');
+            $table->string('tahun');
             $table->string('status');
             $table->timestamps();
         });

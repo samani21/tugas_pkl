@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('tb_obat', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
             $table->string('nm_obat');
             $table->string('stok');
             $table->timestamps();

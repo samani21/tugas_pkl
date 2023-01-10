@@ -28,7 +28,7 @@
                 </select>
                 <span id="bpjs" style="display:none;">
                     <label>No BPJS</label>
-                    <input type="text" name="bpjs" value="-" class="form-control">
+                    <input type="text" name="bpjs" value="{{$pasien->bpjs}}" class="form-control">
                 </span>
             </div>
             <div>
@@ -42,7 +42,7 @@
                     aria-label="default input example">
             </div>
             <div>
-                <label>Jenis berobat</label>
+                <label>Jenis kelamin</label>
                 <select name="jk" class="form-control" >
                     <option value="{{$pasien->jk}}">{{$pasien->jk}}</option>
                     <option value="Laki-laki">Laki-laki</option>

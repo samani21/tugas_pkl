@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('perawat/perawat') }}"
+                        <a href="{{ url('perawat/perawat?perawat=perawat') }}"
                             class="{{ request()->is('perawat/perawat*','perawat/*')?'active' :'' }}">
                             <span class="fa-solid fa-user-nurse"></span>
                             <span>Perawat</span>
@@ -100,7 +100,7 @@
                         <div class="dropdown-container" style="display: none">
                             <a href="{{url('laporan/pegawai')}}"
                                 class="{{ request()->is('laporan/pegawai')?'active' :'' }}">Pegawai</a>
-                            <a href="{{url('laporan/pasien')}}"
+                            <a href="{{url('laporan/pasien?tgl='.date('d-m-Y').'')}}"
                                 class="{{ request()->is('laporan/pasien')?'active' :'' }}">Pasien</a>
                             <a href="{{url('laporan/medis?tgl='.date('d-m-Y').'')}}"
                                 class="{{ request()->is('laporan/medis')?'active' :'' }}">Berobat</a>

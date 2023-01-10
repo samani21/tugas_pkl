@@ -15,7 +15,7 @@
             @csrf
             <input type="hidden" name="status" value="2">
         <?php if($berobat->status =='1'){
-            echo '<button class="btn btn-success" type="submit" name="simpan">Selsai</button>
+            echo '<button class="btn btn-success" type="submit" name="simpan">Selesai</button>
              <a href="/medis/periksa_diagnosa/'.$berobat->id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Diagnosa</a>
         <a href="/medis/periksa_obat/'.$berobat->id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Obat</a>';
          }if($berobat->status =='2'){

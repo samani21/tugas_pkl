@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('berobat_id');
             $table->string('pasien_id');
-            $table->string('id_diagnosa');
-            $table->string('id_obat');
             $table->string('tgl');
             $table->string('poli');
             $table->string('dokter');
@@ -30,7 +28,8 @@ return new class extends Migration
             $table->string('tinggi');
             $table->string('berat');
             $table->string('napas');
-            $table->string('status');
+            $table->string('keluhan');
+            $table->string('tindakan');
             $table->string('biaya');
             $table->timestamps();
         });

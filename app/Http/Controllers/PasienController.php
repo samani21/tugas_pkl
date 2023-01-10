@@ -93,16 +93,29 @@ class PasienController extends Controller
         return redirect('pasien/pasien');
     }
 
-    public function cetak_pasien()
+    public function cetak_pasien(Request $request)
     {
-        $pasien = DB::table('tb_pasien')->get();
+        $tgl = $request->tgl;
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+        $cari = $request->cari;
+        $pasien = DB::table('tb_pasien')->where('tgl','like',"%".$tgl."%")
+        ->where('tahun','like',"%".$tahun."%")
+        ->where('bulan','like',"%".$bulan."%")
+        ->where('nama','like',"%".$cari."%")->get();
         $pdf = PDF::loadView('pasien/cetak_pasien',compact('pasien'));
         $pdf->setPaper('A4','potrait');
         return $pdf->stream('cetak_pasien.pdf');
     }
     public function laporan(Request $request)
-	{   $cari = $request->cari;
-        $pasien = DB::table('tb_pasien')->where('nama','like',"%".$cari."%",'')
+	{   $tgl = $request->tgl;
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+        $cari = $request->cari;
+        $pasien = DB::table('tb_pasien')->where('tgl','like',"%".$tgl."%")
+        ->where('tahun','like',"%".$tahun."%")
+        ->where('bulan','like',"%".$bulan."%")
+        ->where('nama','like',"%".$cari."%")
 		->paginate(7);
  
         return view('laporan/pasien', ['pasien' => $pasien,'title' => 'Laporan pasien'] );

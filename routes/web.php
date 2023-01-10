@@ -88,7 +88,7 @@ Route::get('pegawai/cetak', [PegawaiController::class, 'cetak_pegawai'])->name('
 //Dokter
 Route::get('dokter/dokter', [PelayananController::class, 'dokter'])->name('dokter/dokter');
 Route::get('dokter/tambah_dokter', [PelayananController::class, 'create'])->name('dokter/tambah_dokter');
-Route::post('dokter/tambah_dokter', [PelayananController::class, 'store_perawat'])->name('dokter.store');
+Route::post('dokter/tambah_dokter', [PelayananController::class, 'store'])->name('dokter.store');
 Route::get('dokter/edit_dokter/{id}',[PelayananController::class,'editdokter'])->name('dokter/edit_dokter');
 Route::post('updatedokter/{id}',[PelayananController::class,'updatedokter'])->name('updatedokter');
 Route::get('dokter/hapus_dokter/{id}', [PelayananController::class,'destroy'])->name('hapus_dokter');

@@ -39,7 +39,7 @@
                 <input class="form-control" type="date" id="tanggal" name="tanggal"  aria-label="default input example" required>
             </div>
             <div>
-                <label>Jenis berobat</label>
+                <label>Jenis kelamin</label>
                 <select name="jk" class="form-control" >
                     <option value="pilih">--Pilih--</option>
                     <option value="Laki-laki">Laki-laki</option>

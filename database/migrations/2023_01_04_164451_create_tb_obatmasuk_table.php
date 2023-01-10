@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('tb_obatmasuk', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_obat');
+            $table->string('kode');
             $table->string('nama_obat');
             $table->string('jumlah');
+            $table->string('tgl');
+            $table->string('bulan');
+            $table->string('tahun');
             $table->timestamps();
         });
     }
