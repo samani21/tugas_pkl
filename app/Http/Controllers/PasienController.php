@@ -15,8 +15,18 @@ class PasienController extends Controller
     public function index(Request $request)
 	{  $nama = $request->nama;
         $no = $request->no;
-        $pasien = DB::table('tb_pasien')->where('nama','like',"%".$nama."%")
-        ->where('no','like',"%".$no."%")->paginate(7);
+
+        if($no == ""){
+            $pasien = DB::table('tb_pasien')->where('nama','like',"%".$nama."%")
+		->paginate(7);
+        }else if($no == $no){
+            $pasien = DB::table('tb_pasien')
+            ->where('no','=',"".$no."")->where('nama','like',"%".$nama."%")
+		->paginate(7);
+        }
+
+        // $pasien = DB::table('tb_pasien')->where('no','=',"".$no."")->paginate(7);
+        
  
         return view('pasien/pasien', ['pasien' => $pasien,'title' => 'Pasien'] );
     }
