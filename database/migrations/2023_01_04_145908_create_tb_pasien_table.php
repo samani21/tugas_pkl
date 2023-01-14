@@ -14,21 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_pasien', function (Blueprint $table) {
-            $table->id();
-            $table->string('no');
-            $table->string('nik');
-            $table->string('jenis');
-            $table->string('bpjs');
-            $table->string('nama');
-            $table->string('tanggal');
-            $table->string('jk');
-            $table->string('tempat');
-            $table->string('alamat');
-            $table->string('darah');
-            $table->string('hp');
-            $table->string('tgl');
-            $table->string('bulan');
-            $table->string('tahun');
+            $table->increments('id');
+            $table->string('no_berobat','6');
+            $table->string('nik','20');
+            $table->string('jenis_berobat','10');
+            $table->string('no_bpjs','20');
+            $table->string('nama','50');
+            $table->date('tanggal');
+            $table->string('jk','15');
+            $table->string('tempat','20');
+            $table->string('alamat','100');
+            $table->string('gol_darah','5');
+            $table->string('no_hp','15');
+            $table->string('tgl','11');
+            $table->string('bulan','3');
+            $table->string('tahun','5');
             $table->timestamps();
         });
     }

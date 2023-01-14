@@ -44,7 +44,6 @@ class MedisController extends Controller
     public function store(Request $request , $id){
         $medis = new Medis([
             'berobat_id' => $request->berobat_id,
-            'pasien_id' => $request->pasien_id,
             'tgl' => $request->tgl,
             'dokter' => $request->dokter,
             'perawat' => $request->perawat,
@@ -58,7 +57,7 @@ class MedisController extends Controller
             'tindakan' => $request->tindakan,
             'napas' => $request->napas,
             'biaya' => $request->biaya,
-            'poli' => $request->poli,
+            'keterangan' => $request->keterangan,
         ]);
         $medis->save();
 
@@ -74,13 +73,13 @@ class MedisController extends Controller
         $diagnosa->save();
         $ubah->update($dt);
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
-        return redirect()->route('medis/medis');
+        return redirect('medis/medis?tgl='.date('d-m-Y').'');
     }
     public function destroy($id){
         $berobat = Berobat::find($id);
         $berobat->delete();
         toast('Yeay Berhasil menghapus data','success');
-        return redirect('medis/medis');
+        return redirect('medis/medis?tgl='.date('d-m-Y').'');
     }
 
     public function hapus_resep($id){
@@ -97,7 +96,7 @@ class MedisController extends Controller
         return Redirect::back();
     }
 
-    public function obat_store(Request $request , $id){
+    public function obat_store(Request $request ){
 
         $obat = new Obat([
             'berobat_id' => $request->berobat_id,

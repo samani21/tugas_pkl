@@ -15,8 +15,9 @@ class BerobatController extends Controller
         $no = $request->no;
         $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
                                             ->where('nama','like',"%".$nama."%")
-                                            ->where('no','like',"%".$no."%")
+                                            ->where('no_berobat','like',"%".$no."%")
                                             ->paginate(7);
+        $berobat->withPath('medis?tgl=14-01-2023&');
         return view('medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
     }
     
@@ -32,18 +33,19 @@ class BerobatController extends Controller
 
         $berobat = new Berobat([
             'pasien_id' => $request->pasien_id,
-            'no' => $request->no,
+            'no_berobat' => $request->no_berobat,
             'nik' => $request->nik,
-            'jenis' => $request->jenis,
+            'jenis_berobat' => $request->jenis_berobat,
             'bpjs' => $request->bpjs,
             'umum' => $request->umum,
             'nama' => $request->nama,
-            'tanggal' => $request->tanggal,
+            'poli' => $request->poli,
+            // 'tanggal' => $request->tanggal,
             'tgl' => $request->tgl,
-            'tempat' => $request->tempat,
-            'alamat' => $request->alamat,
-            'darah' => $request->darah,
-            'hp' => $request->hp,
+            // 'tempat' => $request->tempat,
+            // 'alamat' => $request->alamat,
+            // 'darah' => $request->darah,
+            // 'hp' => $request->hp,
             'status' => $request->status,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,

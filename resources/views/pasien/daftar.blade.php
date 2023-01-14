@@ -8,7 +8,7 @@
         <input class="form-control" type="hidden" id="pasien_id" name="pasien_id" value="{{$pasien->id}}"  placeholder="Masukkan no berobat" aria-label="default input example" readonly>
             <div>
                 <label for="">No berobat</label>
-                <input class="form-control" type="number" id="no" name="no" value="{{$pasien->no}}"  placeholder="Masukkan no berobat" aria-label="default input example" readonly>
+                <input class="form-control" type="number" id="no_berobat" name="no_berobat" value="{{$pasien->no_berobat}}"  placeholder="Masukkan no berobat" aria-label="default input example" readonly>
             </div>
             <div>
                 <label for="">NIK</label>
@@ -16,33 +16,33 @@
             </div>
             <div>
                 <label>Jenis berobat</label>
-                <select name="jenis" class="form-control" onchange=" 
+                <select name="jenis_berobat" class="form-control" onchange=" 
                     if (this.selectedIndex==1 )
                     { document.getElementById('umum').style.display ='inline'}
                     else { document.getElementById('umum').style.display = 'none' }if (this.selectedIndex==2 )
                     { document.getElementById('bpjs').style.display ='inline'}
                     else { document.getElementById('bpjs').style.display = 'none' };">
     
-                    <option value="{{$pasien->jenis}}">{{$pasien->jenis}}</option>
+                    <option value="{{$pasien->jenis_berobat}}">{{$pasien->jenis_berobat}}</option>
                     <option value="Umum">Umum</option>
                     <option value="BPJS">BPJS</option>
                 </select>
     
-                <span id="umum" <?php if($pasien->jenis =='Umum'){
+                <span id="umum" <?php if($pasien->jenis_berobat =='Umum'){
                     echo 'style="display:inline;"';
-                 }if($pasien->jenis =='BPJS'){
+                 }if($pasien->jenis_berobat =='BPJS'){
                      echo 'style="display:none;"';
                   }?>>
                     <label for="">Biaya</label>
                     <input type="text" name="umum" value="-"class="form-control">
                 </span>
-                <span id="bpjs" <?php if($pasien->jenis =='BPJS'){
+                <span id="bpjs" <?php if($pasien->jenis_berobat =='BPJS'){
                     echo 'style="display:inline;"';
-                 }if($pasien->jenis =='Umum'){
+                 }if($pasien->jenis_berobat =='Umum'){
                      echo 'style="display:none;"';
                   }?>>
                     <label>No BPJS</label>
-                    <input type="text" name="bpjs"  value="{{$pasien->bpjs}}"class="form-control">
+                    <input type="text" name="bpjs"  value="{{$pasien->no_bpjs}}"class="form-control">
                 </span>
             </div>
             <div>
@@ -71,19 +71,30 @@
             </div>
             <div>
                 <label for="">Gol darah</label>
-                <input class="form-control" type="text" id="darah" name="darah" value="{{$pasien->darah}}" placeholder="" aria-label="default input example">
+                <input class="form-control" type="text" id="gol_darah" name="gol_darah" value="{{$pasien->gol_darah}}" placeholder="" aria-label="default input example">
             </div>
             <div>
                 <label for="">No hp</label>
-                <input class="form-control" type="text" id="hp" name="hp" value="{{$pasien->hp}}" placeholder="Masukkan no hp" aria-label="default input example">
+                <input class="form-control" type="text" id="no_hp" name="no_hp" value="{{$pasien->no_hp}}" placeholder="Masukkan no hp" aria-label="default input example">
             </div>
             <div>
                 <input class="form-control" type="hidden" id="status" name="status" value="0" placeholder="Masukkan no hp" aria-label="default input example">
             </div>
             <div>
+                <label>Poli</label>
+                <select name="poli" class="form-control" required>
+                    <option value="">--Pilih--</option>
+                    <option value="Umum">Umum</option>
+                    <option value="Anak">Anak</option>
+                    <option value="Gigi">Gigi</option>
+                    <option value="KB">KB</option>
+                    <option value="kandungan">kandungan</option>
+                </select>
+            </div>
+            <div>
                 <br>
-                <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
-                <a href="#" onclick="goBack()" class="btn btn-warning">Batal</a>
+                <a href="#" onclick="goBack()" class="btn btn-warning float-end">Batal</a>
+                <button type="submit" class="btn btn-success float-end" name="simpan">Simpan</button>
                     <script>
                         function goBack() {
                             window.history.back();

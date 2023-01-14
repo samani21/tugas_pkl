@@ -33,7 +33,7 @@
                             <h5><b>No berobat</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->no}}</h5>
+                            <h5>{{$pasien->no_berobat}}</h5>
                         </td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@
                             <h5><b>Jenis Berobat</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->jenis}}</h5>
+                            <h5>{{$pasien->jenis_berobat}}</h5>
                         </td>
                     </tr>
                     <tr>
@@ -57,7 +57,7 @@
                             <h5><b>No BPJS</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->bpjs}}</h5>
+                            <h5>{{$pasien->no_bpjs}}</h5>
                         </td>
                     </tr>
                     <tr>
@@ -97,7 +97,7 @@
                             <h5><b>Gol darah</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->darah}}</h5>
+                            <h5>{{$pasien->gol_darah}}</h5>
                         </td>
                     </tr>
                     <tr>
@@ -105,7 +105,7 @@
                             <h5><b>No hp</b></h5>
                         </td>
                         <td>
-                            <h5>{{$pasien->hp}}</h5>
+                            <h5>{{$pasien->no_hp}}</h5>
                         </td>
                     </tr>
                     <tr>
@@ -121,7 +121,15 @@
                             <h5><b>Poli</b></h5>
                         </td>
                         <td>
-                            <h5>{{$berobat->medis->poli}}</h5>
+                            <h5>{{$berobat->poli}}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5><b>Biaya</b></h5>
+                        </td>
+                        <td>
+                            <h5>{{$berobat->medis->biaya}}</h5>
                         </td>
                     </tr>
                 </tbody>
@@ -233,10 +241,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <h5><b>Biaya</b></h5>
+                            <h5><b>Keterangan</b></h5>
                         </td>
                         <td>
-                            <h5>{{$berobat->medis->biaya}}</h5>
+                            <h5>{{$berobat->medis->keterangan}}</h5>
                         </td>
                     </tr>
                 </tbody>

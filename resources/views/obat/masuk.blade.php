@@ -31,9 +31,9 @@
                 @php 
                 $no=1;
             @endphp
-            @foreach($obat as $o)
+            @foreach($obat as $index=> $o)
                 <tr align="center">
-                    <td data-title="No">{{ $no++ }}</td>
+                    <td data-title="No">{{ $index + $obat->firstItem() }}</td>
                     <td data-title="Nip">{{$o->kode}}</td>
                     <td data-title="nama">{{$o->nama_obat}}</td>
                     <td data-title="Tanggal lahir">{{$o->jumlah}}</td>

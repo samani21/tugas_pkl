@@ -14,23 +14,22 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_medis', function (Blueprint $table) {
-            $table->id();
-            $table->string('berobat_id');
-            $table->string('pasien_id');
-            $table->string('tgl');
-            $table->string('poli');
-            $table->string('dokter');
-            $table->string('perawat');
-            $table->string('sistolik');
-            $table->string('diastolik');
-            $table->string('saturasi');
-            $table->string('suhu');
-            $table->string('tinggi');
-            $table->string('berat');
-            $table->string('napas');
-            $table->string('keluhan');
-            $table->string('tindakan');
-            $table->string('biaya');
+            $table->increments('id');
+            $table->integer('berobat_id');
+            $table->string('tgl','12');
+            $table->string('dokter','50');
+            $table->string('perawat','50');
+            $table->string('sistolik','5');
+            $table->string('diastolik','5');
+            $table->string('saturasi','5');
+            $table->string('suhu','5');
+            $table->string('tinggi','5');
+            $table->string('berat','5');
+            $table->string('napas','5');
+            $table->string('keluhan','100');
+            $table->string('tindakan','25');
+            $table->string('keterangan','100');
+            $table->string('biaya','10');
             $table->timestamps();
         });
     }

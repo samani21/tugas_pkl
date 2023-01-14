@@ -44,7 +44,7 @@
         <div>
             <label for="">Spesialis</label>
             <select class="form-select" name="spesialis" aria-label="Default select example">
-                <option value="{{$pegawai->value}}"selected>{{$pegawai->spesialis}}</option>
+                <option value="{{$pegawai->spesialis}}"selected>{{$pegawai->spesialis}}</option>
                 <option value="Dokter Umum">Dokter Umum</option>
                 <option value="Dokter Gigi">Dokter Gigi</option>
                 <option value="Bidan">Bidan</option>

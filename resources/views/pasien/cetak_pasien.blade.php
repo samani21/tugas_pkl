@@ -51,15 +51,15 @@
         @foreach($pasien as $pas)
             <tr>
                 <td align="center">{{ $no++ }}</td>
-                <td>{{$pas->no}}</td>
+                <td>{{$pas->no_berobat}}</td>
                 <td>{{$pas->nik}}</td>
-                <td>{{$pas->jenis}}</td>
+                <td>{{$pas->jenis_berobat}}</td>
                 <td>{{$pas->nama}}</td>
                 <td align="center">{{$pas->tanggal}}</td>
                 <td>{{$pas->tempat}}</td>
                 <td>{{$pas->alamat}}</td>
-                <td align="center">{{$pas->darah}}</td>
-                <td>{{$pas->hp}}</td>
+                <td align="center">{{$pas->gol_darah}}</td>
+                <td>{{$pas->no_hp}}</td>
                 
             </tr>
         @endforeach

@@ -34,19 +34,19 @@
     <table>
         <tbody>
             <td>
-                <p><b>No rekam medis :</b> {{$pasien->no}}</p>
+                <p><b>No rekam medis :</b> {{$pasien->no_berobat}}</p>
                 <p><b>NIK :</b> {{$pasien->nik}}</p>
-                <p><b>Jenis berobat :</b> {{$pasien->jenis}}</p>
-                <p><b>No BPJS :</b> {{$pasien->bpjs}}</p>
+                <p><b>Jenis berobat :</b> {{$pasien->jenis_berobat}}</p>
+                <p><b>No BPJS :</b> {{$pasien->no_bpjs}}</p>
                 <p><b>Nama :</b> {{$pasien->nama}}</p>
                 <p><b>Tempat tanggal ahir :</b> {{$pasien->tempat}},{{$pasien->tanggal}}</p>
                 <p><b>Jenis Kelamin :</b> {{$pasien->jk}}</p>
                 <p><b>Alamat :</b> {{$pasien->alamat}}</p>
-                <p><b>Golongan darah :</b> {{$pasien->darah}}</p>
-                <p><b>No hp :</b> {{$pasien->hp}}</p>
+                <p><b>Golongan darah :</b> {{$pasien->gol_darah}}</p>
+                <p><b>No hp :</b> {{$pasien->no_hp}}</p>
                 <p><b>Tanggal berobat :</b> {{$berobat->medis->tgl}}</p>
-                <p><b>status pengobatan:</b> {{$berobat->medis->tindakan}}</p>
                 <p><b>Biaya :</b> {{$berobat->medis->biaya}}</p>
+                <p><b>Ruang pemeriksaan :</b>{{$berobat->poli}}</p>
             </td>
             <td></td>
             <td></td>
@@ -67,7 +67,6 @@
             <td></td>
             <td></td>
             <td>
-                <p><b>Ruang pemeriksaan :</b>{{$berobat->medis->poli}}</p>
                 <p><b>Dokter :</b> {{$berobat->medis->dokter}}</p>
                 <p><b>Perawat :</b> {{$berobat->medis->perawat}}</p>
                 <p><b>Sistolik :</b> {{$berobat->medis->sistolik}}</p>
@@ -78,6 +77,8 @@
                 <p><b>Saturasi :</b> {{$berobat->medis->saturasi}}</p>
                 <p><b>Napas :</b> {{$berobat->medis->napas}}</p>
                 <p><b>Keluhan :</b> {{$berobat->medis->keluhan}}</p>
+                <p><b>status pengobatan:</b> {{$berobat->medis->tindakan}}</p>
+                <p><b>Keterangan :</b>{{$berobat->medis->keterangan}}</p>
                 <p><b>Diagnosa :</b>
                     @foreach($berobat->diagnosa as $d)
                     ({{ $d->kode }}).{{ $d->diagnosa }} ,

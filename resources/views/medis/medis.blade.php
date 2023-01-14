@@ -27,6 +27,7 @@
                 <th scope="col">NIK</th>
                 <th scope="col">Jenis berobat</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Poli</th>
                 <th scope="col">Tanggal berobat</th>
                 <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
@@ -36,13 +37,14 @@
                 @php 
                 $no=1;
             @endphp
-            @foreach($berobat as $medis)
+            @foreach($berobat as $index => $medis)
                 <tr align="center">
-                    <td data-title="No">{{ $no++ }}</td>
-                    <td data-title="No berobat">{{$medis->no}}</td>
+                    <td data-title="No">{{ $index + $berobat->firstItem() }}</td>
+                    <td data-title="No berobat">{{$medis->no_berobat}}</td>
                     <td data-title="NIK">{{$medis->nik}}</td>
-                    <td data-title="Jenis berobat">{{$medis->jenis}}</td>
+                    <td data-title="Jenis berobat">{{$medis->jenis_berobat}}</td>
                     <td data-title="Nama">{{$medis->nama}}</td>
+                    <td data-title="Poli">{{$medis->poli}}</td>
                     <td data-title="Tanggal berobat"><?php echo $medis->tgl;?></td>
                     <td data-title="Status"><?php if($medis->status =='2'){
                         echo '<span class="badge bg-success">Selesai diperiksa</span>';
@@ -65,7 +67,7 @@
                          }if($medis->status =='0'){
                              echo '';
                           }?>
-                        <a href="hapus_medis/{{$medis->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a href="hapus_berobat/{{$medis->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach

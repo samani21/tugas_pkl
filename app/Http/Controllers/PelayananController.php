@@ -10,11 +10,11 @@ class PelayananController extends Controller
 {
     public function dokter(Request $request)
     {   $dokter = $request->dokter;
-        $namanama = $request->namanama;
+        $nama = $request->nama;
         $dokter = DB::table('tb_pelayanan')->where('kelompok','like','dokter')
-                                            ->where('nama','like',"%".$namanama."%")
+                                            ->where('nama','like',"%".$nama."%")
                                             ->paginate(10);
- 
+        $dokter->withPath('dokter?dokter=dokter&');
         return view('dokter/dokter', ['dokter' => $dokter,'title' => 'Dokter'] );
     }
     public function create()
@@ -68,7 +68,7 @@ class PelayananController extends Controller
         $perawat = DB::table('tb_pelayanan')->where('kelompok','like','perawat')
                                             ->where('nama','like',"%".$nama."%")
                                             ->paginate(10);
- 
+        $perawat->withPath('perawat?perawat=perawat&');
         return view('perawat/perawat', ['perawat' => $perawat,'title' => 'perawat'] );
     }
     public function create_perawat()
@@ -109,5 +109,10 @@ class PelayananController extends Controller
         return redirect('perawat/perawat');
     }
 
-   
+    public function destroy_perawat($id){
+        $pelayanan = Pelayanan::find($id);
+        $pelayanan->delete();
+        toast('Yeay Berhasil menghapus data','success');
+        return redirect('perawat/perawat');
+    }
 }

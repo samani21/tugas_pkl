@@ -100,7 +100,7 @@ Route::get('perawat/tambah_perawat', [PelayananController::class, 'create_perawa
 Route::post('perawat/tambah_perawat', [PelayananController::class, 'store_perawat'])->name('perawat.store');
 Route::get('perawat/edit_perawat/{id}',[PelayananController::class,'editperawat'])->name('perawat/edit_perawat');
 Route::post('updateperawat/{id}',[PelayananController::class,'updateperawat'])->name('updateperawat');
-Route::get('perawat/hapus_perawat/{id}', [PelayananController::class,'destroy'])->name('hapus_perawat');
+Route::get('perawat/hapus_perawat/{id}', [PelayananController::class,'destroy_perawat'])->name('hapus_perawat');
 Route::get('perawat/cetak', [PelayananController::class, 'cetak_perawat'])->name('perawat/cetak');
 
 //pasien

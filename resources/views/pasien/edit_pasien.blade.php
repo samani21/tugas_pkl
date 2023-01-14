@@ -8,7 +8,7 @@
         <div class="col-6">
             <div>
                 <label for="">No berobat</label>
-                <input class="form-control" type="number" id="no" name="no" value="{{$pasien->no}}"
+                <input class="form-control" type="number" id="no_berobat" name="no_berobat" value="{{$pasien->no_berobat}}"
                     placeholder="Masukkan no berobat" aria-label="default input example">
             </div>
             <div>
@@ -18,17 +18,17 @@
             </div>
             <div>
                 <label>Jenis berobat</label>
-                <select name="jenis" class="form-control" onchange=" 
+                <select name="jenis_berobat" class="form-control" onchange=" 
                     if (this.selectedIndex==2 )
                     { document.getElementById('bpjs').style.display ='inline'}
                     else { document.getElementById('bpjs').style.display = 'none' };">
-                    <option value="{{$pasien->jenis}}">{{$pasien->jenis}}</option>
+                    <option value="{{$pasien->jenis_berobat}}">{{$pasien->jenis_berobat}}</option>
                     <option value="Umum">Umum</option>
                     <option value="BPJS">BPJS</option>
                 </select>
                 <span id="bpjs" style="display:none;">
                     <label>No BPJS</label>
-                    <input type="text" name="bpjs" value="{{$pasien->bpjs}}" class="form-control">
+                    <input type="text" name="no_bpjs" value="{{$pasien->no_bpjs}}" class="form-control">
                 </span>
             </div>
             <div>
@@ -68,13 +68,19 @@
                     placeholder="Masukkan alamat" aria-label="default input example">
             </div>
             <div>
-                <label for="">Gol darah</label>
-                <input class="form-control" type="text" id="darah" name="darah" value="{{$pasien->darah}}"
-                    placeholder="" aria-label="default input example">
+                <label>Golongan darah</label>
+                <select name="gol_darah" class="form-control" >
+                    <option value="{{$pasien->gol_darah}}" selected>{{$pasien->gol_darah}}</option>
+                    <option value="-">-</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="O">O</option>
+                    <option value="AB">AB</option>
+                </select>
             </div>
             <div>
                 <label for="">No hp</label>
-                <input class="form-control" type="text" id="hp" name="hp" value="{{$pasien->hp}}"
+                <input class="form-control" type="text" id="no_hp" name="no_hp" value="{{$pasien->no_hp}}"
                     placeholder="Masukkan no hp" aria-label="default input example">
             </div>
             <hr>

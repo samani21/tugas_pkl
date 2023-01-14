@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_resep', function (Blueprint $table) {
-            $table->id();
-            $table->string('berobat_id');
-            $table->string('kd_obat');
-            $table->string('obat');
-            $table->string('jumlah');
-            $table->string('dosis');
-            $table->string('tgl');
-            $table->string('bulan');
-            $table->string('tahun');
+            $table->increments('id');
+            $table->integer('berobat_id');
+            $table->string('kd_obat','10');
+            $table->string('obat','50');
+            $table->string('jumlah','10');
+            $table->string('dosis','20');
+            $table->string('tgl','12');
+            $table->string('bulan','3');
+            $table->string('tahun','6');
             $table->timestamps();
         });
     }

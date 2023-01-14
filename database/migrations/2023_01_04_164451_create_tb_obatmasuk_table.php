@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_obatmasuk', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode');
-            $table->string('nama_obat');
-            $table->string('jumlah');
-            $table->string('tgl');
-            $table->string('bulan');
-            $table->string('tahun');
+            $table->increments('id');
+            $table->string('kode','10');
+            $table->string('nama_obat','50');
+            $table->string('jumlah','10');
+            $table->string('tgl','12');
+            $table->string('bulan','3');
+            $table->string('tahun','6');
             $table->timestamps();
         });
     }

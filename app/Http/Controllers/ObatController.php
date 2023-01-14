@@ -20,8 +20,8 @@ class ObatController extends Controller
 	{   $cari = $request->cari;
         $tgl = $request->tgl;
         $obat = DB::table('tb_obatmasuk')->where('nama_obat','like',"%".$cari."%")->where('tgl','like',"%".$tgl."%")
-        ->paginate(7);
- 
+        ->paginate(10);
+        $obat->withPath('masuk?tgl=14-01-2023&');
         return view('obat/masuk', ['obat' => $obat,'title' => 'Obat Masuk'] );
     }
 
@@ -103,8 +103,8 @@ class ObatController extends Controller
         $masuk = DB::table('tb_obatmasuk')->where('tgl','like',"%".$tgl."%")
         ->where('tahun','like',"%".$tahun."%")
         ->where('bulan','like',"%".$bulan."%")
-		->paginate(7);
- 
+		->paginate(10);
+        $masuk->withPath('obat_masuk?tgl=14-01-2023&');
         return view('laporan/obat_masuk', ['masuk' => $masuk,'title' => 'Laporan obat masuk'] );
     }
 
@@ -115,8 +115,8 @@ class ObatController extends Controller
         $keluar = DB::table('tb_resep')->where('tgl','like',"%".$tgl."%")
         ->where('tahun','like',"%".$tahun."%")
         ->where('bulan','like',"%".$bulan."%")
-		->paginate(7);
- 
+		->paginate(10);
+        $keluar->withPath('obat_keluar?tgl=14-01-2023&');
         return view('laporan/obat_keluar', ['keluar' => $keluar,'title' => 'Laporan obat keluar'] );
     }
 

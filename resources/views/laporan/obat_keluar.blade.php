@@ -77,9 +77,9 @@
                 @php 
                 $no=1;
             @endphp
-            @foreach($keluar as $o)
+            @foreach($keluar as $index=>$o)
                 <tr align="center">
-                    <td>{{ $no++ }}</td>
+                    <td>{{ $index + $keluar->firstItem() }}</td>
                     <td>{{$o->kd_obat}}</td>
                     <td>{{$o->obat}}</td>
                     <td>{{$o->jumlah}}</td>

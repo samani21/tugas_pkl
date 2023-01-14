@@ -8,7 +8,7 @@
         <div class="col-6">
             <div>
                 <label for="">No berobat</label>
-                <input class="form-control" type="number" id="no" name="no" placeholder="Masukkan no berobat" aria-label="default input example" maxlength="10" autofocus required>
+                <input class="form-control" type="number" id="no_berobat" name="no_berobat" placeholder="Masukkan no berobat" aria-label="default input example" maxlength="10" autofocus required>
             </div>
             <div>
                 <label for="">NIK</label>
@@ -16,7 +16,7 @@
             </div>
             <div>
                 <label>Jenis berobat</label>
-                <select name="jenis" class="form-control" onchange=" 
+                <select name="jenis_berobat" class="form-control" onchange=" 
                     if (this.selectedIndex==2 )
                     { document.getElementById('bpjs').style.display ='inline'}
                     else { document.getElementById('bpjs').style.display = 'none' };">
@@ -27,7 +27,7 @@
                 </select>
                 <span id="bpjs" style="display:none;">
                     <label>No BPJS</label>
-                    <input type="text" name="bpjs" value="-" class="form-control">
+                    <input type="text" name="no_bpjs" value="-" class="form-control">
                 </span>
             </div>
             <div>
@@ -63,12 +63,18 @@
                 <input class="form-control" type="text" id="alamat" name="alamat" placeholder="Masukkan alamat" aria-label="default input example" required>
             </div>
             <div>
-                <label for="">Gol darah</label>
-                <input class="form-control" type="text" id="darah" name="darah" placeholder="" aria-label="default input example" required>
+                <label>Golongan darah</label>
+                <select name="gol_darah" class="form-control" >
+                    <option value="-">--Pilih--</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="O">O</option>
+                    <option value="AB">AB</option>
+                </select>
             </div>
             <div>
                 <label for="">No hp</label>
-                <input class="form-control" type="text" id="hp" name="hp" placeholder="Masukkan no hp" aria-label="default input example" required>
+                <input class="form-control" type="text" id="no_hp" name="no_hp" placeholder="Masukkan no hp" aria-label="default input example" required>
             </div>
             <hr>
             <div>

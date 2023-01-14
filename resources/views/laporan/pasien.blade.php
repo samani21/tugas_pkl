@@ -99,18 +99,18 @@
                 @php 
                 $no=1;
             @endphp
-            @foreach($pasien as $pas)
+            @foreach($pasien as $index=> $pas)
                 <tr align="center">
-                    <td data-title="No">{{ $no++ }}</td>
-                    <td data-title="No berobat">{{$pas->no}}</td>
+                    <td data-title="No">{{ $index + $pasien->firstItem() }}</td>
+                    <td data-title="No berobat">{{$pas->no_berobat}}</td>
                     <td data-title="NIK">{{$pas->nik}}</td>
-                    <td data-title="Jenis berobat">{{$pas->jenis}}</td>
+                    <td data-title="Jenis berobat">{{$pas->jenis_berobat}}</td>
                     <td data-title="Nama">{{$pas->nama}}</td>
                     <td data-title="Tanggal lahir">{{$pas->tanggal}}</td>
                     <td data-title="Tempat lahir">{{$pas->tempat}}</td>
                     <td data-title="Alamat">{{$pas->alamat}}</td>
-                    <td data-title="Gol darah">{{$pas->darah}}</td>
-                    <td data-title="No Hp">{{$pas->hp}}</td>
+                    <td data-title="Gol darah">{{$pas->gol_darah}}</td>
+                    <td data-title="No Hp">{{$pas->no_hp}}</td>
                 </tr>
             @endforeach
         </tbody>

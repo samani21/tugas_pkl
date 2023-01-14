@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_pegawai', function (Blueprint $table) {
-            $table->id();
-            $table->string('nip');
-            $table->string('nama');
-            $table->string('tanggal');
-            $table->string('tempat');
-            $table->string('alamat');
-            $table->string('hp');
-            $table->string('kelompok');
-            $table->string('spesialis');
+            $table->increments('id');
+            $table->string('nip','20');
+            $table->string('nama','20');
+            $table->date('tanggal');
+            $table->string('tempat','50');
+            $table->string('alamat','100');
+            $table->string('hp','15');
+            $table->string('kelompok','15');
+            $table->string('spesialis','15');
             $table->timestamps();
         });
     }

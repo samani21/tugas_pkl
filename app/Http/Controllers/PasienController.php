@@ -14,14 +14,14 @@ class PasienController extends Controller
 
     public function index(Request $request)
 	{  $nama = $request->nama;
-        $no = $request->no;
+        $no_berobat = $request->no_berobat;
 
-        if($no == ""){
+        if($no_berobat == ""){
             $pasien = DB::table('tb_pasien')->where('nama','like',"%".$nama."%")
 		->paginate(7);
-        }else if($no == $no){
+        }else if($no_berobat == $no_berobat){
             $pasien = DB::table('tb_pasien')
-            ->where('no','=',"".$no."")->where('nama','like',"%".$nama."%")
+            ->where('no_berobat','=',"".$no_berobat."")->where('nama','like',"%".$nama."%")
 		->paginate(7);
         }
 
@@ -41,17 +41,17 @@ class PasienController extends Controller
     {
 
         $pasien = new Pasien([
-            'no' => $request->no,
+            'no_berobat' => $request->no_berobat,
             'nik' => $request->nik,
-            'jenis' => $request->jenis,
-            'bpjs' => $request->bpjs,
+            'jenis_berobat' => $request->jenis_berobat,
+            'no_bpjs' => $request->no_bpjs,
             'nama' => $request->nama,
             'tanggal' => $request->tanggal,
             'jk' => $request->jk,
             'tempat' => $request->tempat,
             'alamat' => $request->alamat,
-            'darah' => $request->darah,
-            'hp' => $request->hp,
+            'gol_darah' => $request->gol_darah,
+            'no_hp' => $request->no_hp,
             'tgl' => $request->tgl,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
@@ -76,17 +76,17 @@ class PasienController extends Controller
     public function updatepasien(Request $request, $id){
         $ubah = Pasien::findorfail($id);
         $dt =[
-            'no' => $request['no'],
+            'no_berobat' => $request['no_berobat'],
             'nik' => $request['nik'],
-            'jenis' => $request['jenis'],
-            'bpjs' => $request['bpjs'],
+            'jenis_berobat' => $request['jenis_berobat'],
+            'no_bpjs' => $request['no_bpjs'],
             'nama' => $request['nama'],
             'tanggal' => $request['tanggal'],
             'jk' => $request['jk'],
             'tempat' => $request['tempat'],
             'alamat' => $request['alamat'],
-            'darah' => $request['darah'],
-            'hp' => $request['hp'],
+            'gol_darah' => $request['gol_darah'],
+            'no_hp' => $request['no_hp'],
             'tgl' => $request['tgl'],
             'bulan' => $request['bulan'],
             'tahun' => $request['tahun'],
@@ -126,8 +126,8 @@ class PasienController extends Controller
         ->where('tahun','like',"%".$tahun."%")
         ->where('bulan','like',"%".$bulan."%")
         ->where('nama','like',"%".$cari."%")
-		->paginate(7);
- 
+		->paginate(1);
+        $pasien->withPath('pasien?tgl=14-01-2023&');
         return view('laporan/pasien', ['pasien' => $pasien,'title' => 'Laporan pasien'] );
     }
 }

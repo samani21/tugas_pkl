@@ -15,7 +15,7 @@
                 <tbody>
                     <tr>
                         <td><h5><b>No berobat</b></h5></td>
-                        <td><h5>{{$pasien->no}}</h5></td>
+                        <td><h5>{{$pasien->no_berobat}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>NIK</b></h5></td>
@@ -23,11 +23,11 @@
                     </tr>
                     <tr>
                         <td><h5><b>Jenis berobat</b></h5></td>
-                        <td><h5>{{$pasien->jenis}}</h5></td>
+                        <td><h5>{{$pasien->jenis_berobat}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>No BPJS</b></h5></td>
-                        <td><h5>{{$pasien->bpjs}}</h5></td>
+                        <td><h5>{{$pasien->no_bpjs}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>Nama</b></h5></td>
@@ -47,22 +47,22 @@
                     </tr>
                     <tr>
                         <td><h5><b>Gol darah</b></h5></td>
-                        <td><h5>{{$pasien->darah}}</h5></td>
+                        <td><h5>{{$pasien->gol_darah}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>No hp</b></h5></td>
-                        <td><h5>{{$pasien->hp}}</h5></td>
+                        <td><h5>{{$pasien->no_hp}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>Tanggal berobat</b></h5></td>
-                        <td><h5>{{$pasien->hp}}</h5></td>
+                        <td><h5>{{$pasien->tgl}}</h5></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-6">
             <h3 align="center">Rekam Medis</h3>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="no-more-tables">
                 <thead>
                 <tr align="center">
                     <th scope="col">No</th>
@@ -99,7 +99,6 @@
                 @endforeach
             </tbody>
             </table>
-            
         </div>
  </div>
 @endsection

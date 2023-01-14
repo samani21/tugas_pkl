@@ -77,9 +77,9 @@
                 @php 
                 $no=1;
             @endphp
-            @foreach($masuk as $o)
+            @foreach($masuk as $index=>$o)
                 <tr align="center">
-                    <td>{{ $no++ }}</td>
+                    <td>{{ $index + $masuk->firstItem()}}</td>
                     <td>{{$o->kode}}</td>
                     <td>{{$o->nama_obat}}</td>
                     <td>{{$o->jumlah}}</td>

@@ -14,23 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_berobat', function (Blueprint $table) {
-            $table->id();
-            $table->string('pasien_id');
-            $table->string('no');
-            $table->string('nik');
-            $table->string('jenis');
-            $table->string('bpjs');
-            $table->string('umum');
-            $table->string('nama');
-            $table->string('tanggal');
-            $table->string('tgl');
-            $table->string('tempat');
-            $table->string('alamat');
-            $table->string('darah');
-            $table->string('hp');
-            $table->string('bulan');
-            $table->string('tahun');
-            $table->string('status');
+            $table->increments('id');
+            $table->integer('pasien_id');
+            $table->string('no_berobat','6');
+            $table->string('nik','17');
+            $table->string('jenis_berobat','10');
+            $table->string('bpjs','17');
+            $table->string('umum','10');
+            $table->string('nama','50');
+            $table->string('poli','15');
+            $table->string('tgl','12');
+            $table->string('bulan','3');
+            $table->string('tahun','5');
+            $table->string('status','2');
             $table->timestamps();
         });
     }

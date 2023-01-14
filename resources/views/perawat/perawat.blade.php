@@ -34,9 +34,9 @@
                 @php 
                 $no=1;
             @endphp
-            @foreach($perawat as $per)
+            @foreach($perawat as $index=> $per)
                 <tr align="center">
-                    <td data-title="No">{{ $no++ }}</td>
+                    <td data-title="No">{{ $index + $perawat->firstItem()}}</td>
                     <td data-title="Nip">{{$per->nip}}</td>
                     <td data-title="nama">{{$per->nama}}</td>
                     <td data-title="Spesialis">{{$per->spesialis}}</td>
