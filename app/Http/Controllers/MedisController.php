@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Berobat;
 use App\Models\Diagnosa;
+use App\Models\Icd;
 use App\Models\Medis;
 use App\Models\Obat;
 use App\Models\Pasien;
+use App\Models\Stokobat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -18,20 +20,23 @@ class MedisController extends Controller
     {   $berobat = Berobat::find($id);
         $dokter = DB::table('tb_pelayanan')->where('kelompok','like','dokter','')->paginate(100);
         $perawat = DB::table('tb_pelayanan')->where('kelompok','like','perawat','')->paginate(100);
+        $icd = Icd::all();
         $data['title'] = 'Periksa pasien';
-        return view('medis/periksa_fisik',compact(['berobat','dokter','perawat']), $data);
+        return view('medis/periksa_fisik',compact(['berobat','dokter','perawat','icd']), $data);
     }
 
     public function obat($id)
     {   $berobat = Berobat::find($id);
+        $obat = Stokobat::all();
         $data['title'] = 'Periksa pasien';
-        return view('medis/periksa_obat',compact(['berobat']), $data);
+        return view('medis/periksa_obat',compact(['berobat','obat']), $data);
     }
 
     public function diagnosa($id)
     {   $berobat = Berobat::find($id);
+        $icd = Icd::all();
         $data['title'] = 'Periksa pasien';
-        return view('medis/periksa_diagnosa',compact(['berobat']), $data);
+        return view('medis/periksa_diagnosa',compact(['berobat','icd']), $data);
     }
     
     public function rekam($id,$pasien_id){
@@ -67,7 +72,6 @@ class MedisController extends Controller
         ];
         $diagnosa = new Diagnosa([
             'berobat_id' => $request->berobat_id,
-            'kode' => $request->kode,
             'diagnosa' => $request->diagnosa,
         ]);
         $diagnosa->save();
@@ -133,7 +137,6 @@ class MedisController extends Controller
         $diagnosa = new Diagnosa([
             'berobat_id' => $request->berobat_id,
             'diagnosa' => $request->diagnosa,
-            'kode' => $request->kode,
             
         ]);
         $diagnosa->save();

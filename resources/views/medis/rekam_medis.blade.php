@@ -223,7 +223,7 @@
                             <h5><b>Diagnosa</b></h5>
                         </td>
                         <td> @foreach($berobat->diagnosa as $d)
-                            <h5>({{ $d->kode }}).{{ $d->diagnosa }},  <?php if($berobat->status =='1'){
+                            <h5>{{ $d->diagnosa }},  <?php if($berobat->status =='1'){
                                 echo '<a href="hapus_diagnosa/'.$d->id.'"  class="">Hapus</a>';
                              }if($berobat->status =='2'){
                                  echo '';

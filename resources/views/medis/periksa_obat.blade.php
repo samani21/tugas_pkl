@@ -13,17 +13,15 @@
         <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
     </div>
     <div>
-        <label> Nama oabat</label>
-    <select id="selectObat" class="form-select" aria-label="Default select example" name="obat" required>
-
-    </select>
+        <label> kode oabat</label>
+        <input class="form-control" name="kd_obat" list="obat" id="exampleDataList" autocomplete="off">
+        <datalist id="obat">
+                @foreach($obat as $o)
+            <option value="{{$o->kode}}">Nama obat: {{$o->nm_obat}}</option>
+            @endforeach
+        </datalist>
     </div>
-    <div>
-        <label> Kode obat</label>
-    <select id="selectid" class="form-select" aria-label="Default select example"  name="kd_obat" required>
-
-    </select>
-    </div>
+    <input type="hidden" name="obat" value="a"id="">
     <div>
         <div>
             <label for="">jumlah</label>

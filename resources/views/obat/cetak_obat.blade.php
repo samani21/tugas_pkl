@@ -28,7 +28,7 @@
         </thead>
     </table>
     <hr>
-    <h3 align="center">REKAM MEDIS PASIEN</h3>
+    <h3 align="center">DATA OBAT </h3>
     <table align="center" style="border-collapse:collapse;border-spacing:1;" border="1">
         <thead>
             <tr align="center">

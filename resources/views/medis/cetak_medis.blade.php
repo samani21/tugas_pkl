@@ -28,7 +28,7 @@
         </thead>
     </table>
     <hr>
-    <h3 align="center">REKAM MEDIS PASIEN</h3>
+    <h3 align="center">DATA PASEIN BEROBAT</h3>
     <table style="border-collapse:collapse;border-spacing:1;" border="1" align="center">
         <thead>
         <tr align="center">
@@ -47,10 +47,10 @@
         @foreach($medis as $medis)
             <tr>
                 <td align="center">{{ $no++ }}</td>
-                <td>{{$medis->no}}</td>
+                <td>{{$medis->no_berobat}}</td>
                 <td>{{$medis->nik}}</td>
                 <td>{{$medis->nama}}</td>
-                <td align="center">{{$medis->jenis}}</td>
+                <td align="center">{{$medis->jenis_berobat}}</td>
                 <td align="center"><?php echo $medis->tgl;?></td>
             </tr>
         @endforeach

@@ -5,25 +5,23 @@
 <form action="{{route('diagnosa.store',$berobat->id)}}" method="POST">
     @csrf
     <input type="hidden" id="berobat_id" name="berobat_id" value="{{$berobat->id}}">
-            {{-- <input class="form-control" type="hidden" id="status" name="status" value="2"> --}}
+    {{-- <input class="form-control" type="hidden" id="status" name="status" value="2"> --}}
 
     <div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <select id="selecticd" class="form-select" aria-label="Default select example" name="diagnosa" required>
-
-            </select>
+            <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off">
+            <datalist id="diagnosa">
+                @foreach($icd as $diagnosa)
+                <option value="({{$diagnosa->code}}).{{$diagnosa->name_id}}">
+                    @endforeach
+            </datalist>
         </div>
-        <div>
-            <label for="">Kode Diagnosa</label>
-            <select id="selectid" class="form-select" aria-label="Default select example" name="kode" required>
 
-            </select>
-        </div>
+        <br>
+        <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
+        <a href="#" onClick="history.go(-2);" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i>
+            Kembali</a>
     </div>
-  <br>
-  <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
-  <a href="#" onClick="history.go(-2);" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
-</div>
-  </form>
+</form>
 @endsection

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('berobat_id');
             $table->string('diagnosa','50');
-            $table->string('kode','10');
             $table->timestamps();
         });
     }

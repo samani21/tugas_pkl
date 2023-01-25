@@ -21,40 +21,53 @@
         </div>
         <div>
             <label for="">Dokter</label>
+            <input class="form-control" name="dokter" list="dokter" id="exampleDataList" autocomplete="off">
+            <datalist id="dokter">
+                @foreach($dokter as $dok)
+                <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
+                @endforeach
+            </datalist>
+            {{-- <label for="">Dokter</label>
             <select class="form-select" name="dokter" aria-label="Default select example" required>
                 <option selected>--pilih--</option>
                 @foreach($dokter as $dok)
                 <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
-                @endforeach
-              </select>
+            @endforeach
+            </select> --}}
         </div>
-        <div>  
+        <div>
             <label for="">Nama perawat</label>
-            <select class="form-select" name="perawat" aria-label="Default select example" required>
+            <input class="form-control" name="perawat" list="perawat" id="exampleDataList" autocomplete="off">
+            <datalist id="perawat">
+                @foreach($perawat as $per)
+                <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
+                @endforeach
+            </datalist>
+            {{-- <select class="form-select" name="perawat" aria-label="Default select example" required>
                 <option selected>--pilih--</option>
                 @foreach($perawat as $per)
                 <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
                 @endforeach
-              </select>
+            </select> --}}
         </div>
     </div>
-<br>
+    <br>
     <div class="tab">
         <h3>Pemeriksaan badan</h3>
         <div>
             <label for="">Sistolik</label>
-            <input class="form-control" type="number" id="sistolik" name="sistolik" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example" autofocus>
+            <input class="form-control" type="number" id="sistolik" name="sistolik" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example" autofocus>
         </div>
         <div>
             <label for="">Diastolik</label>
-            <input class="form-control" type="number" id="diastolik" name="diastolik" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example">
+            <input class="form-control" type="number" id="diastolik" name="diastolik" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Saturasi</label>
-            <input class="form-control" type="text" id="saturasi" name="saturasi" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example">
+            <input class="form-control" type="text" id="saturasi" name="saturasi" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Suhu</label>
@@ -63,14 +76,14 @@
         </div>
         <div>
             <label for="">Napas</label>
-            <input class="form-control" type="number" id="napas" name="napas" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example">
+            <input class="form-control" type="number" id="napas" name="napas" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example">
             <br>
         </div>
         <div>
             <label for="">Tinggi</label>
-            <input class="form-control" type="text" id="tinggi" name="tinggi" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example">
+            <input class="form-control" type="text" id="tinggi" name="tinggi" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Berat</label>
@@ -84,20 +97,16 @@
         <h3>Pemeriksaan badan</h3>
         <div>
             <label for="">Keluhan</label>
-            <textarea id="keluhan" name="keluhan" class="form-control"  style="height: 100px" autofocus></textarea>
+            <textarea id="keluhan" name="keluhan" class="form-control" style="height: 100px" autofocus></textarea>
         </div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <br>
-            <select id="selecticd" class="form-select" aria-label="Default select example" name="diagnosa">
-
-            </select>
-        </div>
-        <div>
-            <label for="">Kode Diagnosa</label>
-            <select id="selectid" class="form-select" aria-label="Default select example" name="kode">
-
-            </select>
+            <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off">
+            <datalist id="diagnosa">
+                @foreach($icd as $diagnosa)
+                <option value="({{$diagnosa->code}}).{{$diagnosa->name_id}}">
+                @endforeach
+            </datalist>
         </div>
         <div>
             <label>Tindakan berobat</label>
@@ -110,16 +119,18 @@
         </div>
         <div>
             <label for="">Keterangan</label>
-            <textarea id="keterangan" name="keterangan" class="form-control"  style="height: 100px" autofocus></textarea>
+            <textarea id="keterangan" name="keterangan" class="form-control" style="height: 100px" autofocus></textarea>
         </div>
         <div>
             <label>Biaya</label>
-            @php 
-                if($berobat->jenis_berobat == 'Umum'){
-                    echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'" aria-label="default input example">';
-                }if ($berobat->jenis_berobat == 'BPJS') {
-                    echo '<input class="form-control" type="text" id="biaya" name="biaya" value="Gratis" aria-label="default input example">';
-                }
+            @php
+            if($berobat->jenis_berobat == 'Umum'){
+            echo '<input class="form-control" type="number" id="biaya" name="biaya" value="'.$berobat->umum.'"
+                aria-label="default input example">';
+            }if ($berobat->jenis_berobat == 'BPJS') {
+            echo '<input class="form-control" type="text" id="biaya" name="biaya" value="Gratis"
+                aria-label="default input example">';
+            }
             @endphp
         </div>
     </div>

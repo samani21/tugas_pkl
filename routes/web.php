@@ -154,6 +154,7 @@ Route::get('obat/masuk', [ObatController::class, 'obat_masuk'])->name('obat/obat
 Route::get('obat/cetak_obat', [ObatController::class, 'cetak_obat'])->name('obat/cetak_obat');
 Route::get('obat/cetak_obatmasuk', [ObatController::class, 'cetak_obatmasuk'])->name('obat/cetak_obatmasuk');
 Route::get('obat/cetak_obatkeluar', [ObatController::class, 'cetak_obatkeluar'])->name('obat/cetak_obatkeluar');
+Route::get('obat/obatkeluar', [ObatController::class, 'keluar'])->name('obat/obatkeluar');
 
 //laporan
 Route::get('laporan/pegawai', [PegawaiController::class, 'laporan'])->name('laporan/pegawai');

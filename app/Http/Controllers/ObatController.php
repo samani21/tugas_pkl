@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Obat;
 use App\Models\Stokobat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -145,5 +146,11 @@ class ObatController extends Controller
         $pdf->setPaper('A4','potrait');
         return $pdf->stream('cetak_obatkeluar.pdf');
     }
-
+    public function keluar(Request $request)
+	{   $cari = $request->cari;
+        $obat = DB::table('tb_resep')->where('berobat_id','like','8')
+                                    ->join('tb_obat','tb_obat.id','=','tb_resep.kd_obat')->get();
+ 
+        return view('obat/obatkeluar', ['obat' => $obat,'title' => 'Obat'] );
+    }
 }

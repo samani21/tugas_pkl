@@ -89,9 +89,9 @@
             @foreach($berobat as $medis)
                 <tr align="center">
                     <td data-title="No">{{ $no++ }}</td>
-                    <td data-title="No berobat">{{$medis->no}}</td>
+                    <td data-title="No berobat">{{$medis->no_berobat}}</td>
                     <td data-title="NIK">{{$medis->nik}}</td>
-                    <td data-title="Jenis berobat">{{$medis->jenis}}</td>
+                    <td data-title="Jenis berobat">{{$medis->jenis_berobat}}</td>
                     <td data-title="Nama">{{$medis->nama}}</td>
                     <td data-title="Tanggal berobat"><?php echo $medis->tgl;?></td>
                 </tr>

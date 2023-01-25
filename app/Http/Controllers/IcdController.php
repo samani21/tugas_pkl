@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class IcdController extends Controller
 {
+
+    
+
     public function icd(){
         $data = Icd::where('name_id', 'LIKE', '%'.request('q').'%')->paginate(10);
 

@@ -10,7 +10,7 @@ class StokobatController extends Controller
 {
     public function create($id){
         $obat = Stokobat::find($id);
-        $data['title'] = 'Edit Obat';
+        $data['title'] = 'Tambah Stok Obat';
         return view('obat.tambah_stok',compact(['obat']),$data);
     }
 
