@@ -66,9 +66,9 @@ class PasienController extends Controller
         $data['title'] = 'Edit Pasien';
         return view('pasien.edit_pasien',compact(['pasien']),$data);
     }
-    public function detail($id,$pasine_id){
+    public function detail($id,$pasien_id){
         $pasien = Pasien::find($id);
-        $berobat = Berobat::find($pasine_id);
+        $berobat = DB::table('tb_berobat')->where('pasien_id','LIKE',"%".$pasien_id."%")->paginate(10);
         $data['title'] = 'Data Pasien';
         return view('pasien.detail',['berobat' =>$berobat,'pasien' =>$pasien],$data);
     }
@@ -118,15 +118,11 @@ class PasienController extends Controller
         return $pdf->stream('cetak_pasien.pdf');
     }
     public function laporan(Request $request)
-	{   $tgl = $request->tgl;
-        $tahun = $request->tahun;
-        $bulan = $request->bulan;
+	{   
         $cari = $request->cari;
-        $pasien = DB::table('tb_pasien')->where('tgl','like',"%".$tgl."%")
-        ->where('tahun','like',"%".$tahun."%")
-        ->where('bulan','like',"%".$bulan."%")
+        $pasien = DB::table('tb_pasien')
         ->where('nama','like',"%".$cari."%")
-		->paginate(1);
+		->paginate(7);
         $pasien->withPath('pasien?tgl=14-01-2023&');
         return view('laporan/pasien', ['pasien' => $pasien,'title' => 'Laporan pasien'] );
     }

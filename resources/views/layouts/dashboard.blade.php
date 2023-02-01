@@ -31,7 +31,8 @@
     <div id="app">
         <input type="checkbox" id="nav-toggle">
         <div class="sidebar">
-            <div class="sidebar-brand">
+            <img src="{{asset('logo-puskesmas.png')}}" alt="" >
+            <div class="sidebar-brand" style="margin-top: -20%">
                 <h1>
                     <span>PUSKESMAS BERUNTUNG RAYA</span>
                 </h1>
@@ -186,6 +187,46 @@
                                 <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}"
                                     class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a> 
                         </div>
+                    </li>
+                    @endif
+                    @if(Auth::user()->level =='kapus')
+                    <li>
+                        <a href="{{ url('dashboard/dashboard?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('dashboard/dashboard?tgl='.date('d-m-Y').'','apotek','admin','rekam')?'active' :'' }}">
+                            <span class="las la-tachometer-alt"></span>
+                            <span>dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('laporan/pegawai')}}" class="{{ request()->is('laporan/pegawai')?'active' :'' }}">
+                            <span class="las la-user-friends"></span>
+                            <span>Pegawai</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('laporan/pasien')}}"class="{{ request()->is('laporan/pasien')?'active' :'' }}">
+                            <span class="las la-users"></span>
+                            Pasien</a>
+                    </li>
+                    <li>
+                        <a href="{{url('laporan/medis?tgl='.date('d-m-Y').'')}}" class="{{ request()->is('laporan/medis')?'active' :'' }}">
+                            <span class="las la-book-medical"></span>
+                            Berobat</a>
+                    </li>
+                    <li>
+                        <a href="{{url('laporan/obat')}}" class="{{ request()->is('laporan/obat')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            Obat</a>
+                    </li>
+                    <li>
+                        <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}" class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            Obat masuk</a>
+                    </li>
+                    <li>
+                        <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}" class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            Obat Keluar</a> 
                     </li>
                     @endif
                 </ul>

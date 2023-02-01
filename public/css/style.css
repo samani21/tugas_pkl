@@ -21,6 +21,12 @@ body {
     display: flex;
     align-items: center;
   }
+
+  .card img{
+    width: 20%;
+    height: 10%;
+    margin-left: 40%;
+  }
   
   .card svg {
     color: #7878bd;
@@ -32,6 +38,7 @@ body {
     padding-bottom: 20px;
     font-size: 21px;
     color: #7878bd;
+    margin-left: 46%;
   }
   
   .field {

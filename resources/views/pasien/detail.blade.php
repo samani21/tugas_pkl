@@ -54,7 +54,7 @@
                         <td><h5>{{$pasien->no_hp}}</h5></td>
                     </tr>
                     <tr>
-                        <td><h5><b>Tanggal berobat</b></h5></td>
+                        <td><h5><b>Tanggal dibuat</b></h5></td>
                         <td><h5>{{$pasien->tgl}}</h5></td>
                     </tr>
                 </tbody>
@@ -75,9 +75,9 @@
                     @php 
                     $no=1;
                 @endphp
-                @foreach($pasien->bero as $pas)
+                @foreach($berobat as $index=>$pas)
                     <tr align="center">
-                        <td data-title="No">{{ $no++ }}</td>
+                        <td data-title="No">{{ $index + $berobat->firstItem() }}</td>
                         <td data-title="No">{{ $pas->tgl }}</td>
                         <td data-title="Status"><?php if($pas->status =='1'){
                             echo '<span class="badge bg-warning text-black">Sedang diperiksa</span>';
@@ -99,6 +99,7 @@
                 @endforeach
             </tbody>
             </table>
+            <div class="float-end">{{ $berobat->links() }}</div>
         </div>
  </div>
 @endsection

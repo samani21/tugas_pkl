@@ -5,6 +5,7 @@ use App\Http\Controllers\ApotekController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerobatController;
 use App\Http\Controllers\IcdController;
+use App\Http\Controllers\KapusController;
 use App\Http\Controllers\MedisController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
@@ -55,6 +56,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/email/verify/need-verification',[ApotekController::class,'index'])->middleware('auth')->name('verification.notice');
         //menu sidebar
         Route::get('dashboard/dashboard', [ApotekController::class,'dashboard'])->name('apotek/dashboard/dashboard');
+    });
+    Route::group(['middleware' => ['cek_login:kapus']], function () {
+        Route::resource('kapus', 'App\Http\Controllers\ApotekController');
+        Route::get('/email/verify/need-verification',[KapusController::class,'index'])->middleware('auth')->name('verification.notice');
+        //menu sidebar
+        Route::get('dashboard/dashboard', [KapusController::class,'dashboard'])->name('kapus/dashboard/dashboard');
     });
 });
 //daftar akun
