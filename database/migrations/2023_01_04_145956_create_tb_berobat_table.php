@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('bpjs','17');
             $table->string('umum','10');
             $table->string('nama','50');
+            $table->string('umur','100');
             $table->string('poli','15');
             $table->string('tgl','12');
             $table->string('bulan','3');

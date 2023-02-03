@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_obat', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('kode','10');
             $table->string('nm_obat','50');
             $table->string('stok','10');

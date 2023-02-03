@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('berobat_id');
             $table->string('tgl','12');
+            $table->string('umur','100');
             $table->string('dokter','50');
             $table->string('perawat','50');
             $table->string('sistolik','5');
