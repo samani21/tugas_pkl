@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{route('stok.store',$obat->id)}}" method="POST">
+<form action="{{route('stok.store',$obat->kode)}}" method="POST">
     @csrf
         <div>
             <label for="">Tanggal</label>
@@ -12,7 +12,7 @@
         </div>
         <div>
             <label for="">Kode obat</label>
-            <input class="form-control" type="text" id="kode" name="kode" value="{{$obat->id}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="text" id="kode" name="kode" value="{{$obat->kode}}" placeholder="Masukkan NIP" aria-label="default input example">
         </div>
         <div>
             <label for="">Nama obat</label>
@@ -20,7 +20,7 @@
         </div>
         <div>
             <label for="">jumlah</label>
-            <input class="form-control" type="number" id="jumlah" name="jumlah"  aria-label="default input example" autofocus>
+            <input class="form-control" type="number" id="jumlah"  name="jumlah"  aria-label="default input example" autofocus>
         </div>
         <hr>
         <div>

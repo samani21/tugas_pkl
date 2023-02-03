@@ -32,7 +32,7 @@
             </div>
             <div>
                 <label for="">Nama</label>
-                <input class="form-control" type="text" id="nama" name="nama" placeholder="Masukkan nama" aria-label="default input example" required>
+                <input class="form-control" type="text" id="nama" name="nama" placeholder="Masukkan nama" style="text-transform: uppercase" aria-label="default input example" required>
             </div>
             <div>
                 <label for="">Tanggal lahir</label>

@@ -81,7 +81,7 @@
                 <p><b>Keterangan :</b>{{$berobat->medis->keterangan}}</p>
                 <p><b>Diagnosa :</b>
                     @foreach($berobat->diagnosa as $d)
-                        {{ $d->diagnosa }} ,
+                    {{ $d->diagnosa }} ,
                     @endforeach
                 </p>
             </td>

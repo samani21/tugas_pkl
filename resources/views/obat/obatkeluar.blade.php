@@ -10,10 +10,6 @@
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <div class="col-auto">
-                <a href="{{url('obat/tambah_obat')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Tambah</a>
-                {{-- <a href="{{url('obat/cetak_obat')}}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak</a> --}}
-            </div>
         </form>
     </div>
     <div class="table-responsive bg-white" id="no-more-tables">
@@ -25,7 +21,6 @@
                 <th scope="col">jumlah obat</th>
                 <th scope="col">dosis</th>
                 <th scope="col">tanggal</th>
-                <th scope="col">Aksi</th>
             </tr>
             </thead>
             <tbody>
@@ -36,6 +31,9 @@
                 <tr align="center">
                     <td data-title="No">{{ $no++ }}</td>
                     <td data-title="No">{{ $o->nm_obat }}</td>
+                    <td data-title="No">{{ $o->jumlah }}</td>
+                    <td data-title="No">{{ $o->dosis }}</td>
+                    <td data-title="No">{{ $o->tgl }}</td>
                 </tr>
             @endforeach
         </tbody>

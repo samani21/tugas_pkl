@@ -31,7 +31,7 @@
     <div id="app">
         <input type="checkbox" id="nav-toggle">
         <div class="sidebar">
-            <img src="{{asset('logo-puskesmas.png')}}" alt="" >
+            <img src="{{asset('logo-puskesmas.png')}}" alt="">
             <div class="sidebar-brand" style="margin-top: -20%">
                 <h1>
                     <span>PUSKESMAS BERUNTUNG RAYA</span>
@@ -89,7 +89,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('obat/masuk?tgl='.date('d-m-Y').'') }}" class="{{ request()->is('obat/masuk')?'active' :'' }}">
+                        <a href="{{url('obat/obatkeluar?tgl='.date('d-m-Y').'')}}"
+                            class="{{ request()->is('obat/obatkeluar')?'active' :'' }}">
+                            <span class="las la-capsules"></span>
+                            <span>Obat Keluar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('obat/masuk?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('obat/masuk')?'active' :'' }}">
                             <span class="las la-capsules"></span>
                             <span>Obat Masuk</span>
                         </a>
@@ -170,7 +178,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('obat/masuk?tgl='.date('d-m-Y').'') }}" class="{{ request()->is('obat/masuk')?'active' :'' }}">
+                        <a href="{{url('obat/masuk?tgl='.date('d-m-Y').'') }}"
+                            class="{{ request()->is('obat/masuk')?'active' :'' }}">
                             <span class="las la-capsules"></span>
                             <span>Obat Masuk</span>
                         </a>
@@ -182,10 +191,10 @@
                         <div class="dropdown-container" style="display: none">
                             <a href="{{url('laporan/obat')}}"
                                 class="{{ request()->is('laporan/obat')?'active' :'' }}">Obat</a>
-                                <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}"
-                                    class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
-                                <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}"
-                                    class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a> 
+                            <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}"
+                                class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">Obat masuk</a>
+                            <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}"
+                                class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">Obat Keluar</a>
                         </div>
                     </li>
                     @endif
@@ -198,18 +207,20 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('laporan/pegawai')}}" class="{{ request()->is('laporan/pegawai')?'active' :'' }}">
+                        <a href="{{url('laporan/pegawai')}}"
+                            class="{{ request()->is('laporan/pegawai')?'active' :'' }}">
                             <span class="las la-user-friends"></span>
                             <span>Pegawai</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('laporan/pasien')}}"class="{{ request()->is('laporan/pasien')?'active' :'' }}">
+                        <a href="{{url('laporan/pasien')}}" class="{{ request()->is('laporan/pasien')?'active' :'' }}">
                             <span class="las la-users"></span>
                             Pasien</a>
                     </li>
                     <li>
-                        <a href="{{url('laporan/medis?tgl='.date('d-m-Y').'')}}" class="{{ request()->is('laporan/medis')?'active' :'' }}">
+                        <a href="{{url('laporan/medis?tgl='.date('d-m-Y').'')}}"
+                            class="{{ request()->is('laporan/medis')?'active' :'' }}">
                             <span class="las la-book-medical"></span>
                             Berobat</a>
                     </li>
@@ -219,14 +230,16 @@
                             Obat</a>
                     </li>
                     <li>
-                        <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}" class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">
+                        <a href="{{url('laporan/obat_masuk?tgl='.date('d-m-Y').'')}}"
+                            class="{{ request()->is('laporan/obat_masuk')?'active' :'' }}">
                             <span class="las la-capsules"></span>
                             Obat masuk</a>
                     </li>
                     <li>
-                        <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}" class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">
+                        <a href="{{url('laporan/obat_keluar?tgl='.date('d-m-Y').'')}}"
+                            class="{{ request()->is('laporan/obat_keluar')?'active' :'' }}">
                             <span class="las la-capsules"></span>
-                            Obat Keluar</a> 
+                            Obat Keluar</a>
                     </li>
                     @endif
                 </ul>
@@ -264,95 +277,6 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-        </script>
-        <script>
-            $(document).ready(function () {
-
-                $("#selectObat").select2({
-                    placeholder: 'Pilih nama Obat',
-                    ajax: {
-                        url: "{{route('obat.index')}}",
-                        processResults: function ({
-                            data
-                        }) {
-                            return {
-                                results: $.map(data, function (item) {
-                                    return {
-                                        id: item.nm_obat,
-                                        text: item.nm_obat
-                                    }
-                                })
-                            }
-                        }
-                    }
-                });
-
-                $("#selectObat").change(function () {
-                    let nm_obat = $('#selectObat').val();
-
-                    $("#selectid").select2({
-                        placeholder: 'Pilih Id bat',
-                        ajax: {
-                            url: "{{url('selectobat')}}/" + nm_obat,
-                            processResults: function ({
-                                data
-                            }) {
-                                return {
-                                    results: $.map(data, function (item) {
-                                        return {
-                                            id: item.id,
-                                            text: item.id
-                                        }
-                                    })
-                                }
-                            }
-                        }
-                    });
-                });
-            });
-            $(document).ready(function () {
-
-                $("#selecticd").select2({
-                    placeholder: 'Pilih nama Icd',
-                    ajax: {
-                        url: "{{route('icd.index')}}",
-                        processResults: function ({
-                            data
-                        }) {
-                            return {
-                                results: $.map(data, function (item) {
-                                    return {
-                                        id: item.name_id,
-                                        text: item.name_id
-                                    }
-                                })
-                            }
-                        }
-                    }
-                });
-                $("#selecticd").change(function () {
-                    let name_id = $('#selecticd').val();
-
-                    $("#selectid").select2({
-                        placeholder: 'Pilih Kode',
-                        ajax: {
-                            url: "{{url('selecicd')}}/" + name_id,
-                            processResults: function ({
-                                data
-                            }) {
-                                return {
-                                    results: $.map(data, function (item) {
-                                        return {
-                                            id: item.code,
-                                            text: item.code
-                                        }
-                                    })
-                                }
-                            }
-                        }
-                    });
-                });
-            });
         </script>
         <script>
             /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

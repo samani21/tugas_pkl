@@ -78,6 +78,14 @@
                     </tr>
                     <tr>
                         <td>
+                            <h5><b>Usia</b></h5>
+                        </td>
+                        <td>
+                            <h5>{{$berobat->umur}}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h5><b>Jenis kelamin</b></h5>
                         </td>
                         <td>
@@ -263,9 +271,9 @@
                  echo '';
               }?>
         </thead>
-        @foreach($berobat->resep as $a)
+        @foreach($resep as $a)
         <tr>
-            <td>{{ $a->obat }}</td>
+            <td>{{ $a->nm_obat }}</td>
             <td>{{ $a->jumlah }}</td>
             <td>{{ $a->dosis }}</td>
             <?php if($berobat->status =='1'){
@@ -274,8 +282,6 @@
                  echo '';
               }?>
         </tr>
-
-
         @endforeach
 
     </table>

@@ -36,7 +36,6 @@ class ObatController extends Controller
     {
 
         $obat = new Stokobat([
-            'kode' => $request->kode,
             'nm_obat' => $request->nm_obat,
             'stok' => $request->stok,
         ]);
@@ -45,16 +44,15 @@ class ObatController extends Controller
         return redirect()->route('obat/obat');
     }
 
-    public function editobat($id){
-        $obat = Stokobat::find($id);
+    public function editobat($kode){
+        $obat = Stokobat::find($kode);
         $data['title'] = 'Edit Obat';
         return view('obat.edit_obat',compact(['obat']),$data);
     }
 
-    public function updateobat(Request $request, $id){
-        $ubah = Stokobat::findorfail($id);
+    public function updateobat(Request $request, $kode){
+        $ubah = Stokobat::findorfail($kode);
         $dt =[
-            'kode' => $request['kode'],
             'nm_obat' => $request['nm_obat'],
             'stok' => $request['stok'],
         ];
@@ -147,9 +145,9 @@ class ObatController extends Controller
         return $pdf->stream('cetak_obatkeluar.pdf');
     }
     public function keluar(Request $request)
-	{   $cari = $request->cari;
-        $obat = DB::table('tb_resep')->where('berobat_id','like','8')
-                                    ->join('tb_obat','tb_obat.id','=','tb_resep.kd_obat')->get();
+	{   $tgl = $request->tgl;
+        $obat = DB::table('tb_resep')->where('tgl','=',''.$tgl.'')
+                                    ->join('tb_obat','tb_obat.kode','=','tb_resep.kd_obat')->get();
  
         return view('obat/obatkeluar', ['obat' => $obat,'title' => 'Obat'] );
     }

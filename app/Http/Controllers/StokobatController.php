@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class StokobatController extends Controller
 {
-    public function create($id){
-        $obat = Stokobat::find($id);
+    public function create($kode){
+        $obat = Stokobat::find($kode);
         $data['title'] = 'Tambah Stok Obat';
         return view('obat.tambah_stok',compact(['obat']),$data);
     }

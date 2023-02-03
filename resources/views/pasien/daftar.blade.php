@@ -53,6 +53,19 @@
                 <label for="">Tanggal lahir</label>
                 <input class="form-control" type="date" id="tanggal" name="tanggal" value="{{$pasien->tanggal}}" aria-label="default input example">
             </div>
+            <div>
+                <label for="">Umur</label>
+               @php
+               $tgl_lahir = $pasien->tanggal;
+               $umur = new DateTime($tgl_lahir);
+               $sekarang = new DateTime();
+
+               $usia = $sekarang->diff($umur);
+
+             
+               @endphp
+                <input class="form-control" type="text" id="umumr" name="umur" value="{{$usia->y." Tahun"." ". $usia->m ." Bulan"." ".$usia->d." hari"}}" readonly>
+            </div>
         </div>
         <div class="col-6">
             <div>

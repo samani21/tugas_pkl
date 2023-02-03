@@ -13,7 +13,7 @@
             <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off">
             <datalist id="diagnosa">
                 @foreach($icd as $diagnosa)
-                <option value="({{$diagnosa->code}}).{{$diagnosa->name_id}}">
+                <option value="({{$diagnosa->code}}). {{$diagnosa->name_id}}">
                     @endforeach
             </datalist>
         </div>

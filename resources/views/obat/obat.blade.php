@@ -21,7 +21,6 @@
             <thead>
             <tr align="center">
                 <th scope="col">No</th>
-                <th scope="col">Kode obat</th>
                 <th scope="col">Nama obat</th>
                 <th scope="col">stok</th>
                 <th scope="col">Aksi</th>
@@ -34,13 +33,12 @@
             @foreach($obat as $index=> $o)
                 <tr align="center">
                     <td data-title="No">{{ $index + $obat->firstItem() }}</td>
-                    <td data-title="Nip">{{$o->kode}}</td>
                     <td data-title="nama">{{$o->nm_obat}}</td>
                     <td data-title="Tanggal lahir">{{$o->stok}}</td>
                     <td data-title="Aksi">
-                        <a href="tambah_stok/{{$o->id}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Stok</a>
-                        <a href="edit_obat/{{$o->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a href="hapus_obat/{{$o->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
+                        <a href="tambah_stok/{{$o->kode}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Stok</a>
+                        <a href="edit_obat/{{$o->kode}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                        <a href="hapus_obat/{{$o->kode}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
                     </td>
                 </tr>
             @endforeach

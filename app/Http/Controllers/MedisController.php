@@ -42,14 +42,16 @@ class MedisController extends Controller
     public function rekam($id,$pasien_id){
         $berobat = Berobat::find($id);
         $pasien = Pasien::find($pasien_id);
+        $resep = DB::table('tb_resep')->join('tb_obat','tb_obat.kode','=','tb_resep.kd_obat')->where('berobat_id','=',''.$id.'')->get();
         $data['title'] = 'Rekam medis pasien';
-        return view('medis/rekam_medis',['berobat' =>$berobat,'pasien' =>$pasien],$data);
+        return view('medis/rekam_medis',['berobat' =>$berobat,'pasien' =>$pasien,'resep'=>$resep],$data);
     }
     
     public function store(Request $request , $id){
         $medis = new Medis([
             'berobat_id' => $request->berobat_id,
             'tgl' => $request->tgl,
+            'umur' => $request->umur,
             'dokter' => $request->dokter,
             'perawat' => $request->perawat,
             'sistolik' => $request->sistolik,

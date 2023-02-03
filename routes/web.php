@@ -151,8 +151,8 @@ Route::post('obat/tambah_obat', [ObatController::class, 'store'])->name('obat.st
 Route::get('obat/edit_obat/{id}',[ObatController::class,'editobat'])->name('obat/edit_obat');
 Route::post('updateobat/{id}',[ObatController::class,'updateobat'])->name('updateobat');
 Route::get('obat/hapus_obat/{id}', [ObatController::class,'destroy'])->name('hapus_obat');
-Route::get('obat/tambah_stok/{id}', [StokobatController::class, 'create'])->name('obat/tambah_stok');
-Route::post('obat/tambah_stok/{id}', [StokobatController::class, 'stok_store'])->name('stok.store');
+Route::get('obat/tambah_stok/{kode}', [StokobatController::class, 'create'])->name('obat/tambah_stok');
+Route::post('obat/tambah_stok/{kode}', [StokobatController::class, 'stok_store'])->name('stok.store');
 Route::get('obat/edit_stok/{id}',[StokobatController::class,'editstok'])->name('obat/edit_stok');
 Route::get('obat/hapus_masuk/{id}', [StokobatController::class,'destroy'])->name('hapus_masuk');
 Route::post('updatestok/{id}', [StokobatController::class, 'updatestok'])->name('updatestok');

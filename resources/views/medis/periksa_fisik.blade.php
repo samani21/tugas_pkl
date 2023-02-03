@@ -20,20 +20,18 @@
                 aria-label="default input example" readonly>
         </div>
         <div>
+            <label for="">Usia</label>
+            <input class="form-control" type="text" id="umur" name="umur" value="{{$berobat->umur}}"
+                aria-label="default input example" readonly>
+        </div>
+        <div>
             <label for="">Dokter</label>
-            <input class="form-control" name="dokter" list="dokter" id="exampleDataList" autocomplete="off">
+            <input class="form-control" name="dokter" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
             <datalist id="dokter">
                 @foreach($dokter as $dok)
                 <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
                 @endforeach
             </datalist>
-            {{-- <label for="">Dokter</label>
-            <select class="form-select" name="dokter" aria-label="Default select example" required>
-                <option selected>--pilih--</option>
-                @foreach($dokter as $dok)
-                <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
-            @endforeach
-            </select> --}}
         </div>
         <div>
             <label for="">Nama perawat</label>
@@ -43,12 +41,6 @@
                 <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
                 @endforeach
             </datalist>
-            {{-- <select class="form-select" name="perawat" aria-label="Default select example" required>
-                <option selected>--pilih--</option>
-                @foreach($perawat as $per)
-                <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
-                @endforeach
-            </select> --}}
         </div>
     </div>
     <br>
@@ -56,39 +48,38 @@
         <h3>Pemeriksaan badan</h3>
         <div>
             <label for="">Sistolik</label>
-            <input class="form-control" type="number" id="sistolik" name="sistolik" maxlength="5"
-                oninput="this.className = ''" aria-label="default input example" autofocus>
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="sistolik" name="sistolik"
+                maxlength="5" oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Diastolik</label>
-            <input class="form-control" type="number" id="diastolik" name="diastolik" maxlength="5"
-                oninput="this.className = ''" aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="diastolik" name="diastolik"
+                maxlength="5" oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Saturasi</label>
-            <input class="form-control" type="text" id="saturasi" name="saturasi" maxlength="5"
-                oninput="this.className = ''" aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="saturasi" name="saturasi"
+                maxlength="5" oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Suhu</label>
-            <input class="form-control" type="text" id="suhu" name="suhu" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="suhu" name="suhu" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Napas</label>
-            <input class="form-control" type="number" id="napas" name="napas" maxlength="5"
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="napas" name="napas" maxlength="5"
                 oninput="this.className = ''" aria-label="default input example">
-            <br>
         </div>
         <div>
             <label for="">Tinggi</label>
-            <input class="form-control" type="text" id="tinggi" name="tinggi" maxlength="5"
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="tinggi" name="tinggi" maxlength="5"
                 oninput="this.className = ''" aria-label="default input example">
         </div>
         <div>
             <label for="">Berat</label>
-            <input class="form-control" type="text" id="berat" name="berat" maxlength="5" oninput="this.className = ''"
-                aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Masukkan angka" id="berat" name="berat" maxlength="5"
+                oninput="this.className = ''" aria-label="default input example">
             <br>
         </div>
     </div>
@@ -97,20 +88,21 @@
         <h3>Pemeriksaan badan</h3>
         <div>
             <label for="">Keluhan</label>
-            <textarea id="keluhan" name="keluhan" class="form-control" style="height: 100px" autofocus></textarea>
+            <textarea id="keluhan" name="keluhan" class="form-control" style="height: 100px">-</textarea>
         </div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off">
+            <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off"
+                oninput="this.className = ''">
             <datalist id="diagnosa">
                 @foreach($icd as $diagnosa)
                 <option value="({{$diagnosa->code}}).{{$diagnosa->name_id}}">
-                @endforeach
+                    @endforeach
             </datalist>
         </div>
         <div>
             <label>Tindakan berobat</label>
-            <select name="tindakan" class="form-control">
+            <select name="tindakan" class="form-control" oninput="this.className = ''">
                 <option value="">--Pilih--</option>
                 <option value="Tindakan">Tindakan</option>
                 <option value="Pemeriksaan">Pemeriksaan</option>
@@ -119,7 +111,7 @@
         </div>
         <div>
             <label for="">Keterangan</label>
-            <textarea id="keterangan" name="keterangan" class="form-control" style="height: 100px" autofocus></textarea>
+            <textarea id="keterangan" name="keterangan" class="form-control" style="height: 100px">-</textarea>
         </div>
         <div>
             <label>Biaya</label>

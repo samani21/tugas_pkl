@@ -13,11 +13,22 @@ class BerobatController extends Controller
 	{   $tgl = $request->tgl;
         $nama = $request->nama;
         $no = $request->no;
-        $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
-                                            ->where('nama','like',"%".$nama."%")
-                                            ->where('no_berobat','like',"%".$no."%")
-                                            ->paginate(7);
-        $berobat->withPath('medis?tgl=14-01-2023&');
+        $poli = $request->poli;
+
+        if($no == ""){
+            $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
+            ->where('nama','like',"%".$nama."%")
+            ->where('poli','like',"%".$poli."%")
+            ->paginate(7);
+        }else if($no == $no){
+            $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
+            ->where('nama','like',"%".$nama."%")
+            ->where('no_berobat','=',"".$no."")
+            ->where('poli','like',"%".$poli."%")
+            ->paginate(7);
+        }
+
+       
         return view('medis/medis', ['berobat' => $berobat,'title' => 'Rekam medis'] );
     }
     
@@ -38,6 +49,7 @@ class BerobatController extends Controller
             'jenis_berobat' => $request->jenis_berobat,
             'bpjs' => $request->bpjs,
             'umum' => $request->umum,
+            'umur' => $request->umur,
             'nama' => $request->nama,
             'poli' => $request->poli,
             // 'tanggal' => $request->tanggal,

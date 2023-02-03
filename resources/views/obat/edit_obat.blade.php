@@ -2,12 +2,8 @@
 
 @section('content')
 
-<form action="{{url('updateobat',$obat->id)}}" method="POST">
+<form action="{{url('updateobat',$obat->kode)}}" method="POST">
     @csrf
-        <div>
-            <label for="">Kode obat</label>
-            <input class="form-control" type="text" id="kode" name="kode" value="{{$obat->kode}}" placeholder="Masukkan NIP" aria-label="default input example">
-        </div>
         <div>
             <label for="">Nama obat</label>
             <input class="form-control" type="text" id="nm_obat" name="nm_obat" value="{{$obat->nm_obat}}" placeholder="Masukkan nama" aria-label="default input example">

@@ -5,10 +5,6 @@
 <form action="{{ route('obat.store') }}" method="POST">
     @csrf
         <div>
-            <label for="">Kode</label>
-            <input class="form-control" type="text" id="kode" name="kode" placeholder="Masukkan kode obat" aria-label="default input example" autofocus>
-        </div>
-        <div>
             <label for="">Nama obat</label>
             <input class="form-control" type="text" id="nm_obat" name="nm_obat" placeholder="Masukkan nama obat" aria-label="default input example">
         </div>
