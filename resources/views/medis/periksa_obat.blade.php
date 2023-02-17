@@ -35,10 +35,17 @@
             <input class="form-control" type="text" id="dosis" name="dosis" oninput="this.className = ''"
                 aria-label="default input example" required>
         </div>
+    </div> 
+    <div>
+        <div>
+            <label for="">Pemakaian</label>
+            <input class="form-control" type="text" id="pakai" name="pakai" oninput="this.className = ''"
+                aria-label="default input example" required>
+        </div>
     </div>
   <br>
   <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
-  <a href="#"  onClick="history.go(-2);" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
+  <a href="/medis/rekam_medis/pasien={{$berobat->id}}&rekammedis={{$berobat->pasien_id}}"class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
 </div>
   </form>
 @endsection

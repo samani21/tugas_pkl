@@ -2,10 +2,10 @@
 
 @section('content')
 
-<form action="{{route('tambah.store',$pasien->id)}}" method="POST" class="row g-2">
+<form action="{{route('tambah.store',$pasien->id_pasien)}}" method="POST" class="row g-2">
     @csrf
        <div class="col-6">
-        <input class="form-control" type="hidden" id="pasien_id" name="pasien_id" value="{{$pasien->id}}"  placeholder="Masukkan no berobat" aria-label="default input example" readonly>
+        <input class="form-control" type="hidden" id="pasien_id" name="pasien_id" value="{{$pasien->id_pasien}}"  placeholder="Masukkan no berobat" aria-label="default input example" readonly>
             <div>
                 <label for="">No berobat</label>
                 <input class="form-control" type="number" id="no_berobat" name="no_berobat" value="{{$pasien->no_berobat}}"  placeholder="Masukkan no berobat" aria-label="default input example" readonly>
@@ -47,7 +47,7 @@
             </div>
             <div>
                 <label for="">Nama</label>
-                <input class="form-control" type="text" id="nama" name="nama"  value="{{$pasien->nama}}" placeholder="Masukkan nama" aria-label="default input example">
+                <input class="form-control" type="text" id="nama" name="nama_berobat" style="text-transform: uppercase" value="{{$pasien->nama}}" placeholder="Masukkan nama" aria-label="default input example">
             </div>
             <div>
                 <label for="">Tanggal lahir</label>
@@ -101,6 +101,7 @@
                     <option value="Anak">Anak</option>
                     <option value="Gigi">Gigi</option>
                     <option value="KB">KB</option>
+                    <option value="Gizi">Gizi</option>
                     <option value="kandungan">kandungan</option>
                 </select>
             </div>

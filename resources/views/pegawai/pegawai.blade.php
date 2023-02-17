@@ -24,10 +24,10 @@
                 <th scope="col">No</th>
                 <th scope="col">NIP</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Tanggal lahir</th>
+                <th scope="col" >Tanggal lahir</th>
                 <th scope="col">tempat</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">No hp</th>
+                <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Kelompok</th>
                 <th scope="col">Aksi</th>
             </tr>
@@ -40,15 +40,15 @@
                 <tr align="center">
                     <td data-title="No">{{ $index + $pegawai->firstItem() }}</td>
                     <td data-title="Nip">{{$peg->nip}}</td>
-                    <td data-title="nama">{{$peg->nama}}</td>
+                    <td data-title="nama" style="text-transform: uppercase"align="left">{{$peg->nama}}</td>
                     <td data-title="Tanggal lahir">{{$peg->tanggal}}</td>
-                    <td data-title="Tempat lahir">{{$peg->tempat}}</td>
-                    <td data-title="Alamat">{{$peg->alamat}}</td>
-                    <td data-title="No Hp">{{$peg->hp}}</td>
+                    <td data-title="Tempat lahir" align="left">{{$peg->tempat}}</td>
+                    <td data-title="Alamat" >{{$peg->alamat}}</td>
+                    <td data-title="No Hp">{{$peg->jns_kelamin}}</td>
                     <td data-title="Kelompok">{{$peg->kelompok}}-{{$peg->spesialis}}</td>
                     <td data-title="Aksi">
                         <a href="edit_pegawai/{{$peg->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a href="hapus_pegawai/{{$peg->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
+                        <a href="hapus_pegawai/{{$peg->id}}" class="btn btn-danger" onclick="javascript: return confirm('Konfirmasi data akan dihapus');"><i class="fa-solid fa-trash"></i> hapus</a>
                     </td>
                 </tr>
             @endforeach

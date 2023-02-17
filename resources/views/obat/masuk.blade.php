@@ -39,7 +39,7 @@
                     <td data-title="Tanggal lahir">{{$o->jumlah}}</td>
                     <td data-title="Aksi">
                         <a href="edit_stok/{{$o->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a href="hapus_masuk/{{$o->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
+                        <a href="hapus_masuk/{{$o->id}}" class="btn btn-danger" onclick="javascript: return confirm('Konfirmasi data akan dihapus');"><i class="fa-solid fa-trash"></i> hapus</a>
                     </td>
                 </tr>
             @endforeach

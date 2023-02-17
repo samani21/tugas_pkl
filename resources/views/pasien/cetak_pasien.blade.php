@@ -54,7 +54,7 @@
                 <td>{{$pas->no_berobat}}</td>
                 <td>{{$pas->nik}}</td>
                 <td>{{$pas->jenis_berobat}}</td>
-                <td>{{$pas->nama}}</td>
+                <td style="text-transform: uppercase">{{$pas->nama}}</td>
                 <td align="center">{{$pas->tanggal}}</td>
                 <td>{{$pas->tempat}}</td>
                 <td>{{$pas->alamat}}</td>

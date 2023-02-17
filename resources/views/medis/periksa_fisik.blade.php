@@ -5,7 +5,7 @@
 <form id="regForm" action="{{route('fisik.store',$berobat->id)}}" method="POST">
     @csrf
     <div class="tab">
-        <h3>Pemeriksa</h3>
+         <p>Nama Pasien: <b style="text-transform: uppercase">{{$berobat->nama_berobat}}</b> <h3>Pemeriksa</h3></p>
         <div>
             <input type="hidden" id="berobat_id" name="berobat_id" value="{{$berobat->id}}">
             <input type="hidden" id="pasien_id" name="pasien_id" value="{{$berobat->pasien_id}}">
@@ -26,7 +26,7 @@
         </div>
         <div>
             <label for="">Dokter</label>
-            <input class="form-control" name="dokter" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
+            <input class="form-control" name="dokter" style="text-transform: uppercase" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
             <datalist id="dokter">
                 @foreach($dokter as $dok)
                 <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
@@ -35,7 +35,7 @@
         </div>
         <div>
             <label for="">Nama perawat</label>
-            <input class="form-control" name="perawat" list="perawat" id="exampleDataList" autocomplete="off">
+            <input class="form-control" name="perawat" style="text-transform: uppercase" list="perawat" id="exampleDataList" autocomplete="off">
             <datalist id="perawat">
                 @foreach($perawat as $per)
                 <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
@@ -45,7 +45,7 @@
     </div>
     <br>
     <div class="tab">
-        <h3>Pemeriksaan badan</h3>
+        <p>Nama Pasien: <b style="text-transform: uppercase">{{$berobat->nama_berobat}}</b><h3>Pemeriksaan badan</h3></p>
         <div>
             <label for="">Sistolik</label>
             <input class="form-control" type="text" placeholder="Masukkan angka" id="sistolik" name="sistolik"
@@ -85,7 +85,7 @@
     </div>
     <br>
     <div class="tab">
-        <h3>Pemeriksaan badan</h3>
+        <p>Nama Pasien: <b style="text-transform: uppercase">{{$berobat->nama_berobat}}</b><h3>Pemeriksaan badan</h3></p>
         <div>
             <label for="">Keluhan</label>
             <textarea id="keluhan" name="keluhan" class="form-control" style="height: 100px">-</textarea>

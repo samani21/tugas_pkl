@@ -47,7 +47,7 @@
                 <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{$peg->nip}}</td>
-                    <td>{{$peg->nama}}</td>
+                    <td style="text-transform: uppercase">{{$peg->nama}}</td>
                     <td>{{$peg->alamat}}</td>
                     <td>{{$peg->kelompok}}</td>
                     

@@ -10,7 +10,7 @@
         </div>
         <div>
             <label for="">Jumlah</label>
-            <input class="form-control" type="number" id="stok" name="stok"  aria-label="default input example">
+            <input class="form-control" type="number" id="stok" name="stok"  aria-label="default input example" required>
         </div>
         <br>
         <div>

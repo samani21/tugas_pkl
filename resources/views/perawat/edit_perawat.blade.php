@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">NIP</label>
-            <input class="form-control" type="number" id="nip" name="nip" value="{{$perawat->nip}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="text" id="nip" name="nip" value="{{$perawat->nip}}" placeholder="Masukkan NIP" aria-label="default input example">
         </div>
         <div>
             <label for="">Nama</label>
-            <input class="form-control" type="text" id="nama" name="nama" value="{{$perawat->nama}}" placeholder="Masukkan nama" aria-label="default input example">
+            <input class="form-control" type="text" id="nama" style="text-transform: uppercase" name="nama" value="{{$perawat->nama}}" placeholder="Masukkan nama" aria-label="default input example">
         </div>
         <div>
             <label for="">Kelompok pegawai</label>

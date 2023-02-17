@@ -22,7 +22,7 @@
     <div class="table-responsive bg-white" id="no-more-tables">
         <table class="table table-striped table-hover">
             <thead>
-            <tr align="center">
+            <tr >
                 <th scope="col">No</th>
                 <th scope="col">NIP</th>
                 <th scope="col">Nama</th>
@@ -35,14 +35,14 @@
                 $no=1;
             @endphp
             @foreach($perawat as $index=> $per)
-                <tr align="center">
+                <tr>
                     <td data-title="No">{{ $index + $perawat->firstItem()}}</td>
                     <td data-title="Nip">{{$per->nip}}</td>
-                    <td data-title="nama">{{$per->nama}}</td>
+                    <td data-title="nama" style="text-transform: uppercase">{{$per->nama}}</td>
                     <td data-title="Spesialis">{{$per->spesialis}}</td>
                     <td data-title="Aksi">
                         <a href="edit_perawat/{{$per->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a href="hapus_perawat/{{$per->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
+                        <a href="hapus_perawat/{{$per->id}}" class="btn btn-danger" onclick="javascript: return confirm('Konfirmasi data akan dihapus');"><i class="fa-solid fa-trash"></i> hapus</a>
                     </td>
                 </tr>
             @endforeach

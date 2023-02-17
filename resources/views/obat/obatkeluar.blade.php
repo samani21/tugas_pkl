@@ -28,12 +28,12 @@
                 $no=1;
             @endphp
             @foreach($obat as  $o)
-                <tr align="center">
-                    <td data-title="No">{{ $no++ }}</td>
-                    <td data-title="No">{{ $o->nm_obat }}</td>
-                    <td data-title="No">{{ $o->jumlah }}</td>
-                    <td data-title="No">{{ $o->dosis }}</td>
-                    <td data-title="No">{{ $o->tgl }}</td>
+                <tr>
+                    <td data-title="No"  align="center">{{ $no++ }}</td>
+                    <td data-title="Nama obat">{{ $o->nm_obat }}</td>
+                    <td data-title="Jumlah"  align="center">{{ $o->jumlah }}</td>
+                    <td data-title="Dosis" >{{ $o->dosis }}</td>
+                    <td data-title="Tanggal"  align="center">{{ $o->tgl }}</td>
                 </tr>
             @endforeach
         </tbody>

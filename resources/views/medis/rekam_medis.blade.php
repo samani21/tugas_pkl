@@ -2,13 +2,8 @@
 
 @section('content')
 <div class="container">
-    <a href="#" onclick="goBack()" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
-    <a href="/medis/cetak_rm/pasien={{$berobat->id}}&rekammedis={{$pasien->id}}" class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak rekam medis</a>
+    <a href="/medis/medis?tgl={{date('d-m-Y')}}" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
+    <a href="/medis/cetak_rm/pasien={{$berobat->id}}&rekammedis={{$pasien->id_pasien}}" class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak rekam medis</a>
     <div class="float-end">
 
         <form action="{{route('selesai',$berobat->id)}}" method="POST">
@@ -16,8 +11,8 @@
             <input type="hidden" name="status" value="2">
         <?php if($berobat->status =='1'){
             echo '<button class="btn btn-success" type="submit" name="simpan">Selesai</button>
-             <a href="/medis/periksa_diagnosa/'.$berobat->id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Diagnosa</a>
-        <a href="/medis/periksa_obat/'.$berobat->id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Obat</a>';
+             <a href="/medis/periksa_diagnosa/berobat='.$berobat->id.'&pasien='.$berobat->pasien_id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Diagnosa</a>
+        <a href="/medis/periksa_obat/berobat='.$berobat->id.'&pasien='.$berobat->pasien_id.'" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Obat</a>';
          }if($berobat->status =='2'){
              echo '';
           }?>
@@ -64,7 +59,7 @@
                         <td>
                             <h5><b>Nama</b></h5>
                         </td>
-                        <td>
+                        <td style="text-transform: uppercase">
                             <h5>{{$pasien->nama}}</h5>
                         </td>
                     </tr>
@@ -150,7 +145,7 @@
                         <td>
                             <h5><b>Dokter</b></h5>
                         </td>
-                        <td>
+                        <td style="text-transform: uppercase">
                             <h5>{{$berobat->medis->dokter}}</h5>
                         </td>
                     </tr>
@@ -158,7 +153,7 @@
                         <td>
                             <h5><b>Perawat</b></h5>
                         </td>
-                        <td>
+                        <td style="text-transform: uppercase">
                             <h5>{{$berobat->medis->perawat}}</h5>
                         </td>
                     </tr>
@@ -265,6 +260,7 @@
             <th>Nama Obat</th>
             <th>Jumlah</th>
             <th>Dosis</th>
+            <th>Pemakaian</th>
             <?php if($berobat->status =='1'){
                 echo '<th>Aksi</th>';
              }if($berobat->status =='2'){
@@ -275,9 +271,10 @@
         <tr>
             <td>{{ $a->nm_obat }}</td>
             <td>{{ $a->jumlah }}</td>
-            <td>{{ $a->dosis }}</td>
+            <td>{{ $a->dosis }} / hari</td>
+            <td>{{ $a->pakai }}</td>
             <?php if($berobat->status =='1'){
-                echo '<td><a href="hapus_resep/'.$a->id.'" class="">Hapus</a></td>';
+                echo '<td><a href="hapus_resep/'.$a->id.'" class="" onclick="javascript: return confirm('Konfirmasi data akan dihapus');">Hapus</a></td>';
              }if($berobat->status =='2'){
                  echo '';
               }?>

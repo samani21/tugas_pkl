@@ -16,13 +16,15 @@ class BerobatController extends Controller
         $poli = $request->poli;
 
         if($no == ""){
-            $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
-            ->where('nama','like',"%".$nama."%")
+            $berobat = DB::table('tb_berobat')->join('tb_pasien','tb_pasien.id_pasien','=','tb_berobat.pasien_id')
+            ->where('tgl','like',"%".$tgl."%")
+            ->where('nama_berobat','like',"%".$nama."%")
             ->where('poli','like',"%".$poli."%")
             ->paginate(7);
         }else if($no == $no){
-            $berobat = DB::table('tb_berobat')->where('tgl','like',"%".$tgl."%")
-            ->where('nama','like',"%".$nama."%")
+            $berobat = DB::table('tb_berobat')->join('tb_pasien','tb_pasien.id_pasien','=','tb_berobat.pasien_id')
+            ->where('tgl','like',"%".$tgl."%")
+            ->where('nama_berobat','like',"%".$nama."%")
             ->where('no_berobat','=',"".$no."")
             ->where('poli','like',"%".$poli."%")
             ->paginate(7);
@@ -50,7 +52,7 @@ class BerobatController extends Controller
             'bpjs' => $request->bpjs,
             'umum' => $request->umum,
             'umur' => $request->umur,
-            'nama' => $request->nama,
+            'nama_berobat' => $request->nama_berobat,
             'poli' => $request->poli,
             // 'tanggal' => $request->tanggal,
             'tgl' => $request->tgl,

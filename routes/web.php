@@ -128,12 +128,12 @@ Route::get('medis/medis', [BerobatController::class, 'index'])->name('medis/medi
 Route::get('medis/periksa_fisik/{id}',[MedisController::class,'periksa'])->name('medis/periksa_fisik');
 Route::post('medis/periksa_fisik/{id}',[MedisController::class,'store'])->name('fisik.store');
 //pemberian resep
-Route::get('medis/periksa_obat/{id}',[MedisController::class,'obat'])->name('medis/periksa_obat');
+Route::get('medis/periksa_obat/berobat={id}&pasien{pasien}',[MedisController::class,'obat'])->name('medis/periksa_obat');
 Route::post('medis/periksa_obat/{id}',[MedisController::class,'obat_store'])->name('resep.store');
 Route::post('selesai/{id}',[MedisController::class,'selesai'])->name('selesai');
 Route::post('medis/hapus_resep/{id}',[MedisController::class,'hapus_resep'])->name('hapus_resep');
 //Diagnosa
-Route::get('medis/periksa_diagnosa/{id}',[MedisController::class,'diagnosa'])->name('medis/diagnosa');
+Route::get('medis/periksa_diagnosa/berobat={id}&pasien{pasien}',[MedisController::class,'diagnosa'])->name('medis/diagnosa');
 Route::post('medis/periksa_diagnosa/{id}',[MedisController::class,'diagnosa_store'])->name('diagnosa.store');
 Route::get('medis/rekam_medis/hapus_diagnosa/{id}', [MedisController::class,'hapus_diagnosa'])->name('hapus_diagnosa');
 

@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">NIP</label>
-            <input class="form-control" type="number" id="nip" name="nip" value="{{$dokter->nip}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="text" id="nip" name="nip" value="{{$dokter->nip}}" placeholder="Masukkan NIP" aria-label="default input example">
         </div>
         <div>
             <label for="">Nama</label>
-            <input class="form-control" type="text" id="nama" name="nama" value="{{$dokter->nama}}" placeholder="Masukkan nama" aria-label="default input example">
+            <input class="form-control" type="text" id="nama" name="nama" style="text-transform: uppercase" value="{{$dokter->nama}}" placeholder="Masukkan nama" aria-label="default input example">
         </div>
         <div>
             <label for="">Kelompok pegawai</label>
@@ -21,9 +21,7 @@
             <select class="form-select" name="spesialis" aria-label="Default select example">
                 <option value="{{$dokter->spesialis}}" selected>{{$dokter->spesialis}}</option>
                 <option value="Dokter Umum">Dokter Umum</option>
-                <option value="Bidan">Bidan</option>
                 <option value="Dokter Gigi">Perawat Gigi</option>
-                <option value="Ahli Gizi">Ahli Gizi</option>
               </select>
         </div>
         <hr>

@@ -20,7 +20,7 @@
 
         <br>
         <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
-        <a href="#" onClick="history.go(-2);" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i>
+        <a href="/medis/rekam_medis/pasien={{$berobat->id}}&rekammedis={{$berobat->pasien_id}}" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i>
             Kembali</a>
     </div>
 </form>

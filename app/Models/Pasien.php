@@ -9,6 +9,7 @@ class Pasien extends Model
 {
     use HasFactory;
      protected $table = 'tb_pasien';
+     protected $primaryKey = 'id_pasien';
      protected $guarded = [];
     public function ber(){
     	return $this->belongsTo('App\Models\Berobat');

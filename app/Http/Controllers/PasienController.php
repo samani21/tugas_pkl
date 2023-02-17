@@ -52,9 +52,9 @@ class PasienController extends Controller
             'alamat' => $request->alamat,
             'gol_darah' => $request->gol_darah,
             'no_hp' => $request->no_hp,
-            'tgl' => $request->tgl,
-            'bulan' => $request->bulan,
-            'tahun' => $request->tahun,
+            'tgl_pasien' => $request->tgl_pasien,
+            'bulan_pasien' => $request->bulan_pasien,
+            'tahun_pasien' => $request->tahun_pasien,
         ]);
         $pasien->save();
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
@@ -87,9 +87,9 @@ class PasienController extends Controller
             'alamat' => $request['alamat'],
             'gol_darah' => $request['gol_darah'],
             'no_hp' => $request['no_hp'],
-            'tgl' => $request['tgl'],
-            'bulan' => $request['bulan'],
-            'tahun' => $request['tahun'],
+            'tgl_pasien' => $request['tgl_pasien'],
+            'bulan_pasien' => $request['bulan_pasien'],
+            'tahun_pasien' => $request['tahun_pasien'],
         ];
         $ubah->update($dt);
         alert('Sukses','Simpan Data Berhasil', 'success');

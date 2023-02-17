@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">NIP</label>
-            <input class="form-control" type="number" id="nip" name="nip" placeholder="Masukkan NIP" aria-label="default input example" autofocus>
+            <input class="form-control" type="text" id="nip" name="nip" placeholder="Masukkan NIP" aria-label="default input example" autofocus>
         </div>
         <div>
             <label for="">Nama</label>
-            <input class="form-control" type="text" id="nama" name="nama" placeholder="Masukkan nama" aria-label="default input example">
+            <input class="form-control" style="text-transform: uppercase" type="text" id="nama" name="nama" placeholder="Masukkan nama" aria-label="default input example">
         </div>
         <div>
             <input type="hidden" name="kelompok" value="dokter" id="">
@@ -20,9 +20,7 @@
             <select class="form-select" name="spesialis" aria-label="Default select example">
                 <option selected>--pilih--</option>
                 <option value="Dokter Umum">Dokter Umum</option>
-                <option value="Bidan">Bidan</option>
-                <option value="Dokter Gigi">Perawat Gigi</option>
-                <option value="Ahli Gizi">Ahli Gizi</option>
+                <option value="Dokter Gigi">Dokter Gigi</option>
               </select>
         </div>
         <hr>

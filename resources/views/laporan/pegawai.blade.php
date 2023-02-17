@@ -26,7 +26,7 @@
                 <th scope="col">Tanggal lahir</th>
                 <th scope="col">tempat</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">No hp</th>
+                <th scope="col">jenis kelamin</th>
                 <th scope="col">Kelompok</th>
             </tr>
             </thead>
@@ -42,7 +42,7 @@
                     <td data-title="Tanggal lahir">{{$peg->tanggal}}</td>
                     <td data-title="Tempat lahir">{{$peg->tempat}}</td>
                     <td data-title="Alamat">{{$peg->alamat}}</td>
-                    <td data-title="No Hp">{{$peg->hp}}</td>
+                    <td data-title="Jenis kelamin">{{$peg->jns_kelamin}}</td>
                     <td data-title="Kelompok">{{$peg->kelompok}}</td>
                 </tr>
             @endforeach

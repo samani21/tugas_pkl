@@ -24,6 +24,7 @@
                 <option value="Anak">Anak</option>
                 <option value="Gigi">Gigi</option>
                 <option value="KB">KB</option>
+                <option value="Gizi">Gizi</option>
                 <option value="kandungan">kandungan</option>
             </select>
         </div>
@@ -60,33 +61,45 @@
                 <td data-title="No berobat">{{$medis->no_berobat}}</td>
                 <td data-title="NIK">{{$medis->nik}}</td>
                 <td data-title="Jenis berobat">{{$medis->jenis_berobat}}</td>
-                <td data-title="Nama">{{$medis->nama}}</td>
-                <td data-title="Nama">{{$medis->umur}}</td>
+                <td data-title="Nama" style="text-transform: uppercase">{{$medis->nama}}</td>
+                <td data-title="Umur">{{$medis->umur}}</td>
                 <td data-title="Poli">{{$medis->poli}}</td>
                 <td data-title="Tanggal berobat"><?php echo $medis->tgl;?></td>
                 <td data-title="Status"><?php if($medis->status =='2'){
-                        echo '<span class="badge bg-success">Selesai diperiksa</span>';
-                     }if($medis->status =='1'){
-                        echo '<span class="badge bg-warning">Sedang diperiksa</span>';
-                     }if($medis->status =='0'){
-                         echo '<span class="badge bg-danger">Belum diperiksa</span>';
-                      }?></td>
-                <td data-title="Aksi">
-                    <?php if($medis->status =='0'){
-                            echo '<a href="periksa_fisik/'.$medis->id.'" class="btn btn-primary"><i class="fa-solid fa-book-medical"></i></a>';
-                         }if($medis->status =='1'){
-                             echo '';
-                          }?>
-                    <?php if($medis->status =='1'){
-                            echo '<a href="rekam_medis/pasien='.$medis->id.'&rekammedis='.$medis->pasien_id.'" class="btn btn-warning"><i class="fa-solid fa-laptop-medical"></i></a>';
-                         }
+                    echo '<span class="badge bg-success">Selesai diperiksa</span>';
+                 }if($medis->status =='1'){
+                    echo '<span class="badge bg-warning">Sedang diperiksa</span>';
+                 }if($medis->status =='0'){
+                     echo '<span class="badge bg-danger">Belum diperiksa</span>';
+                  }?></td>
+                 @If(Auth::user()->level =='admin')
+                 <td data-title="Aksi">
+                    <?php
                           if($medis->status =='2'){
                             echo '<a href="rekam_medis/pasien='.$medis->id.'&rekammedis='.$medis->pasien_id.'" class="btn btn-success"><i class="fa-solid fa-laptop-medical"></i></a>';
                          }if($medis->status =='0'){
                              echo '';
                           }?>
-                    <a href="hapus_berobat/{{$medis->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                </td>
+                      </td>
+                 @endif
+                @if(Auth::user()->level =='rekam_medis')
+            <td data-title="Aksi">
+                <?php if($medis->status =='0'){
+                        echo '<a href="periksa_fisik/'.$medis->id.'" class="btn btn-primary"><i class="fa-solid fa-book-medical"></i></a>';
+                     }if($medis->status =='1'){
+                         echo '';
+                      }?>
+                <?php if($medis->status =='1'){
+                        echo '<a href="rekam_medis/pasien='.$medis->id.'&rekammedis='.$medis->pasien_id.'" class="btn btn-warning"><i class="fa-solid fa-laptop-medical"></i></a>';
+                     }
+                      if($medis->status =='2'){
+                        echo '<a href="rekam_medis/pasien='.$medis->id.'&rekammedis='.$medis->pasien_id.'" class="btn btn-success"><i class="fa-solid fa-laptop-medical"></i></a>';
+                     }if($medis->status =='0'){
+                         echo '';
+                      }?>
+                <a href="hapus_berobat/{{$medis->id}}" class="btn btn-danger" onclick="javascript: return confirm('Konfirmasi data akan dihapus');"><i class="fa-solid fa-trash"></i></a>
+            </td>
+                @endif
             </tr>
             @endforeach
         </tbody>

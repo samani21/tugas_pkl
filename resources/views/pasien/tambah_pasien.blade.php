@@ -50,9 +50,9 @@
         <div class="col-6">
             <div>
                 <label for="">Tanggal</label>
-                <input class="form-control" type="text" id="tgl" name="tgl" value="{{date('d-m-Y')}}" placeholder="Masukkan NIP" aria-label="default input example" readonly>
-                <input class="form-control" type="hidden" id="bulan" name="bulan" value="{{date('m')}}" placeholder="Masukkan NIP" aria-label="default input example">
-                <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
+                <input class="form-control" type="text" id="tgl" name="tgl_pasien" value="{{date('d-m-Y')}}" placeholder="Masukkan NIP" aria-label="default input example" readonly>
+                <input class="form-control" type="hidden" id="bulan" name="bulan_pasien" value="{{date('m')}}" placeholder="Masukkan NIP" aria-label="default input example">
+                <input class="form-control" type="hidden" id="tahun" name="tahun_pasien" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
             </div>
             <div>
                 <label for="">Tempat lahir</label>

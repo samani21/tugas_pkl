@@ -13,7 +13,7 @@ class PegawaiController extends Controller
     public function index(Request $request)
 	{   $cari = $request->cari;
         $pegawai = DB::table('tb_pegawai')->where('nama','like',"%".$cari."%",'')
-		->paginate(7);
+		->paginate(6);
  
         return view('pegawai/pegawai', ['pegawai' => $pegawai,'title' => 'Pegawai'] );
     }
@@ -32,7 +32,7 @@ class PegawaiController extends Controller
             'tanggal' => $request->tanggal,
             'tempat' => $request->tempat,
             'alamat' => $request->alamat,
-            'hp' => $request->hp,
+            'jns_kelamin' => $request->jns_kelamin,
             'kelompok' => $request->kelompok,
             'spesialis' => $request->spesialis,
         ]);
@@ -55,7 +55,7 @@ class PegawaiController extends Controller
             'tanggal' => $request['tanggal'],
             'tempat' => $request['tempat'],
             'alamat' => $request['alamat'],
-            'hp' => $request['hp'],
+            'jns_kelamin' => $request['jns_kelamin'],
             'kelompok' => $request['kelompok'],
             'spesialis' => $request['spesialis'],
         ];

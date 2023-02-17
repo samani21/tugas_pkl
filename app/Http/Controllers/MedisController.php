@@ -25,7 +25,7 @@ class MedisController extends Controller
         return view('medis/periksa_fisik',compact(['berobat','dokter','perawat','icd']), $data);
     }
 
-    public function obat($id)
+    public function obat($id,$pasien)
     {   $berobat = Berobat::find($id);
         $obat = Stokobat::all();
         $data['title'] = 'Periksa pasien';
@@ -110,6 +110,7 @@ class MedisController extends Controller
             'obat' => $request->obat,
             'jumlah' => $request->jumlah,
             'dosis' => $request->dosis,
+            'pakai' => $request->pakai,
             'tgl' => $request->tgl,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,

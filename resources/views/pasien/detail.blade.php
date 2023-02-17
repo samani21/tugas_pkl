@@ -2,12 +2,10 @@
 
 @section('content')
  <div class="container">
-    <a href="#" onclick="goBack()" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
-        <script>
-            function goBack() {
-                window.history.back();
-            }
-        </script>
+    <a href="/pasien/pasien" class="btn btn-warning"><i class="fa-solid fa-chevron-left"></i> Kembali</a>
+    <div class="float-end">
+        <a href="/pasien/daftar/{{$pasien->id_pasien}}" class="btn btn-primary"><i class="fa-solid fa-syringe"></i></i> Daftar Pasien berobat</a>
+    </div>
     <hr>
     <div class="row g-2">
         <div class="col-6">
@@ -31,7 +29,7 @@
                     </tr>
                     <tr>
                         <td><h5><b>Nama</b></h5></td>
-                        <td><h5>{{$pasien->nama}}</h5></td>
+                        <td style="text-transform: uppercase"><h5>{{$pasien->nama}}</h5></td>
                     </tr>
                     <tr>
                         <td><h5><b>Tempat tanggal lahir</b></h5></td>
@@ -55,7 +53,7 @@
                     </tr>
                     <tr>
                         <td><h5><b>Tanggal dibuat</b></h5></td>
-                        <td><h5>{{$pasien->tgl}}</h5></td>
+                        <td><h5>{{$pasien->tgl_pasien}}</h5></td>
                     </tr>
                 </tbody>
             </table>

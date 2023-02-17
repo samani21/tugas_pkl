@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{url('updatepasien',$pasien->id)}}" method="POST">
+<form action="{{url('updatepasien',$pasien->id_pasien)}}" method="POST">
     @csrf
     <div class="row g-2">
         <div class="col-6">
@@ -21,7 +21,7 @@
                 <select name="jenis_berobat" class="form-control" onchange=" 
                     if (this.selectedIndex==2 )
                     { document.getElementById('bpjs').style.display ='inline'}
-                    else { document.getElementById('bpjs').style.display = 'none' };">
+                    else { document.getElementById('bpjs').style.display = 'inline' };">
                     <option value="{{$pasien->jenis_berobat}}">{{$pasien->jenis_berobat}}</option>
                     <option value="Umum">Umum</option>
                     <option value="BPJS">BPJS</option>
@@ -34,7 +34,7 @@
             <div>
                 <label for="">Nama</label>
                 <input class="form-control" type="text" id="nama" name="nama" value="{{$pasien->nama}}"
-                    placeholder="Masukkan nama" aria-label="default input example">
+                    placeholder="Masukkan nama" style="text-transform: uppercase" aria-label="default input example">
             </div>
             <div>
                 <label for="">Tanggal lahir</label>
@@ -53,9 +53,9 @@
         <div class="col-6">
             <div>
                 <label for="">Tanggal</label>
-                <input class="form-control" type="text" id="tgl" name="tgl" value="{{$pasien->tgl}}" placeholder="Masukkan NIP" aria-label="default input example" readonly>
-                <input class="form-control" type="hidden" id="bulan" name="bulan" value="{{$pasien->bulan}}" placeholder="Masukkan NIP" aria-label="default input example">
-                <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{$pasien->tahun}}" placeholder="Masukkan NIP" aria-label="default input example">
+                <input class="form-control" type="text" id="tgl" name="tgl_pasien" value="{{$pasien->tgl_pasien}}" placeholder="Masukkan NIP" aria-label="default input example" readonly>
+                <input class="form-control" type="hidden" id="bulan" name="bulan_pasien" value="{{$pasien->bulan_pasien}}" placeholder="Masukkan NIP" aria-label="default input example">
+                <input class="form-control" type="hidden" id="tahun" name="tahun_pasien" value="{{$pasien->tahun_pasien}}" placeholder="Masukkan NIP" aria-label="default input example">
             </div>
             <div>
                 <label for="">Tempat lahir</label>

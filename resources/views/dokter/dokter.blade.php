@@ -22,12 +22,12 @@
     <div class="table-responsive bg-white" id="no-more-tables">
         <table class="table table-striped table-hover">
             <thead>
-            <tr align="center">
+            <tr>
                 <th scope="col">No</th>
                 <th scope="col">NIP</th>
-                <th scope="col">Nama</th>
+                <th scope="col" align="left">Nama</th>
                 <th scope="col">Spesialis</th>
-                <th scope="col">Aksi</th>
+                <th scope="col" align="center">Aksi</th>
             </tr>
             </thead>
             <tbody>
@@ -35,14 +35,14 @@
                 $no=1;
             @endphp
             @foreach($dokter as $index=> $dok)
-                <tr align="center">
+                <tr >
                     <td data-title="No">{{ $index + $dokter->firstItem() }}</td>
                     <td data-title="Nip">{{$dok->nip}}</td>
-                    <td data-title="nama">{{$dok->nama}}</td>
+                    <td data-title="nama" align="left" style="text-transform: uppercase">{{$dok->nama}}</td>
                     <td data-title="Spesialis">{{$dok->spesialis}}</td>
                     <td data-title="Aksi">
                         <a href="edit_dokter/{{$dok->id}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a href="hapus_dokter/{{$dok->id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> hapus</a>
+                        <a href="hapus_dokter/{{$dok->id}}" class="btn btn-danger" onclick="javascript: return confirm('Konfirmasi data akan dihapus');"><i class="fa-solid fa-trash"></i> hapus</a>
                     </td>
                 </tr>
             @endforeach
