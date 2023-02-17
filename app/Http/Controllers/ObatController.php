@@ -111,7 +111,7 @@ class ObatController extends Controller
 	{   $tgl = $request->tgl;
         $tahun = $request->tahun;
         $bulan = $request->bulan;
-        $keluar = DB::table('tb_resep')->where('tgl','like',"%".$tgl."%")
+        $keluar = DB::table('tb_resep')->join('tb_obat','tb_obat.kode','=','tb_resep.kd_obat')->where('tgl','like',"%".$tgl."%")
         ->where('tahun','like',"%".$tahun."%")
         ->where('bulan','like',"%".$bulan."%")
 		->paginate(10);
@@ -136,7 +136,7 @@ class ObatController extends Controller
     {   $tgl = $request->tgl;
         $tahun = $request->tahun;
         $bulan = $request->bulan;
-        $keluar = DB::table('tb_resep')->where('tgl','like',"%".$tgl."%")
+        $keluar = DB::table('tb_resep')->join('tb_obat','tb_obat.kode','=','tb_resep.kd_obat')->where('tgl','like',"%".$tgl."%")
         ->where('tahun','like',"%".$tahun."%")
         ->where('bulan','like',"%".$bulan."%")
 		->paginate();

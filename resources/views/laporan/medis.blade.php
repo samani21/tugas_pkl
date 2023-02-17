@@ -92,7 +92,7 @@
                     <td data-title="No berobat">{{$medis->no_berobat}}</td>
                     <td data-title="NIK">{{$medis->nik}}</td>
                     <td data-title="Jenis berobat">{{$medis->jenis_berobat}}</td>
-                    <td data-title="Nama">{{$medis->nama}}</td>
+                    <td data-title="Nama">{{$medis->nama_berobat}}</td>
                     <td data-title="Tanggal berobat"><?php echo $medis->tgl;?></td>
                 </tr>
             @endforeach

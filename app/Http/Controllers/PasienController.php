@@ -109,9 +109,9 @@ class PasienController extends Controller
         $tahun = $request->tahun;
         $bulan = $request->bulan;
         $cari = $request->cari;
-        $pasien = DB::table('tb_pasien')->where('tgl','like',"%".$tgl."%")
-        ->where('tahun','like',"%".$tahun."%")
-        ->where('bulan','like',"%".$bulan."%")
+        $pasien = DB::table('tb_pasien')->where('tgl_pasien','like',"%".$tgl."%")
+        ->where('tahun_pasien','like',"%".$tahun."%")
+        ->where('bulan_pasien','like',"%".$bulan."%")
         ->where('nama','like',"%".$cari."%")->get();
         $pdf = PDF::loadView('pasien/cetak_pasien',compact('pasien'));
         $pdf->setPaper('A4','potrait');

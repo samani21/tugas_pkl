@@ -33,8 +33,7 @@
         <thead>
             <tr align="center">
                 <th width="40">No</th>
-                <th width="100">Kode obat</th>
-                <th width="100">Nama obat</th>
+                <th width="200">Nama obat</th>
                 <th width="100">stok</th>
                 <th width="100">Tanggal keluar</th>
             </tr>
@@ -44,12 +43,11 @@
                 $no=1;
             @endphp
             @foreach($keluar as $o)
-                <tr align="center">
-                    <td>{{ $no++ }}</td>
-                    <td>{{$o->kd_obat}}</td>
-                    <td>{{$o->obat}}</td>
-                    <td>{{$o->jumlah}}</td>
-                    <td>{{$o->tgl}}</td>
+                <tr>
+                    <td  align="center">{{ $no++ }}</td>
+                    <td>{{$o->nm_obat}}</td>
+                    <td  align="center">{{$o->jumlah}}</td>
+                    <td  align="center">{{$o->tgl}}</td>
                 </tr>
             @endforeach
         </tbody>

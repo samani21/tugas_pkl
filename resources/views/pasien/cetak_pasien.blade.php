@@ -40,8 +40,6 @@
         <th width='50'>Tgl lahir</th>
         <th width='50'>Tmpt lahir</th>
         <th width='80'>Alamat</th>
-        <th width='10'>Darah</th>
-        <th width='50'>No hp</th>
         </tr>
         </thead>
         <tbody>
@@ -58,8 +56,6 @@
                 <td align="center">{{$pas->tanggal}}</td>
                 <td>{{$pas->tempat}}</td>
                 <td>{{$pas->alamat}}</td>
-                <td align="center">{{$pas->gol_darah}}</td>
-                <td>{{$pas->no_hp}}</td>
                 
             </tr>
         @endforeach

@@ -49,7 +49,7 @@
                 <td align="center">{{ $no++ }}</td>
                 <td>{{$medis->no_berobat}}</td>
                 <td>{{$medis->nik}}</td>
-                <td>{{$medis->nama}}</td>
+                <td>{{$medis->nama_berobat}}</td>
                 <td align="center">{{$medis->jenis_berobat}}</td>
                 <td align="center"><?php echo $medis->tgl;?></td>
             </tr>

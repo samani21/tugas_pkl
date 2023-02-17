@@ -43,10 +43,10 @@
             @endphp
             @foreach($obat as $o)
                 <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{$o->kode}}</td>
+                    <td align="center">{{ $no++ }}</td>
+                    <td align="center">{{$o->kode}}</td>
                     <td>{{$o->nm_obat}}</td>
-                    <td>{{$o->stok}}</td>
+                    <td align="center">{{$o->stok}}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -67,7 +67,6 @@
             <thead>
             <tr align="center">
                 <th>No</th>
-                <th>Kode obat</th>
                 <th>Nama obat</th>
                 <th>stok</th>
                 <th>Tanggal masuk</th>
@@ -80,8 +79,7 @@
             @foreach($keluar as $index=>$o)
                 <tr align="center">
                     <td>{{ $index + $keluar->firstItem() }}</td>
-                    <td>{{$o->kd_obat}}</td>
-                    <td>{{$o->obat}}</td>
+                    <td>{{$o->nm_obat}}</td>
                     <td>{{$o->jumlah}}</td>
                     <td>{{$o->tgl}}</td>
                 </tr>

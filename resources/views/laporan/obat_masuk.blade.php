@@ -67,7 +67,6 @@
             <thead>
             <tr align="center">
                 <th>No</th>
-                <th>Kode obat</th>
                 <th>Nama obat</th>
                 <th>stok</th>
                 <th>Tanggal masuk</th>
@@ -80,7 +79,6 @@
             @foreach($masuk as $index=>$o)
                 <tr align="center">
                     <td>{{ $index + $masuk->firstItem()}}</td>
-                    <td>{{$o->kode}}</td>
                     <td>{{$o->nama_obat}}</td>
                     <td>{{$o->jumlah}}</td>
                     <td>{{$o->tgl}}</td>
