@@ -127,6 +127,8 @@ Route::get('pasien/cetak_pasien', [PasienController::class, 'cetak_pasien'])->na
 Route::get('medis/medis', [BerobatController::class, 'index'])->name('medis/medis');
 Route::get('medis/periksa_fisik/{id}',[MedisController::class,'periksa'])->name('medis/periksa_fisik');
 Route::post('medis/periksa_fisik/{id}',[MedisController::class,'store'])->name('fisik.store');
+Route::get('medis/edit_fisik/medis={id}&pasien={berobat_id}',[MedisController::class,'edit_fisik'])->name('medis/edit_fisik');
+Route::post('updatefisik/medis={id}',[MedisController::class,'update'])->name('updatefisik');
 //pemberian resep
 Route::get('medis/periksa_obat/berobat={id}&pasien{pasien}',[MedisController::class,'obat'])->name('medis/periksa_obat');
 Route::post('medis/periksa_obat/{id}',[MedisController::class,'obat_store'])->name('resep.store');

@@ -38,7 +38,7 @@
                 <p><b>NIK :</b> {{$pasien->nik}}</p>
                 <p><b>Jenis berobat :</b> {{$pasien->jenis_berobat}}</p>
                 <p><b>No BPJS :</b> {{$pasien->no_bpjs}}</p>
-                <p><b>Nama :</b> {{$pasien->nama}}</p>
+                <p style="text-transform: uppercase"><b style="text-transform: capitalize">Nama :</b> {{$pasien->nama}}</p>
                 <p><b>Tempat tanggal ahir :</b> {{$pasien->tempat}},{{$pasien->tanggal}}</p>
                 <p><b>Jenis Kelamin :</b> {{$pasien->jk}}</p>
                 <p><b>Alamat :</b> {{$pasien->alamat}}</p>

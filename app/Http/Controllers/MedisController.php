@@ -25,11 +25,13 @@ class MedisController extends Controller
         return view('medis/periksa_fisik',compact(['berobat','dokter','perawat','icd']), $data);
     }
 
-    public function obat($id,$pasien)
+    public function obat($id,$pasien_id)
     {   $berobat = Berobat::find($id);
+        $pasien = Pasien::find($pasien_id);
+        
         $obat = Stokobat::all();
         $data['title'] = 'Periksa pasien';
-        return view('medis/periksa_obat',compact(['berobat','obat']), $data);
+        return view('medis/periksa_obat',['berobat' =>$berobat,'pasien' =>$pasien,'obat'=>$obat],$data);
     }
 
     public function diagnosa($id)
@@ -81,6 +83,43 @@ class MedisController extends Controller
         Alert()->success('SuccessAlert','Tambah data pegawai berhasil');
         return redirect('medis/medis?tgl='.date('d-m-Y').'');
     }
+
+    public function edit_fisik ($id,$berobat){
+        $berobat = Berobat::find($berobat);
+        $dokter = DB::table('tb_pelayanan')->where('kelompok','like','dokter','')->paginate(100);
+        $perawat = DB::table('tb_pelayanan')->where('kelompok','like','perawat','')->paginate(100);
+        $icd = Icd::all();
+        $fisik = Medis::find($id);
+        $data['title'] = 'Edit Rekam medis pasien';
+        return view('medis/edit_fisik',compact(['fisik','berobat','dokter','perawat','icd']),$data);
+    }
+
+    public function update(Request $request,$id){
+        $ubah = Medis::findorfail($id);
+        $dt =[
+            'berobat_id' => $request['berobat_id'],
+            'tgl' => $request['tgl'],
+            'umur' => $request['umur'],
+            'dokter' => $request['dokter'],
+            'perawat' => $request['perawat'],
+            'sistolik' => $request['sistolik'],
+            'diastolik' => $request['diastolik'],
+            'saturasi' => $request['saturasi'],
+            'suhu' => $request['suhu'],
+            'tinggi' => $request['tinggi'],
+            'berat' => $request['berat'],
+            'napas' => $request['napas'],
+            'keluhan' => $request['keluhan'],
+            'tindakan' => $request['tindakan'],
+            'keterangan' => $request['keterangan'],
+            'biaya' => $request['biaya'],
+
+        ];
+        $ubah->update($dt);
+        alert('Sukses','Simpan Data Berhasil', 'success');
+        return Redirect::back();
+    }
+    
     public function destroy($id){
         $berobat = Berobat::find($id);
         $berobat->delete();
