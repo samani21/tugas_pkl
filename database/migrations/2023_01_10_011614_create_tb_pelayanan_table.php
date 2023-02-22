@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('tb_pelayanan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nip');
-            $table->string('nama');
-            $table->string('kelompok');
-            $table->string('spesialis');
+            $table->string('nip','30');
+            $table->string('nama','50');
+            $table->string('kelompok','50');
+            $table->string('spesialis','50');
             $table->timestamps();
         });
     }

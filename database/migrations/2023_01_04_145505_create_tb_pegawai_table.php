@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('tb_pegawai', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nip','20');
-            $table->string('nama','20');
+            $table->string('nip','30');
+            $table->string('nama','50');
             $table->date('tanggal');
             $table->string('tempat','50');
             $table->string('alamat','100');
-            $table->string('hp','15');
-            $table->string('kelompok','15');
-            $table->string('spesialis','15');
+            $table->string('jns_kelamin','15');
+            $table->string('kelompok','50');
+            $table->string('spesialis','50');
             $table->timestamps();
         });
     }

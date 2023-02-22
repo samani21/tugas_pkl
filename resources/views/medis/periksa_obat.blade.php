@@ -21,7 +21,6 @@
             @endforeach
         </datalist>
     </div>
-    <input type="hidden" name="obat" value="a"id="">
     <div>
         <div>
             <label for="">jumlah</label>

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tb_diagnosa', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('berobat_id');
-            $table->string('diagnosa','50');
+            $table->string('diagnosa','100');
             $table->timestamps();
         });
     }

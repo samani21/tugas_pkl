@@ -26,9 +26,9 @@ return new class extends Migration
             $table->string('alamat','100');
             $table->string('gol_darah','5');
             $table->string('no_hp','15');
-            $table->string('tgl','11');
-            $table->string('bulan','3');
-            $table->string('tahun','5');
+            $table->string('tgl_pasien','11');
+            $table->string('bulan_pasien','3');
+            $table->string('tahun_pasien','5');
             $table->timestamps();
         });
     }
