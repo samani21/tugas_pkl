@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('obat/obat')}}" class="{{ request()->is('obat/*')?'active' :'' }}">
+                        <a href="{{url('obat/obat')}}" class="{{ request()->is('obat/obat')?'active' :'' }}">
                             <span class="las la-capsules"></span>
                             <span>Obat</span>
                         </a>

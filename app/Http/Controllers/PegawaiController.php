@@ -70,9 +70,10 @@ class PegawaiController extends Controller
         return redirect('pegawai/pegawai');
     }
 
-    public function cetak_pegawai()
-    {
-        $pegawai = DB::table('tb_pegawai')->get();
+    public function cetak_pegawai(Request $request)
+    {   
+        $cari = $request->cari;
+        $pegawai = DB::table('tb_pegawai')->where('nama','=',''.$cari.'')->get();
         $pdf = PDF::loadView('pegawai/cetak',compact('pegawai'));
         $pdf->setPaper('A4','potrait');
         return $pdf->stream('cetak_pegawai.pdf');

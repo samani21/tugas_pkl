@@ -14,7 +14,7 @@
                     <select name="bulan" class="form-control" >
                         <option value="">--Pilih Bulan--</option>
                         <option value="1">Januari</option>
-                        <option value="2">Pebruari</option>
+                        <option value="2">Februari</option>
                         <option value="3">Maret</option>
                         <option value="04">April</option>
                         <option value="5">Mei</option>
@@ -44,7 +44,7 @@
                     <select name="bulan" class="form-control" >
                         <option value="">--Pilih Bulan--</option>
                         <option value="1">Januari</option>
-                        <option value="2">Pebruari</option>
+                        <option value="2">Februari</option>
                         <option value="3">Maret</option>
                         <option value="04">April</option>
                         <option value="5">Mei</option>

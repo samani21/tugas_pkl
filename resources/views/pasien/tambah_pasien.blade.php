@@ -8,11 +8,11 @@
         <div class="col-6">
             <div>
                 <label for="">No berobat</label>
-                <input class="form-control" type="number" id="no_berobat" name="no_berobat" placeholder="Masukkan no berobat" aria-label="default input example" maxlength="10" autofocus required>
+                <input class="form-control" type="text" id="no_berobat" name="no_berobat" placeholder="Masukkan no berobat" aria-label="default input example" maxlength="6" autofocus required>
             </div>
             <div>
                 <label for="">NIK</label>
-                <input class="form-control" type="number" id="nik" name="nik" placeholder="Masukkan nik" aria-label="default input example" required>
+                <input class="form-control" type="text" id="nik" name="nik" placeholder="Masukkan nik" aria-label="default input example" maxlength="16" required>
             </div>
             <div>
                 <label>Jenis berobat</label>

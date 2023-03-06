@@ -18,14 +18,14 @@ class BerobatController extends Controller
         if($no == ""){
             $berobat = DB::table('tb_berobat')->join('tb_pasien','tb_pasien.id_pasien','=','tb_berobat.pasien_id')
             ->where('tgl','like',"%".$tgl."%")
-            ->where('nama_berobat','like',"%".$nama."%")
+            ->where('nama','like',"%".$nama."%")
             ->where('poli','like',"%".$poli."%")
             ->paginate(7);
         }else if($no == $no){
             $berobat = DB::table('tb_berobat')->join('tb_pasien','tb_pasien.id_pasien','=','tb_berobat.pasien_id')
             ->where('tgl','like',"%".$tgl."%")
-            ->where('nama_berobat','like',"%".$nama."%")
-            ->where('no_berobat','=',"".$no."")
+            ->where('nama','like',"%".$nama."%")
+            ->where('tb_berobat.no_berobat','=',"".$no."")
             ->where('poli','like',"%".$poli."%")
             ->paginate(7);
         }

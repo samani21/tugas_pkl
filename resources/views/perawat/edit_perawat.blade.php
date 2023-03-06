@@ -14,7 +14,7 @@
         </div>
         <div>
             <label for="">Kelompok pegawai</label>
-            <input class="form-control" type="text" id="kelompok" name="kelompok" value="{{$perawat->kelompok}}"  placeholder="TENAGA KEPERAWATAN-Perawat" aria-label="default input example">
+            <input class="form-control" type="hidden" id="kelompok" name="kelompok" value="{{$perawat->kelompok}}"  placeholder="TENAGA KEPERAWATAN-Perawat" aria-label="default input example">
         </div>
         <div>
             <label for="">Spesialis</label>

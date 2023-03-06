@@ -68,7 +68,7 @@ class PasienController extends Controller
     }
     public function detail($id,$pasien_id){
         $pasien = Pasien::find($id);
-        $berobat = DB::table('tb_berobat')->where('pasien_id','LIKE',"%".$pasien_id."%")->paginate(10);
+        $berobat = DB::table('tb_berobat')->where('pasien_id','=',''.$pasien_id.'')->paginate(10);
         $data['title'] = 'Data Pasien';
         return view('pasien.detail',['berobat' =>$berobat,'pasien' =>$pasien],$data);
     }
@@ -112,7 +112,7 @@ class PasienController extends Controller
         $pasien = DB::table('tb_pasien')->where('tgl_pasien','like',"%".$tgl."%")
         ->where('tahun_pasien','like',"%".$tahun."%")
         ->where('bulan_pasien','like',"%".$bulan."%")
-        ->where('nama','like',"%".$cari."%")->get();
+        ->where('nama','=',''.$cari.'')->get();
         $pdf = PDF::loadView('pasien/cetak_pasien',compact('pasien'));
         $pdf->setPaper('A4','potrait');
         return $pdf->stream('cetak_pasien.pdf');
