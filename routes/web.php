@@ -36,7 +36,6 @@ Route::get('login', 'App\Http\Controllers\AuthController@index')->name('login');
 Route::post('proses_login', 'App\Http\Controllers\AuthController@proses_login')->name('proses_login');
 Route::get('logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 
-
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cek_login:admin']], function () {
         Route::resource('admin', 'App\Http\Controllers\AdminController');
@@ -64,6 +63,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dashboard/dashboard', [KapusController::class,'dashboard'])->name('kapus/dashboard/dashboard');
     });
 });
+Route::get('lupa', [AuthController::class, 'reset'])->name('lupa');
+Route::post('resetpassword/{id}', [AuthController::class, 'resetpassword'])->name('reset.action');
 //daftar akun
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'register_action'])->name('register.action');

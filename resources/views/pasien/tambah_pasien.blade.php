@@ -32,7 +32,7 @@
             </div>
             <div>
                 <label for="">Nama</label>
-                <input class="form-control" type="text" id="nama" name="nama" placeholder="Masukkan nama" style="text-transform: uppercase" aria-label="default input example" required>
+                <input class="form-control" maxlength="50" type="text" id="nama" name="nama" placeholder="Masukkan nama" style="text-transform: uppercase" aria-label="default input example" required>
             </div>
             <div>
                 <label for="">Tanggal lahir</label>
@@ -56,11 +56,11 @@
             </div>
             <div>
                 <label for="">Tempat lahir</label>
-                <input class="form-control" type="text" id="tempat" name="tempat" placeholder="Tempat lahir" aria-label="default input example" required>
+                <input class="form-control" maxlength="50" type="text" id="tempat" name="tempat" placeholder="Tempat lahir" aria-label="default input example" required>
             </div>
             <div>
                 <label for="">Alamat</label>
-                <input class="form-control" type="text" id="alamat" name="alamat" placeholder="Masukkan alamat" aria-label="default input example" required>
+                <input class="form-control" type="text" maxlength="100" id="alamat" name="alamat" placeholder="Masukkan alamat" aria-label="default input example" required>
             </div>
             <div>
                 <label>Golongan darah</label>
@@ -74,7 +74,7 @@
             </div>
             <div>
                 <label for="">No hp</label>
-                <input class="form-control" type="text" id="no_hp" name="no_hp" placeholder="Masukkan no hp" aria-label="default input example" required>
+                <input class="form-control" type="text" id="no_hp" maxlength="15" name="no_hp" placeholder="Masukkan no hp" aria-label="default input example" required>
             </div>
             <hr>
             <div>

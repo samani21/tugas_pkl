@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">NIP</label>
-            <input class="form-control" type="text" id="nip" name="nip" placeholder="Masukkan NIP" aria-label="default input example" autofocus>
+            <input class="form-control" type="text" maxlength="30" id="nip" name="nip" placeholder="Masukkan NIP" aria-label="default input example" autofocus>
         </div>
         <div>
             <label for="">Nama</label>
-            <input class="form-control" type="text" id="nama" style="text-transform: uppercase" name="nama" placeholder="Masukkan nama" aria-label="default input example">
+            <input class="form-control" type="text" maxlength="50" id="nama" style="text-transform: uppercase" name="nama" placeholder="Masukkan nama" aria-label="default input example">
         </div>
         <div>
             <input type="hidden" name="kelompok" value="perawat" id="">

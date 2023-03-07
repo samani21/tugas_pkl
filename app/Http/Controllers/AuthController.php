@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -98,5 +99,32 @@ class AuthController extends Controller
     
     public function verifikasi(){
         return view('verifikasi');
+    }
+
+    public function reset(Request $request)
+    {
+        $email = $request->email;
+        if($email == ''){
+            $user = DB::table('users')->where('email','=','')->get();
+        }else if($email == $email){
+            $user = DB::table('users')->where('email','=',''.$email.'')->get();
+        }
+        
+        return view('lupa', ['u' => $user]);
+    }
+    public function resetpassword(Request $request, $id){
+        $ubah = User::findorfail($id);
+        $dt =[
+            'name' => $request['name'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'email_verified_at' => $request['email_verified_at'],
+            'password' => Hash::make ($request['password']),
+            'level' => $request['level'],
+            'remember_token' => $request['remember_token'],
+        ];
+        $ubah->update($dt);
+        alert('Sukses','Simpan Data Berhasil', 'success');
+        return redirect('login');
     }
 }

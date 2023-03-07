@@ -27,7 +27,7 @@
         </div>
         <div>
             <label for="">Dokter</label>
-            <input class="form-control" name="dokter" value="{{$fisik->dokter}}" style="text-transform: uppercase" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
+            <input class="form-control" name="dokter" maxlength="50" value="{{$fisik->dokter}}" style="text-transform: uppercase" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
             <datalist id="dokter">
                 @foreach($dokter as $dok)
                 <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
@@ -36,7 +36,7 @@
         </div>
         <div>
             <label for="">Nama perawat</label>
-            <input class="form-control" name="perawat" value="{{$fisik->perawat}}" style="text-transform: uppercase" list="perawat" id="exampleDataList" autocomplete="off">
+            <input class="form-control" name="perawat" maxlength="50" value="{{$fisik->perawat}}" style="text-transform: uppercase" list="perawat" id="exampleDataList" autocomplete="off">
             <datalist id="perawat">
                 @foreach($perawat as $per)
                 <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
@@ -89,7 +89,7 @@
         <p>Nama Pasien: <b style="text-transform: uppercase">{{$berobat->nama_berobat}}</b><h3>Pemeriksaan badan</h3></p>
         <div>
             <label for="">Keluhan</label>
-            <textarea id="keluhan" name="keluhan"  class="form-control" style="height: 100px">{{$fisik->keluhan}}</textarea>
+            <textarea id="keluhan" name="keluhan" maxlength="255" class="form-control" style="height: 100px">{{$fisik->keluhan}}</textarea>
         </div>
         <div>
             <label>Tindakan berobat</label>
@@ -102,7 +102,7 @@
         </div>
         <div>
             <label for="">Keterangan</label>
-            <textarea id="keterangan" name="keterangan"  class="form-control" style="height: 100px">{{$fisik->keterangan}}</textarea>
+            <textarea id="keterangan" name="keterangan" maxlength="100" class="form-control" style="height: 100px">{{$fisik->keterangan}}</textarea>
         </div>
         <div>
             <label>Biaya</label>

@@ -6,7 +6,7 @@
     @csrf
         <div>
             <label for="">Tanggal</label>
-            <input class="form-control" type="text" id="tgl" name="tgl" value="{{date('d-m-Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="text" id="tgl" name="tgl" value="{{date('d-m-Y')}}" placeholder="Masukkan NIP" aria-label="default input example" readonly>
             <input class="form-control" type="hidden" id="bulan" name="bulan" value="{{date('m')}}" placeholder="Masukkan NIP" aria-label="default input example">
             <input class="form-control" type="hidden" id="tahun" name="tahun" value="{{date('Y')}}" placeholder="Masukkan NIP" aria-label="default input example">
         </div>
@@ -20,7 +20,7 @@
         </div>
         <div>
             <label for="">jumlah</label>
-            <input class="form-control" type="number" id="jumlah" name="jumlah" value="{{$obat->jumlah}}" aria-label="default input example" autofocus>
+            <input class="form-control" type="text" maxlength="10" id="jumlah" name="jumlah" value="{{$obat->jumlah}}" aria-label="default input example" autofocus>
         </div>
         <hr>
         <div>

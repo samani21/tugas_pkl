@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">Nama obat</label>
-            <input class="form-control" type="text" id="nm_obat" name="nm_obat" value="{{$obat->nm_obat}}" placeholder="Masukkan nama" aria-label="default input example">
+            <input class="form-control"  maxlength="50" type="text" id="nm_obat" name="nm_obat" value="{{$obat->nm_obat}}" placeholder="Masukkan nama" aria-label="default input example">
         </div>
         <div>
             <label for="">jumlah</label>
-            <input class="form-control" type="number" id="stok" name="stok" value="{{$obat->stok}}" aria-label="default input example">
+            <input class="form-control" type="text" maxlength="10" id="stok" name="stok" value="{{$obat->stok}}" aria-label="default input example">
         </div>
         <hr>
         <div>

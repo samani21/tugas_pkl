@@ -12,7 +12,7 @@
             </div>
             <div>
                 <label for="">NIK</label>
-                <input class="form-control" type="number" id="nik" name="nik" value="{{$pasien->nik}}" placeholder="Masukkan nik" aria-label="default input example">
+                <input class="form-control" type="number" id="nik" name="nik" value="{{$pasien->nik}}" placeholder="Masukkan nik" aria-label="default input example" readonly>
             </div>
             <div>
                 <label>Jenis berobat</label>
@@ -34,7 +34,7 @@
                      echo 'style="display:none;"';
                   }?>>
                     <label for="">Biaya</label>
-                    <input type="text" name="umum" value="-"class="form-control">
+                    <input type="text" name="umum" maxlength="10" value="-"class="form-control">
                 </span>
                 <span id="bpjs" <?php if($pasien->jenis_berobat =='BPJS'){
                     echo 'style="display:inline;"';
@@ -42,16 +42,16 @@
                      echo 'style="display:none;"';
                   }?>>
                     <label>No BPJS</label>
-                    <input type="text" name="bpjs"  value="{{$pasien->no_bpjs}}"class="form-control">
+                    <input type="text" name="bpjs" maxlength="17" value="{{$pasien->no_bpjs}}"class="form-control">
                 </span>
             </div>
             <div>
                 <label for="">Nama</label>
-                <input class="form-control" type="text" id="nama" name="nama_berobat" style="text-transform: uppercase" value="{{$pasien->nama}}" placeholder="Masukkan nama" aria-label="default input example">
+                <input class="form-control" type="text" id="nama" maxlength="50" name="nama_berobat" style="text-transform: uppercase" value="{{$pasien->nama}}" placeholder="Masukkan nama" aria-label="default input example" readonly>
             </div>
             <div>
                 <label for="">Tanggal lahir</label>
-                <input class="form-control" type="date" id="tanggal" name="tanggal" value="{{$pasien->tanggal}}" aria-label="default input example">
+                <input class="form-control" type="date" id="tanggal"  name="tanggal" value="{{$pasien->tanggal}}" aria-label="default input example" readonly>
             </div>
             <div>
                 <label for="">Umur</label>
@@ -76,19 +76,19 @@
             </div>
             <div>
                 <label for="">Tempat lahir</label>
-                <input class="form-control" type="text" id="tempat" name="tempat" value="{{$pasien->tempat}}" placeholder="Tempat lahir" aria-label="default input example">
+                <input class="form-control" type="text" id="tempat" name="tempat" value="{{$pasien->tempat}}" placeholder="Tempat lahir" aria-label="default input example"readonly>
             </div>
             <div>
                 <label for="">Alamat</label>
-                <input class="form-control" type="text" id="alamat" name="alamat" value="{{$pasien->alamat}}" placeholder="Masukkan alamat" aria-label="default input example">
+                <input class="form-control" type="text" id="alamat" name="alamat" value="{{$pasien->alamat}}" placeholder="Masukkan alamat" aria-label="default input example"readonly>
             </div>
             <div>
                 <label for="">Gol darah</label>
-                <input class="form-control" type="text" id="gol_darah" name="gol_darah" value="{{$pasien->gol_darah}}" placeholder="" aria-label="default input example">
+                <input class="form-control" type="text" id="gol_darah" name="gol_darah" value="{{$pasien->gol_darah}}" placeholder="" aria-label="default input example"readonly>
             </div>
             <div>
                 <label for="">No hp</label>
-                <input class="form-control" type="text" id="no_hp" name="no_hp" value="{{$pasien->no_hp}}" placeholder="Masukkan no hp" aria-label="default input example">
+                <input class="form-control" type="text" id="no_hp" name="no_hp" value="{{$pasien->no_hp}}" placeholder="Masukkan no hp" aria-label="default input example"readonly>
             </div>
             <div>
                 <input class="form-control" type="hidden" id="status" name="status" value="0" placeholder="Masukkan no hp" aria-label="default input example">

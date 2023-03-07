@@ -26,7 +26,7 @@
         </div>
         <div>
             <label for="">Dokter</label>
-            <input class="form-control" name="dokter" style="text-transform: uppercase" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
+            <input class="form-control" name="dokter" maxlength="50" style="text-transform: uppercase" list="dokter" id="exampleDataList" autocomplete="off" autofocus>
             <datalist id="dokter">
                 @foreach($dokter as $dok)
                 <option value="{{$dok->nama}}({{$dok->spesialis}})">{{$dok->nama}}({{$dok->spesialis}})</option>
@@ -35,7 +35,7 @@
         </div>
         <div>
             <label for="">Nama perawat</label>
-            <input class="form-control" name="perawat" style="text-transform: uppercase" list="perawat" id="exampleDataList" autocomplete="off">
+            <input class="form-control" name="perawat" maxlength="50" style="text-transform: uppercase" list="perawat" id="exampleDataList" autocomplete="off">
             <datalist id="perawat">
                 @foreach($perawat as $per)
                 <option value="{{$per->nama}}({{$per->spesialis}})">{{$per->nama}}({{$per->spesialis}})</option>
@@ -88,11 +88,11 @@
         <p>Nama Pasien: <b style="text-transform: uppercase">{{$berobat->nama_berobat}}</b><h3>Pemeriksaan badan</h3></p>
         <div>
             <label for="">Keluhan</label>
-            <textarea id="keluhan" name="keluhan" class="form-control" style="height: 100px">-</textarea>
+            <textarea id="keluhan" name="keluhan" class="form-control" maxlength="255" style="height: 100px">-</textarea>
         </div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off"
+            <input class="form-control" maxlength="100" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off"
                 oninput="this.className = ''">
             <datalist id="diagnosa">
                 @foreach($icd as $diagnosa)
@@ -111,7 +111,7 @@
         </div>
         <div>
             <label for="">Keterangan</label>
-            <textarea id="keterangan" name="keterangan" class="form-control" style="height: 100px">-</textarea>
+            <textarea id="keterangan" name="keterangan" class="form-control"  maxlength="100"style="height: 100px">-</textarea>
         </div>
         <div>
             <label>Biaya</label>

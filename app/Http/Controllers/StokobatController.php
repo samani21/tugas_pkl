@@ -54,6 +54,6 @@ class StokobatController extends Controller
         $obat = Tambahobat::find($id);
         $obat->delete();
         toast('Yeay Berhasil menghapus data','success');
-        return redirect('obat/masuk');
+        return redirect()->back();
     }
 }

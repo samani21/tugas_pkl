@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">Nama obat</label>
-            <input class="form-control" type="text" id="nm_obat" name="nm_obat" placeholder="Masukkan nama obat" aria-label="default input example">
+            <input class="form-control" type="text" maxlength="50" id="nm_obat" name="nm_obat" placeholder="Masukkan nama obat" aria-label="default input example">
         </div>
         <div>
             <label for="">Jumlah</label>
-            <input class="form-control" type="number" id="stok" name="stok"  aria-label="default input example" required>
+            <input class="form-control" type="text"  maxlength="10" id="stok" name="stok"  placeholder="Masukkan angka" aria-label="default input example" required>
         </div>
         <br>
         <div>

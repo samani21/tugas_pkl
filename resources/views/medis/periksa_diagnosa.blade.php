@@ -10,7 +10,7 @@
     <div>
         <div>
             <label for="">Nama Diagnosa</label>
-            <input class="form-control" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off">
+            <input class="form-control" maxlength="100" name="diagnosa" list="diagnosa" id="exampleDataList" autocomplete="off">
             <datalist id="diagnosa">
                 @foreach($icd as $diagnosa)
                 <option value="({{$diagnosa->code}}). {{$diagnosa->name_id}}">

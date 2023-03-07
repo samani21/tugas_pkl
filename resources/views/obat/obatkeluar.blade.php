@@ -3,10 +3,13 @@
 @section('content')
 
     <div>
-        <form action="{{route('obat/obat')}}" method="get" class="row g-12">
-            <div class="col-md-8">
-            <input class="form-control" type="text" name="cari" placeholder="Cari surat berdasarkan no surat" aria-label="default input example">
+        <form action="{{route('obat/obatkeluar')}}" method="get" class="row g-12">
+            <div class="col-md-4">
+            <input class="form-control" type="text" name="cari" placeholder="Cari nama obat" aria-label="default input example">
             </div>
+            <div class="col-md-4">
+                <input class="form-control" type="text" name="tgl" value="<?php echo date('d-m-Y')?>">
+                </div>
             <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </div>

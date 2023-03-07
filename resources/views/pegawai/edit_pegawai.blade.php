@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">NIP</label>
-            <input class="form-control" type="text" id="nip" name="nip" value="{{$pegawai->nip}}" placeholder="Masukkan NIP" aria-label="default input example">
+            <input class="form-control" type="text" id="nip" maxlength="30" name="nip" value="{{$pegawai->nip}}" placeholder="Masukkan NIP" aria-label="default input example">
         </div>
         <div>
             <label for="">Nama</label>
-            <input class="form-control" type="text" id="nama" name="nama" value="{{$pegawai->nama}}" style="text-transform: uppercase" placeholder="Masukkan nama" aria-label="default input example">
+            <input class="form-control" type="text" id="nama" maxlength="50" name="nama" value="{{$pegawai->nama}}" style="text-transform: uppercase" placeholder="Masukkan nama" aria-label="default input example">
         </div>
         <div>
             <label for="">Tanggal lahir</label>
@@ -18,11 +18,11 @@
         </div>
         <div>
             <label for="">Tempat lahir</label>
-            <input class="form-control" type="text" id="tempat" name="tempat" value="{{$pegawai->tempat}}"  placeholder="Tempat lahir" aria-label="default input example">
+            <input class="form-control" type="text" id="tempat" maxlength="50" name="tempat" value="{{$pegawai->tempat}}"  placeholder="Tempat lahir" aria-label="default input example">
         </div>
         <div>
             <label for="">Alamat</label>
-            <input class="form-control" type="text" id="alamat" name="alamat" value="{{$pegawai->alamat}}"  placeholder="Masukkan alamat" aria-label="default input example">
+            <input class="form-control" type="text" id="alamat" maxlength="100" name="alamat" value="{{$pegawai->alamat}}"  placeholder="Masukkan alamat" aria-label="default input example">
         </div>
         <div>
             <label for="">Jenis Kelamin</label>

@@ -6,11 +6,11 @@
     @csrf
         <div>
             <label for="">NIP</label>
-            <input class="form-control" type="text" id="nip" name="nip" placeholder="Masukkan NIP" aria-label="default input example" autofocus>
+            <input class="form-control" type="text" id="nip" name="nip" placeholder="Masukkan NIP" aria-label="default input example" maxlength="30" autofocus>
         </div>
         <div>
             <label for="">Nama</label>
-            <input class="form-control" type="text" id="nama" name="nama" placeholder="Masukkan nama" style="text-transform: uppercase" aria-label="default input example">
+            <input class="form-control" type="text" id="nama" name="nama" placeholder="Masukkan nama" maxlength="50" style="text-transform: uppercase" aria-label="default input example">
         </div>
         <div>
             <label for="">Tanggal lahir</label>
@@ -18,11 +18,11 @@
         </div>
         <div>
             <label for="">Tempat lahir</label>
-            <input class="form-control" type="text" id="tempat" name="tempat" placeholder="Tempat lahir" aria-label="default input example">
+            <input class="form-control" type="text" id="tempat" name="tempat" maxlength="50" placeholder="Tempat lahir" aria-label="default input example">
         </div>
         <div>
             <label for="">Alamat</label>
-            <input class="form-control" type="text" id="alamat" name="alamat" placeholder="Masukkan alamat" aria-label="default input example">
+            <input class="form-control" type="text" id="alamat" name="alamat" maxlength="100" placeholder="Masukkan alamat" aria-label="default input example">
         </div>
         <div>
             <label for="">Jenis Kelamin</label>

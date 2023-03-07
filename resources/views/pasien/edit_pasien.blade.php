@@ -8,12 +8,12 @@
         <div class="col-6">
             <div>
                 <label for="">No berobat</label>
-                <input class="form-control" type="number" id="no_berobat" name="no_berobat" value="{{$pasien->no_berobat}}"
+                <input class="form-control" maxlength="6" type="text" id="no_berobat" name="no_berobat" value="{{$pasien->no_berobat}}"
                     placeholder="Masukkan no berobat" aria-label="default input example">
             </div>
             <div>
                 <label for="">NIK</label>
-                <input class="form-control" type="number" id="nik" name="nik" value="{{$pasien->nik}}"
+                <input class="form-control"  maxlength="20" type="text" id="nik" name="nik" value="{{$pasien->nik}}"
                     placeholder="Masukkan nik" aria-label="default input example">
             </div>
             <div>
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <label for="">Nama</label>
-                <input class="form-control" type="text" id="nama" name="nama" value="{{$pasien->nama}}"
+                <input class="form-control" maxlength="50" type="text" id="nama" name="nama" value="{{$pasien->nama}}"
                     placeholder="Masukkan nama" style="text-transform: uppercase" aria-label="default input example">
             </div>
             <div>
@@ -59,12 +59,12 @@
             </div>
             <div>
                 <label for="">Tempat lahir</label>
-                <input class="form-control" type="text" id="tempat" name="tempat" value="{{$pasien->tempat}}"
+                <input class="form-control" maxlength="50" type="text" id="tempat" name="tempat" value="{{$pasien->tempat}}"
                     placeholder="Tempat lahir" aria-label="default input example">
             </div>
             <div>
                 <label for="">Alamat</label>
-                <input class="form-control" type="text" id="alamat" name="alamat" value="{{$pasien->alamat}}"
+                <input class="form-control"  maxlength="100" type="text" id="alamat" name="alamat" value="{{$pasien->alamat}}"
                     placeholder="Masukkan alamat" aria-label="default input example">
             </div>
             <div>
@@ -80,7 +80,7 @@
             </div>
             <div>
                 <label for="">No hp</label>
-                <input class="form-control" type="text" id="no_hp" name="no_hp" value="{{$pasien->no_hp}}"
+                <input class="form-control" maxlength="15" type="text" id="no_hp" name="no_hp" value="{{$pasien->no_hp}}"
                     placeholder="Masukkan no hp" aria-label="default input example">
             </div>
             <hr>
